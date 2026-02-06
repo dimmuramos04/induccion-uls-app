@@ -147,23 +147,28 @@
         // A. Configuración del CUADRO de escaneo (Visual)
         const config = { 
             fps: 10, 
-            qrbox: { width: 250, height: 250 } 
+            qrbox: { width: 250, height: 250 },
+            aspectRatio: 1.0,
+            formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ],
+            experimentalFeatures: {
+            useBarCodeDetectorIfSupported: true
+            }
         };
 
         // B. Configuración de la CÁMARA (Aquí está la mejora)
-        const cameraConfig = { 
-            facingMode: "environment", // Cámara trasera
+        //const cameraConfig = { 
+        //    facingMode: "environment", // Cámara trasera
             // Pedimos resolución HD para que lea bien desde lejos
-            width: { ideal: 1280 },
-            height: { ideal: 720 },
-            // Intenta activar el auto-enfoque continuo (si el navegador lo soporta)
-            focusMode: "continuous"
-        };
+        //    width: { ideal: 1280 },
+        //    height: { ideal: 720 },
+        //    // Intenta activar el auto-enfoque continuo (si el navegador lo soporta)
+        //    focusMode: "continuous"
+        //};
 
         html5QrcodeScanner = new Html5Qrcode("reader");
 
         // C. Iniciamos pasando la configuración HD
-        html5QrcodeScanner.start(cameraConfig, config, onScanSuccess)
+        html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess)
         .then(() => {
             document.getElementById('btn-scan').classList.add('d-none');
             document.getElementById('btn-stop').classList.remove('d-none');
