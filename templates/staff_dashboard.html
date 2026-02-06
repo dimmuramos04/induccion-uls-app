@@ -118,13 +118,35 @@
 
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
-        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        // 1. Configuración del CUADRO de escaneo (Visual)
+        const config = { 
+            fps: 10, 
+            qrbox: { width: 250, height: 250 } 
+        };
+
+        // 2. Configuración de la CÁMARA (Aquí está la mejora)
+        const cameraConfig = { 
+            facingMode: "environment", // Cámara trasera
+            // Pedimos resolución HD para que lea bien desde lejos
+            width: { min: 640, ideal: 1280, max: 1920 },
+            height: { min: 480, ideal: 720, max: 1080 },
+            // Intenta activar el auto-enfoque continuo (si el navegador lo soporta)
+            focusMode: "continuous"
+        };
+
         html5QrcodeScanner = new Html5Qrcode("reader");
-        html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess)
+
+        // 3. Iniciamos pasando la configuración HD
+        html5QrcodeScanner.start(cameraConfig, config, onScanSuccess)
         .then(() => {
             document.getElementById('btn-scan').classList.add('d-none');
             document.getElementById('btn-stop').classList.remove('d-none');
             isScanning = false;
+        })
+        .catch(err => {
+            console.error("Error iniciando cámara:", err);
+            alert("No se pudo iniciar la cámara en alta resolución. Verifica permisos.");
         });
     });
 
