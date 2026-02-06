@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark"><i class="fas fa-university me-2"></i>Avance por Carreras</h2>
+            <p class="text-muted mb-0">Monitoreo de entrega de regalos institucionales (Kits).</p>
+        </div>
+        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-2"></i> Volver al Panel
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped mb-0 align-middle">
+                    <thead class="bg-primary text-white sticky-top">
+                        <tr>
+                            <th class="py-3 ps-4">Carrera</th>
+                            <th class="text-center">Matrícula (Cargados)</th>
+                            <th class="text-center">Regalos Entregados</th>
+                            <th class="text-center">Pendientes</th>
+                            <th style="width: 25%;" class="text-center">Cobertura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for carrera, total, entregados in stats %}
+                            {% set pendientes = total - entregados %}
+                            {% if total > 0 %}
+                                {% set porcentaje = (entregados / total * 100) | int %}
+                            {% else %}
+                                {% set porcentaje = 0 %}
+                            {% endif %}
+
+                            <tr>
+                                <td class="ps-4 fw-bold text-secondary">{{ carrera }}</td>
+                                <td class="text-center fw-bold">{{ total }}</td>
+                                <td class="text-center text-success fw-bold">{{ entregados }}</td>
+                                <td class="text-center text-danger">{{ pendientes }}</td>
+                                <td class="pe-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress flex-grow-1 me-2" style="height: 20px; background-color: #e9ecef;">
+                                            <div class="progress-bar {% if porcentaje == 100 %}bg-success{% elif porcentaje < 30 %}bg-warning text-dark{% else %}bg-info{% endif %}" 
+                                                 role="progressbar" 
+                                                 style="width: {{ porcentaje }}%;" 
+                                                 aria-valuenow="{{ porcentaje }}" 
+                                                 aria-valuemin="0" 
+                                                 aria-valuemax="100">
+                                            </div>
+                                        </div>
+                                        <span class="small fw-bold text-muted" style="width: 35px;">{{ porcentaje }}%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center py-5 text-muted">
+                                    <i class="fas fa-folder-open fa-3x mb-3"></i><br>
+                                    No hay estudiantes ni carreras cargadas en el sistema.
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-light text-end text-muted small">
+            Total de Carreras: <strong>{{ stats|length }}</strong>
+        </div>
+    </div>
+</div>
+{% endblock %}

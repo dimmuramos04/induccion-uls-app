@@ -1,0 +1,113 @@
+:root {
+    --uls-blue: #003082; /* Azul Oficial ULS */
+    --uls-red: #CF142B;  /* Rojo Oficial ULS */
+    --uls-gray: #f4f6f9;
+}
+
+body {
+    background-color: var(--uls-gray);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- VARIABLES CORPORATIVAS ULS --- */
+:root {
+    --uls-blue: #003082; /* Azul Institucional (Pantone 288C) */
+    --uls-red: #CF142B;  /* Rojo Institucional */
+    --uls-dark: #1a1a1a;
+    --uls-gray: #f4f6f9;
+}
+
+body {
+    background-color: var(--uls-gray);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--uls-dark);
+}
+
+/* --- CLASES DE UTILIDAD (Para Login y General) --- */
+.bg-uls-blue {
+    background-color: var(--uls-blue) !important;
+    color: white;
+}
+
+.text-uls-blue {
+    color: var(--uls-blue) !important;
+}
+
+.text-uls-red {
+    color: var(--uls-red) !important;
+}
+
+/* Botones Personalizados */
+.btn-uls {
+    background-color: var(--uls-blue);
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-uls:hover {
+    background-color: #00225c; /* Azul más oscuro al pasar el mouse */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,48,130,0.3);
+}
+
+/* Tarjetas (Usado en Login y Dashboard) */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: white;
+    overflow: hidden;
+}
+
+/* --- ESTILOS ESPECÍFICOS DEL STAFF (Cámara) --- */
+/* Corrección: Antes se llamaba .scanner-container, ahora coincide con el HTML */
+.scanner-box {
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid var(--uls-blue); /* Borde azul institucional */
+    box-shadow: 0 0 15px rgba(0, 48, 130, 0.2);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* El elemento de video interno */
+#reader video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+
+/* Animación de escaneo (Línea roja opcional) */
+.scan-region-highlight {
+    border-color: var(--uls-red) !important;
+}
+
+/* --- EXTRAS DASHBOARD ADMIN --- */
+
+/* Bordes laterales con colores exactos (Sobrescribe a Bootstrap) */
+.border-uls-blue {
+    border-color: var(--uls-blue) !important;
+}
+
+.border-uls-red {
+    border-color: var(--uls-red) !important;
+}
+
+/* Tabla elegante */
+.table thead th {
+    background-color: var(--uls-gray);
+    color: var(--uls-blue);
+    font-weight: 600;
+    border-bottom: 2px solid var(--uls-blue);
+}
+
+/* Barra de progreso roja ULS */
+.progress-bar {
+    background-color: var(--uls-red) !important;
+}

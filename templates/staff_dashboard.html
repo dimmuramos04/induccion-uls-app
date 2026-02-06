@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mb-4">
+        <div class="card card-custom h-100">
+            <div class="card-header bg-white border-bottom-0 pt-4 px-4">
+                <h2 class="text-uls-blue fw-bold mb-0">
+                    <i class="fas {{ current_user.stand_asignado.icono }} me-2 
+                    {% if current_user.stand_asignado.tipo == 'entrega' %}text-uls-red{% endif %}"></i>
+    
+                    {{ current_user.stand_asignado.nombre }}
+                </h2>
+                <span class="badge bg-secondary rounded-pill mt-2">
+                    Modo: {{ current_user.stand_asignado.tipo | upper }}
+                </span>
+            </div>
+            
+            <div class="card-body px-4 text-center">
+                <div class="my-4">
+                    <h5 class="mb-3">Escáner de Cédula</h5>
+                    <div id="reader" class="scanner-box" style="height: 300px;">
+                        <div class="d-flex h-100 align-items-center justify-content-center text-white">
+                            <i class="fas fa-camera fa-3x opacity-50"></i>
+                            <p class="ms-2 mb-0">Cargando cámara...</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button id="btn-scan" class="btn btn-outline-primary"><i class="fas fa-play"></i> Activar Cámara</button>
+                        <button id="btn-stop" class="btn btn-outline-danger d-none"><i class="fas fa-stop"></i> Detener</button>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3 w-75 mx-auto">
+                    <input type="text" id="manual-rut" class="form-control" placeholder="Ingreso manual (Ej: 11111111-1)">
+                    <button class="btn btn-secondary" type="button" id="btn-validar">Validar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div id="result-card" class="card card-custom bg-light mb-3" style="display:none;">
+            <div class="card-body text-center">
+                
+                <h4 id="alumno-nombre" class="fw-bold">Procesando...</h4>
+                <p id="alumno-carrera" class="text-muted mb-3">--</p>
+                
+                <hr>
+                
+                <div id="mensaje-estado" class="alert" style="display:none;"></div>
+
+                <div id="zona-qr" style="display:none;" class="animate__animated animate__fadeIn">
+                    <div class="bg-white p-2 d-inline-block border border-2 border-dark rounded mb-3">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/TU_LINK_AQUI" 
+                             alt="QR Encuesta" width="150">
+                    </div>
+                    <p class="small text-muted fw-bold">Scanéame para la Encuesta</p>
+                </div>
+
+                <button class="btn btn-outline-primary w-100 mt-2" onclick="resetUI()">
+                    <i class="fas fa-redo"></i> Siguiente Estudiante
+                </button>
+            </div>
+        </div>
+        
+        <div class="card card-custom p-3 bg-white">
+            <h6><i class="fas fa-info-circle text-uls-blue"></i> Instrucciones</h6>
+            <ul class="small text-muted ps-3 mb-0">
+                <li>Enfoca el código de barras o QR.</li>
+                <li>Si el carnet está dañado, escribe el RUT.</li>
+                <li>Espera el "BEEP" de confirmación.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // 1. OBTENER TOKEN DE SEGURIDAD DESDE FLASK
+    const csrfToken = "{{ csrf_token() }}"; 
+</script>
+
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+<script>
+    // --- CONFIGURACIÓN DE SONIDOS (LOCALES) ---
+    const beepSuccess = new Audio("{{ url_for('static', filename='sounds/success.mp3') }}"); 
+    const beepError = new Audio("{{ url_for('static', filename='sounds/error.mp3') }}");
+
+    function desbloquearAudio() {
+        beepSuccess.volume = 0.1; 
+        beepSuccess.play().then(() => { 
+            beepSuccess.pause(); 
+            beepSuccess.currentTime = 0; 
+            beepSuccess.volume = 1.0; // Restauramos volumen
+        }).catch((e) => console.log("Audio waiting...", e));
+        
+        beepError.volume = 0.1;
+        beepError.play().then(() => { 
+            beepError.pause(); 
+            beepError.currentTime = 0; 
+            beepError.volume = 1.0; 
+        }).catch((e) => console.log("Audio waiting...", e));
+    }
+</script>
+
+<script>
+    let html5QrcodeScanner;
+    let isScanning = false;
+
+    // --- 1. CONFIGURACIÓN DEL ESCÁNER ---
+    function onScanSuccess(decodedText, decodedResult) {
+        if(isScanning) return; 
+        procesarRut(decodedText);
+    }
+
+    document.getElementById('btn-scan').addEventListener('click', function() {
+        desbloquearAudio();
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+        html5QrcodeScanner = new Html5Qrcode("reader");
+        html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess)
+        .then(() => {
+            document.getElementById('btn-scan').classList.add('d-none');
+            document.getElementById('btn-stop').classList.remove('d-none');
+            isScanning = false;
+        });
+    });
+
+    document.getElementById('btn-stop').addEventListener('click', function() {
+        if (html5QrcodeScanner) {
+            html5QrcodeScanner.stop().then(() => {
+                document.getElementById('btn-scan').classList.remove('d-none');
+                document.getElementById('btn-stop').classList.add('d-none');
+            });
+        }
+    });
+
+    // --- 2. LÓGICA DE PROCESAMIENTO ---
+    function procesarRut(rut) {
+        // Preparar UI
+        const resultCard = document.getElementById('result-card');
+        const nombreEl = document.getElementById('alumno-nombre');
+        const carreraEl = document.getElementById('alumno-carrera');
+        const msgEl = document.getElementById('mensaje-estado');
+        const qrEl = document.getElementById('zona-qr');
+        
+        // Resetear visual
+        resultCard.style.display = 'block';
+        msgEl.style.display = 'none';
+        qrEl.style.display = 'none';
+        nombreEl.innerText = "Buscando...";
+        nombreEl.className = "fw-bold text-muted";
+        
+        isScanning = true; // Bloquear lecturas
+
+        fetch('/scan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+                          'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({ rut: rut })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostrar Datos Básicos
+            if (data.estudiante) {
+                nombreEl.innerText = data.estudiante.nombre || "Desconocido";
+                carreraEl.innerText = data.estudiante.carrera || "";
+            }
+
+            msgEl.style.display = 'block';
+            msgEl.className = 'alert'; // Reset clases
+
+            if (data.status === 'success') {
+                beepSuccess.play();
+                nombreEl.className = "fw-bold text-success";
+                
+                // Configurar Mensaje Éxito
+                msgEl.classList.add('alert-success');
+                msgEl.innerHTML = `<i class="fas fa-check-circle"></i> ${data.message}`;
+
+                // MOSTRAR QR SI ES REGALO
+                if (data.message.includes("Entrega") || data.message.includes("registrada")) {
+                    // Verificamos si el mensaje viene del stand de regalos
+                    if("{{ current_user.stand_asignado.tipo }}" === "entrega"){
+                         qrEl.style.display = 'block';
+                    }
+                }
+
+            } else if (data.status === 'warning') {
+                beepError.play();
+                nombreEl.className = "fw-bold text-warning";
+                msgEl.classList.add('alert-warning');
+                msgEl.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${data.message}`;
+                
+            } else {
+                // Error (No encontrado)
+                beepError.play();
+                nombreEl.innerText = "No Encontrado";
+                nombreEl.className = "fw-bold text-danger";
+                msgEl.classList.add('alert-danger');
+                msgEl.innerText = data.message;
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error de conexión");
+        })
+        .finally(() => {
+            // No reactivamos scanner automáticamente para dar tiempo de ver el resultado
+        });
+    }
+
+    // --- 3. LIMPIAR PANTALLA ---
+    function resetUI() {
+        document.getElementById('result-card').style.display = 'none';
+        document.getElementById('manual-rut').value = '';
+        isScanning = false; // Permitir escanear de nuevo
+    }
+
+    // --- 4. VALIDACIÓN MANUAL ---
+    const manualInput = document.getElementById('manual-rut');
+    const manualBtn = document.getElementById('btn-validar');
+
+    manualBtn.addEventListener('click', () => {
+        const rut = manualInput.value;
+        if(rut) {
+            procesarRut(rut);
+            manualInput.value = ''; 
+        }
+    });
+
+    manualInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') manualBtn.click();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,719 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="text-uls-blue fw-bold mb-0">Panel de Control</h2>
+            <p class="text-muted">Monitoreo en tiempo real de la Inducción 2026</p>
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalManual">
+                <i class="fas fa-user-plus"></i> Nuevo Estudiante
+            </button>
+            
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCSV">
+                <i class="fas fa-file-upload"></i> Cargar Nómina (CSV)
+            </button>
+            
+            <a href="{{ url_for('exportar_reporte') }}" class="btn btn-warning">
+                <i class="fas fa-file-download"></i> Descargar Reporte
+            </a>
+
+            <a href="{{url_for('exportar_maestro')}}" class="btn btn-secondary">
+                <i class="fas fa-database"></i> Exportar Reporte Completo
+            </a>
+
+            <a href="{{ url_for('gestion_sorteo') }}" class="btn btn-primary">
+                <i class="fas fa-dice"></i> Gestión Sorteo
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-custom mb-4 border-start border-4 border-warning">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="fw-bold text-dark mb-1"><i class="fas fa-sliders-h me-2"></i>Reglas de Entrega</h5>
+                <p class="text-muted mb-0 small">Define cuántos stands debe visitar un alumno antes de recibir su regalo.</p>
+            </div>
+            
+            <form action="{{ url_for('configurar_evento') }}" method="POST" class="d-flex align-items-center gap-2">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="input-group">
+                    <span class="input-group-text bg-light fw-bold">Mínimo Visitas:</span>
+                    <input type="number" name="min_visitas" class="form-control text-center fw-bold" 
+                           value="{{ min_visitas }}" min="0" max="10" style="width: 80px;">
+                    <button type="submit" class="btn btn-dark">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card card-custom border-0 shadow-sm">
+                <div class="card-body bg-white d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="fw-bold text-uls-blue mb-0"><i class="fas fa-users-cog me-2"></i>Gestión de Staff y Stands</h5>
+                        <p class="text-muted small mb-0">Crea los puntos de atención y asigna usuarios.</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalStand">
+                            <i class="fas fa-store"></i> Nuevo Stand
+                        </button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalStaff">
+                            <i class="fas fa-user-tag"></i> Nuevo Staff
+                        </button>
+                        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalAnimador">
+                            <i class="fas fa-microphone-alt"></i> Nuevo Animador
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-header bg-dark text-white fw-bold">
+                    <i class="fas fa-store me-2"></i> Stands Creados
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Tipo</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for stand in stands %}
+                                <tr>
+                                    <td>
+                                        <i class="fas {{ stand.icono }} text-muted me-2"></i>
+                                        {{ stand.nombre }}
+                                    </td>
+                                    <td>
+                                        {% if stand.tipo == 'entrega' %}
+                                            <span class="badge bg-danger">Entrega</span>
+                                        {% else %}
+                                            <span class="badge bg-info text-dark">Servicio</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                
+                                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditStand{{ stand.id }}">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+
+                                            <form action="{{ url_for('eliminar_stand', id=stand.id) }}" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar el stand {{ stand.nombre }}?');">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+
+                                        <div class="modal fade" id="modalEditStand{{ stand.id }}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-dark text-white">
+                                                        <h5 class="modal-title">Editar Stand</h5>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <form action="{{ url_for('editar_stand', id=stand.id) }}" method="POST">
+                                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Nombre del Stand</label>
+                                                                <input type="text" name="nombre" class="form-control" value="{{ stand.nombre }}" required>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Tipo de Stand</label>
+                                                                <select name="tipo" class="form-select" required>
+                                                                    <option value="servicio" {% if stand.tipo == 'servicio' %}selected{% endif %}>Servicio (Suma visita)</option>
+                                                                    <option value="entrega" {% if stand.tipo == 'entrega' %}selected{% endif %}>Entrega de Regalos</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Ícono Representativo</label>
+                                                                <select name="icono" class="form-select font-awesome-select">
+                                                                    <option value="fa-book" {% if stand.icono == 'fa-book' %}selected{% endif %}>📚 Biblioteca / Libros</option>
+                                                                    <option value="fa-heartbeat" {% if stand.icono == 'fa-heartbeat' %}selected{% endif %}>❤️ Salud / Enfermería</option>
+                                                                    <option value="fa-futbol" {% if stand.icono == 'fa-futbol' %}selected{% endif %}>⚽ Deportes</option>
+                                                                    <option value="fa-users" {% if stand.icono == 'fa-users' %}selected{% endif %}>👥 DGAE / Asuntos Estudiantiles</option>
+                                                                    <option value="fa-utensils" {% if stand.icono == 'fa-utensils' %}selected{% endif %}>🍴 Casino / Alimentación</option>
+                                                                    <option value="fa-globe" {% if stand.icono == 'fa-globe' %}selected{% endif %}>🌍 Intercambio / Internacional</option>
+                                                                    <option value="fa-laptop" {% if stand.icono == 'fa-laptop' %}selected{% endif %}>💻 Computación / TI</option>
+                                                                    <option value="fa-hands-helping" {% if stand.icono == 'fa-hands-helping' %}selected{% endif %}>🤝 Voluntariado / Inclusión</option>
+                                                                    <option value="fa-music" {% if stand.icono == 'fa-music' %}selected{% endif %}>🎵 Arte y Cultura</option>
+                                                                    <option value="fa-bus" {% if stand.icono == 'fa-bus' %}selected{% endif %}>🚌 Transporte</option>
+                                                                    <option value="fa-gift" {% if stand.icono == 'fa-gift' %}selected{% endif %}>🎁 Regalos</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr><td colspan="3" class="text-center text-muted">No hay stands.</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card card-custom h-100">
+                <div class="card-header bg-primary text-white fw-bold">
+                    <i class="fas fa-users me-2"></i> Usuarios Staff
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive" style="max-height: 300px;">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Asignado a</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for usuario in lista_staff %} 
+                                <tr>
+                                    <td class="fw-bold">{{ usuario.username }}</td>
+                                    <td>
+                                        {% if usuario.stand_asignado %}
+                                            <small>{{ usuario.stand_asignado.nombre }}</small>
+                                        {% else %}
+                                            <span class="text-muted">--</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditStaff{{ usuario.id }}">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+
+                                            <form action="{{ url_for('eliminar_staff', id=usuario.id) }}" method="POST" onsubmit="return confirm('¿Eliminar a {{ usuario.username }}?');">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/> 
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+
+                                        <div class="modal fade" id="modalEditStaff{{ usuario.id }}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-primary text-white">
+                                                        <h5 class="modal-title">Editar Staff: {{ usuario.username }}</h5>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <form action="{{ url_for('editar_staff', id=usuario.id) }}" method="POST">
+                                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <label>Nombre Usuario</label>
+                                                                <input type="text" name="username" class="form-control" value="{{ usuario.username }}" required>
+                                                            </div>
+                                                        <div class="mb-3">
+                                                            <label>Cambiar Contraseña (Dejar en blanco para mantener)</label>
+                                                                <input type="password" name="password" class="form-control" placeholder="Nueva clave...">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label>Cambiar Stand</label>
+                                                            <select name="stand_id" class="form-select">
+                                                                {% for stand in stands %}
+                                                                    <option value="{{ stand.id }}" {% if usuario.stand_id == stand.id %}selected{% endif %}>
+                                                                        {{ stand.nombre }}
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr><td colspan="3" class="text-center text-muted">No hay usuarios staff.</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+        <div class="col-12">
+            <div class="card card-custom border-dark">
+                <div class="card-header bg-dark text-white fw-bold">
+                    <i class="fas fa-microphone-alt me-2"></i> Equipo de Animación
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for anim in lista_animadores %}
+                                <tr>
+                                    <td class="fw-bold">{{ anim.username }}</td>
+                                    <td><span class="badge bg-secondary">Animador</span></td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalEditAnim{{ anim.id }}">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+
+                                            <form action="{{ url_for('eliminar_animador', id=anim.id) }}" method="POST" onsubmit="return confirm('¿Eliminar al animador {{ anim.username }}?');">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+
+                                        <div class="modal fade" id="modalEditAnim{{ anim.id }}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-dark text-white">
+                                                        <h5 class="modal-title">Editar Animador</h5>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <form action="{{ url_for('editar_animador', id=anim.id) }}" method="POST">
+                                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <label>Usuario</label>
+                                                                <input type="text" name="username" class="form-control" value="{{ anim.username }}" required>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label>Nueva Contraseña (Opcional)</label>
+                                                                <input type="password" name="password" class="form-control" placeholder="Dejar vacío para mantener actual">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr><td colspan="3" class="text-center text-muted">No hay animadores registrados.</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card card-custom h-100 border-start border-4 border-uls-blue">
+                <div class="card-body">
+                    <h6 class="text-muted text-uppercase small fw-bold">Padrón Total</h6>
+                    <h2 class="display-4 fw-bold text-dark">{{ total }}</h2>
+                    <p class="mb-0 text-muted"><i class="fas fa-users"></i> Estudiantes inscritos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-custom h-100 border-start border-4 border-uls-red">
+                <div class="card-body">
+                    <h6 class="text-uls-red text-uppercase small fw-bold">Entrega de Regalos</h6>
+                    <h2 class="display-4 fw-bold text-uls-red">{{ entregados }}</h2>
+                    
+                    <div class="progress mt-2" style="height: 10px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ avance }}%"></div>
+                    </div>
+                    <small class="text-muted mt-1 d-block">{{ avance }}% del total entregado</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card card-custom h-100 bg-uls-blue text-white">
+                <div class="card-body">
+                    <h6 class="text-white-50 text-uppercase small fw-bold">Por Entregar</h6>
+                    <h2 class="display-4 fw-bold">{{ total - entregados }}</h2>
+                    <p class="mb-0 text-white-50"><i class="fas fa-box-open"></i> Estudiantes pendientes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-custom border-info mb-4">
+        <div class="card-header bg-info text-white fw-bold">
+            <i class="fas fa-chart-line me-2"></i> Estadísticas en Vivo
+        </div>
+        <div class="card-body text-center">
+            <h5 class="card-title text-muted mb-3">Progreso de Entrega por Carrera</h5>
+            <p class="card-text small">
+                Visualiza el detalle de las 39 carreras: cuántos alumnos han retirado su kit y cuántos faltan.
+            </p>
+            <a href="{{ url_for('avance_carreras') }}" class="btn btn-info text-white btn-lg shadow-sm">
+                <i class="fas fa-list-ol me-2"></i> Ver Detalle por Carrera
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-custom">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0 fw-bold text-uls-blue"><i class="fas fa-history me-2"></i>Actividad Reciente</h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Hora</th>
+                        <th>Estudiante</th>
+                        <th>Carrera</th>
+                        <th>Actividad / Stand</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mov in movimientos %}
+                    <tr>
+                        <td>{{ mov.timestamp | fecha_chile }}</td>
+                        <td class="fw-bold">{{ mov.estudiante.nombre }}</td>
+                        <td class="text-muted small">{{ mov.estudiante.carrera }}</td>
+                        <td>
+                            <span class="badge bg-light text-dark border">
+                                {{ mov.stand_visitado.nombre }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if mov.stand_visitado.tipo == 'entrega' %}
+                                <span class="badge bg-success">Regalo Entregado</span>
+                            {% else %}
+                                <span class="badge bg-info text-dark">Visita</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            <i class="fas fa-coffee mb-2 d-block fa-2x"></i>
+                            Aún no hay actividad registrada.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card card-custom border-danger mt-5 mb-5">
+        <div class="card-header bg-danger text-white fw-bold">
+            <i class="fas fa-biohazard me-2"></i> Zona de Administración Avanzada
+        </div>
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h5 class="text-danger fw-bold">Limpiar Datos del Evento</h5>
+                    <p class="text-muted mb-0">
+                        Utiliza estas opciones si necesitas borrar los estudiantes de prueba o reiniciar las visitas.
+                        <strong>Los Stands y el Staff NO se borrarán.</strong>
+                    </p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <form action="{{ url_for('reset_evento') }}" method="POST" onsubmit="return confirm('¡ATENCIÓN!\n\nEstás a punto de borrar TODOS los estudiantes y sus visitas.\n\n¿Estás 100% seguro de que quieres reiniciar el evento?');">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        <input type="hidden" name="tipo_reset" value="solo_datos">
+                        <button class="btn btn-outline-danger btn-lg">
+                            <i class="fas fa-trash-alt me-2"></i> RESETEAR EVENTO
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalManual" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-uls-blue text-white">
+                <h5 class="modal-title">Agregar Estudiante Manualmente</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('agregar_estudiante_manual') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">RUT (Sin puntos ni guion)</label>
+                        <input type="text" name="rut" class="form-control" placeholder="Ej: 111111111" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre Completo</label>
+                        <input type="text" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Carrera</label>
+                        <input class="form-control" list="datalistOptions" id="inputCarrera" name="carrera" placeholder="Escribe para buscar..." required autocomplete="off">
+                        <div id="aviso-carrera" class="form-text text-danger" style="display:none;">
+                            <i class="fas fa-exclamation-triangle"></i> Carrera no listada (posible error de tipeo)
+                        </div>
+    
+                        <datalist id="datalistOptions">
+                            <option value="Arquitectura">
+                            <option value="Ingeniería Civil">
+                            <option value="Ingeniería Civil Industrial">
+                            <option value="Ingeniería Civil Mecánica">
+                            <option value="Ingeniería Civil de Minas">
+                            <option value="Ingeniería Civil Ambiental">
+                            <option value="Ingeniería Civil en Computación">
+                            <option value="Ingeniería en Alimentos">
+                            <option value="Ingeniería en Construcción">
+                            <option value="Enfermería">
+                            <option value="Kinesiología">
+                            <option value="Odontología">
+                            <option value="Agronomía">
+                            <option value="Licenciatura en Astronomía">
+                            <option value="Licenciatura en Física">
+                            <option value="Licenciatura en Matemáticas">
+                            <option value="Química y Farmacia">
+                            <option value="Psicología">
+                            <option value="Derecho">
+                            <option value="Periodismo">
+                            <option value="Diseño">
+                            <option value="Pedagogía en Inglés">
+                            <option value="Pedagogía en Historia y Geografía">
+                            <option value="Pedagogía en Educación Parvularia">
+                            <option value="Pedagogía en Educación Diferencial">
+                            <option value="Pedagogía en Biología y Cs. Naturales">
+                            <option value="Pedagogía en Matemáticas y Computación">
+                            <option value="Traducción Inglés-Español">
+                            <option value="Ingeniería Comercial">
+                            <option value="Auditoría">
+                            <option value="Administración Pública">
+                        </datalist>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email (Opcional)</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Estudiante</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCSV" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">Carga Masiva de Estudiantes</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('cargar_csv_web') }}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <div class="alert alert-info small">
+                        <i class="fas fa-info-circle"></i> 
+                        El archivo debe ser <strong>.CSV</strong> y tener el siguiente orden de columnas:<br>
+                        <code>RUT, NOMBRE, EMAIL, CARRERA</code>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Seleccionar Archivo</label>
+                        <input type="file" name="archivo_csv" class="form-control" accept=".csv" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Subir y Procesar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalStand" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title">Crear Nuevo Stand</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('crear_stand') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Stand</label>
+                        <input type="text" name="nombre" class="form-control" placeholder="Ej: Deportes, Salud, Cafetería" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de Stand</label>
+                        <select name="tipo" class="form-select" required>
+                            <option value="servicio">Servicio (Suma visita)</option>
+                            <option value="entrega">Entrega de Regalos (Final)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ícono Representativo</label>
+                        <select name="icono" class="form-select font-awesome-select">
+                            <option value="fa-book">📚 Biblioteca / Libros</option>
+                            <option value="fa-heartbeat">❤️ Salud / Enfermería</option>
+                            <option value="fa-futbol">⚽ Deportes</option>
+                            <option value="fa-users">👥 DGAE / Asuntos Estudiantiles</option>
+                            <option value="fa-utensils">🍴 Casino / Alimentación</option>
+                            <option value="fa-globe">🌍 Intercambio / Internacional</option>
+                            <option value="fa-laptop">💻 Computación / TI</option>
+                            <option value="fa-hands-helping">🤝 Voluntariado / Inclusión</option>
+                            <option value="fa-music">🎵 Arte y Cultura</option>
+                            <option value="fa-bus">🚌 Transporte</option>
+                            <option value="fa-gift">🎁 Regalos (Solo para Stand de Entrega)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-dark">Crear Stand</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalStaff" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Crear Usuario Staff</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('crear_staff') }}" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <div class="alert alert-info small">
+                        Primero debes crear el Stand para asignarlo aquí.
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Usuario (Login)</label>
+                        <input type="text" name="username" class="form-control" placeholder="Ej: staff_deportes" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="password" class="form-control" placeholder="****" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Asignar a Stand</label>
+                        <select name="stand_id" class="form-select" required>
+                            <option value="">Seleccione...</option>
+                            {% for stand in stands %}
+                                <option value="{{ stand.id }}">
+                                    {{ stand.nombre }} ({{ stand.tipo | upper }})
+                                </option>
+                            {% else %}
+                                <option disabled>No hay stands creados aún</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAnimador" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title"><i class="fas fa-microphone-alt me-2"></i>Crear Perfil Animador</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('crear_animador') }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <p class="text-muted small">Este usuario tendrá acceso exclusivo al control remoto del sorteo.</p>
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+                        <input type="text" name="username" class="form-control" placeholder="Ej: animador_oficial" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="password" class="form-control" placeholder="****" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-dark">Crear Animador</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // SEMÁFORO DE VALIDACIÓN DE CARRERA
+    const inputCarrera = document.getElementById('inputCarrera');
+    const datalist = document.getElementById('datalistOptions');
+    const aviso = document.getElementById('aviso-carrera');
+
+    inputCarrera.addEventListener('input', function() {
+        const valor = this.value;
+        let coincidencia = false;
+
+        // Buscamos si lo escrito está en la lista
+        for (let i = 0; i < datalist.options.length; i++) {
+            if (datalist.options[i].value === valor) {
+                coincidencia = true;
+                break;
+            }
+        }
+
+        if (coincidencia) {
+            // Está en la lista: Verde
+            this.classList.remove('is-invalid');
+            this.classList.add('is-valid');
+            aviso.style.display = 'none';
+        } else {
+            if (valor === "") {
+                this.classList.remove('is-valid', 'is-invalid');
+                aviso.style.display = 'none';
+            } else {
+                // No está en la lista: Rojo (Advertencia)
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid'); // Borde rojo de Bootstrap
+                aviso.style.display = 'block';
+            }
+        }
+    });
+</script>
+{% endblock %}

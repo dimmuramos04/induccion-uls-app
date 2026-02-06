@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="col-md-5 col-lg-4">
+        <div class="card card-custom p-4">
+            <div class="text-center mb-4">
+                <h3 class="text-uls-blue fw-bold">Acceso</h3>
+                <p class="text-muted">Semana de Inducción a la Vida Universitaria</p>
+            </div>
+            
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Usuario</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        {{ form.username(class="form-control", placeholder="Ej: admin") }}
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        {{ form.password(class="form-control", placeholder="••••••") }}
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-uls py-2 fw-bold") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

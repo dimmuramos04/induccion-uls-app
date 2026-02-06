@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-dark"><i class="fas fa-microphone-alt me-2"></i>Cabina de Sorteo</h2>
+        <div class="text-end">
+            <span class="badge bg-dark">{{ current_user.username }}</span>
+            <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-danger ms-2">Salir</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card card-custom border-primary mb-3">
+                <div class="card-header bg-primary text-white fw-bold">
+                    <i class="fas fa-users me-2"></i> Carreras Participantes
+                </div>
+                <div class="card-body">
+                    {% if carreras %}
+                        <ul class="list-group list-group-flush">
+                            {% for carrera in carreras %}
+                                <li class="list-group-item">
+                                    <i class="fas fa-check text-success me-2"></i> {{ carrera }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle"></i> 
+                            El Admin no ha configurado carreras para este bloque.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card card-custom">
+                <div class="card-body">
+                    <label class="fw-bold text-muted mb-2">Meta de Ganadores:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-trophy"></i></span>
+                        <input type="number" id="meta-ganadores" class="form-control" value="1" min="1">
+                    </div>
+                    <small class="text-muted">Referencia para el animador.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 text-center d-flex flex-column justify-content-center">
+            
+            <div id="status-area" class="alert alert-info mb-4 shadow-sm">
+                <i class="fas fa-info-circle"></i> Sistema listo. Esperando lanzamiento.
+            </div>
+
+            <button id="btn-lanzar" class="btn btn-danger btn-lg rounded-circle p-5 shadow-lg mx-auto pulse-animation" 
+                    style="width: 220px; height: 220px; font-size: 28px; font-weight: bold;"
+                    {% if not carreras %}disabled{% endif %}>
+                <i class="fas fa-play fa-3x mb-3 d-block"></i>
+                SORTEAR
+            </button>
+
+            <div class="mt-5 d-flex justify-content-center gap-3">
+                <button id="btn-reset" class="btn btn-outline-secondary">
+                    <i class="fas fa-eraser"></i> Limpiar Pantalla
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .pulse-animation { animation: pulse 2s infinite; }
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 25px rgba(220, 53, 69, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script>
+    const socket = io();
+    const btn = document.getElementById('btn-lanzar');
+    const btnReset = document.getElementById('btn-reset');
+    const status = document.getElementById('status-area');
+
+    // BOTÓN SORTEAR
+    btn.addEventListener('click', () => {
+        btn.disabled = true;
+        status.className = 'alert alert-warning fw-bold';
+        status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TÓMBOLA GIRANDO...';
+        
+        socket.emit('solicitar_sorteo', {});
+    });
+
+    // BOTÓN RESET
+    btnReset.addEventListener('click', () => {
+        if(confirm("¿Borrar el ganador de la pantalla pública?")) {
+            socket.emit('reset_pantalla');
+            status.className = 'alert alert-info';
+            status.innerText = "Pantalla limpia.";
+        }
+    });
+
+    // RESPUESTA DEL SERVIDOR (GANADOR)
+    socket.on('iniciar_animacion', (data) => {
+        status.className = 'alert alert-success fw-bold';
+        status.innerHTML = `<i class="fas fa-trophy"></i> ¡GANADOR!<br>${data.nombre}`;
+        
+        // Bloqueo temporal mientras dura la animación en pantalla (aprox 5 seg)
+        setTimeout(() => {
+            btn.disabled = false;
+            status.className = 'alert alert-primary';
+            status.innerText = "¡Listo para el siguiente sorteo!";
+        }, 5000);
+    });
+
+    // ERROR
+    socket.on('error_animador', (data) => {
+        status.className = 'alert alert-danger';
+        status.innerText = data.msg;
+        btn.disabled = false; // Reactivar para intentar de nuevo
+    });
+</script>
+{% endblock %}
