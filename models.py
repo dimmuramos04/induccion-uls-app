@@ -38,7 +38,7 @@ class Stand(db.Model):
     
     # Relaciones
     staff = db.relationship('User', backref='stand_asignado', lazy=True)
-    visitas = db.relationship('Visita', backref='stand_visitado', lazy=True)
+    visitas = db.relationship('Visita', back_populates='stand', lazy=True)
 
 class Bloque(db.Model):
     __tablename__ = 'bloque'
@@ -88,7 +88,7 @@ class Visita(db.Model):
     stand_id = db.Column(db.Integer, db.ForeignKey('stand.id'), nullable=False)
     staff_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     staff = db.relationship('User')
-    stand = db.relationship('Stand')
+    stand = db.relationship('Stand', back_populates='visitas')
     __table_args__ = (db.UniqueConstraint('estudiante_id', 'stand_id', name='una_visita_por_stand'),)
 
 class Encuesta(db.Model):

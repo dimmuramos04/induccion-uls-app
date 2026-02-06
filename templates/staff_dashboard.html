@@ -110,34 +110,59 @@
     let html5QrcodeScanner;
     let isScanning = false;
 
-    // --- 1. CONFIGURACIÓN DEL ESCÁNER ---
+    // ==========================================
+    // 1. FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
+    // ==========================================
+
+    // Busca un patrón de RUT (ej: 12.345.678-9 o 12345678-9) dentro de cualquier texto o URL
+    function extraerRutDeTexto(texto) {
+        // Expresión regular que busca: Numeros + Puntos(opcional) + Guión + Digito/K
+        const patronRut = /(\d{1,2}(\.?\d{3}){2}-[\dkK])/;
+        const coincidencia = texto.match(patronRut);
+        
+        if (coincidencia) {
+            console.log("RUT extraído de URL/Texto:", coincidencia[0]);
+            return coincidencia[0];
+        }
+        // Si no encontró patrón de RUT, devuelve el texto original (tal vez era un QR simple)
+        return texto;
+    }
+
+    // ==========================================
+    // 2. CONFIGURACIÓN Y EJECUCIÓN DEL ESCÁNER
+    // ==========================================
+    
     function onScanSuccess(decodedText, decodedResult) {
         if(isScanning) return; 
-        procesarRut(decodedText);
+
+        // 1. Limpiamos el texto (por si es un carnet con URL)
+        const rutLimpio = extraerRutDeTexto(decodedText);
+        // 2. Procesamos el RUT
+        procesarRut(rutLimpio);
     }
 
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
 
-        // 1. Configuración del CUADRO de escaneo (Visual)
+        // A. Configuración del CUADRO de escaneo (Visual)
         const config = { 
             fps: 10, 
             qrbox: { width: 250, height: 250 } 
         };
 
-        // 2. Configuración de la CÁMARA (Aquí está la mejora)
+        // B. Configuración de la CÁMARA (Aquí está la mejora)
         const cameraConfig = { 
             facingMode: "environment", // Cámara trasera
             // Pedimos resolución HD para que lea bien desde lejos
-            width: { min: 640, ideal: 1280, max: 1920 },
-            height: { min: 480, ideal: 720, max: 1080 },
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
             // Intenta activar el auto-enfoque continuo (si el navegador lo soporta)
             focusMode: "continuous"
         };
 
         html5QrcodeScanner = new Html5Qrcode("reader");
 
-        // 3. Iniciamos pasando la configuración HD
+        // C. Iniciamos pasando la configuración HD
         html5QrcodeScanner.start(cameraConfig, config, onScanSuccess)
         .then(() => {
             document.getElementById('btn-scan').classList.add('d-none');
