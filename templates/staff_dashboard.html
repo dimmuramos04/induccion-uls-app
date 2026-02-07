@@ -20,7 +20,8 @@
                 <div class="my-4">
                     <h5 class="mb-3">Escáner de Cédula</h5>
                     <div style="width: 100%; max-width: 500px; margin: auto; position: relative;">
-                        <video id="reader" style="width: 100%; height: auto; border: 2px solid #dee2e6; border-radius: 8px;"></video>
+                        <video id="reader" style="width: 100%; height: auto; border: 2px solid #dee2e6; border-radius: 8px; display:none;"></video>
+                        <div id="reader-fallback" style="width: 100%;"></div>
                     </div>
                     <div class="mt-3">
                         <button id="btn-scan" class="btn btn-outline-primary">
@@ -28,6 +29,11 @@
                         </button>
                         <button id="btn-stop" class="btn btn-outline-danger d-none">
                             <i class="fas fa-stop"></i> Detener
+                        </button>
+                        
+                        <input type="file" id="file-scan" accept="image/*" capture="environment" hidden>
+                        <button id="btn-photo" class="btn btn-outline-dark d-none ms-2">
+                            <i class="fas fa-camera"></i> Foto (iOS)
                         </button>
                     </div>
                 </div>
@@ -82,6 +88,7 @@
     // 1. OBTENER TOKEN DE SEGURIDAD DESDE FLASK
     const csrfToken = "{{ csrf_token() }}"; 
 </script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
 
 <script>
@@ -111,6 +118,7 @@
     let isScanning = false;
     let barcodeDetector = null;
     let detectionLoop = null;
+    let html5QrCode = null; // Instancia para el fallback (iOS)
 
     // ==========================================
     // 1. FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
@@ -157,6 +165,7 @@
             });
 
             const videoElement = document.getElementById('reader');
+            videoElement.style.display = 'block'; // Mostrar video nativo
             videoElement.srcObject = videoStream;
             videoElement.play();
 
@@ -205,7 +214,9 @@
         }
     
         const videoElement = document.getElementById('reader');
+        videoElement.pause();
         videoElement.srcObject = null;
+        videoElement.style.display = 'none'; // Ocultar
     
         document.getElementById('btn-scan').classList.remove('d-none');
         document.getElementById('btn-stop').classList.add('d-none');
@@ -219,16 +230,105 @@
 
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
-        if (!('BarcodeDetector' in window)) {
-            alert("⚠️ Tu navegador no soporta el detector nativo.\n\nUsa Chrome o Edge en Android.");
-            return;
+        
+        if ('BarcodeDetector' in window) {
+            // Opción A: Navegador Moderno (Android/Chrome) - Tu código actual
+            iniciarEscanerNativo();
+        } else {
+            // Opción B: iOS / Safari (Fallback)
+            iniciarEscanerCompatibilidad();
         }
-        iniciarEscanerNativo();
     });
 
     document.getElementById('btn-stop').addEventListener('click', function() {
-        detenerEscaner();
+        if ('BarcodeDetector' in window) {
+            detenerEscaner();
+        } else {
+            detenerEscanerCompatibilidad();
+        }
     }); 
+
+    // ==========================================
+    // 4. ESCÁNER COMPATIBILIDAD (iOS/Fallback)
+    // ==========================================
+    
+    function iniciarEscanerCompatibilidad() {
+        console.log("🍎 Iniciando modo compatibilidad iOS...");
+        
+        // Mostrar botón de Foto como alternativa robusta
+        document.getElementById('btn-photo').classList.remove('d-none');
+        document.getElementById('btn-scan').classList.add('d-none');
+        document.getElementById('btn-stop').classList.remove('d-none');
+
+        // Inicializar librería
+        if(!html5QrCode) {
+            html5QrCode = new Html5Qrcode("reader-fallback");
+        }
+        
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+        
+        // Intentar escanear QR y PDF417
+        html5QrCode.start({ facingMode: "environment" }, config, 
+            (decodedText, decodedResult) => {
+                // Éxito
+                console.log("Compatibilidad Scan:", decodedText);
+                detenerEscanerCompatibilidad();
+                const rutLimpio = extraerRutDeTexto(decodedText);
+                procesarRut(rutLimpio);
+            },
+            (errorMessage) => {
+                // Error de lectura frame a frame (ignorar)
+            }
+        ).catch(err => {
+            console.error("Error iniciando cámara fallback:", err);
+            alert("No se pudo iniciar la cámara en vivo. Usa el botón 'Foto (iOS)' que aparecerá ahora.");
+        });
+    }
+
+    function detenerEscanerCompatibilidad() {
+        if (html5QrCode) {
+            html5QrCode.stop().then(() => {
+                html5QrCode.clear();
+                document.getElementById('btn-scan').classList.remove('d-none');
+                document.getElementById('btn-stop').classList.add('d-none');
+                document.getElementById('btn-photo').classList.add('d-none');
+            }).catch(err => {
+                console.log("Error stop fallback", err);
+                // Forzar reset UI si falla el stop
+                document.getElementById('btn-scan').classList.remove('d-none');
+                document.getElementById('btn-stop').classList.add('d-none');
+            });
+        }
+    }
+
+    // --- LÓGICA FOTO (iOS "Silver Bullet") ---
+    // Esta es la mejor opción para leer Carnet en iPhone si el video falla por resolución
+    const fileInput = document.getElementById('file-scan');
+    const btnPhoto = document.getElementById('btn-photo');
+
+    btnPhoto.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', e => {
+        if (e.target.files.length == 0) return;
+
+        const imageFile = e.target.files[0];
+        
+        // Usamos la instancia global si ya existe para evitar errores de "Elemento en uso"
+        if (!html5QrCode) {
+            html5QrCode = new Html5Qrcode("reader-fallback");
+        }
+        
+        html5QrCode.scanFile(imageFile, true)
+        .then(decodedText => {
+            console.log("Foto decodificada:", decodedText);
+            const rutLimpio = extraerRutDeTexto(decodedText);
+            procesarRut(rutLimpio);
+        })
+        .catch(err => {
+            console.error("Error leyendo foto:", err);
+            alert("No se pudo leer el código de la foto. Intenta acercarte más, limpiar el lente o mejorar la luz.");
+        });
+    });
 
     // --- 2. LÓGICA DE PROCESAMIENTO ---
     function procesarRut(rut) {
