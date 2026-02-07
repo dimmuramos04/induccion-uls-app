@@ -118,10 +118,18 @@
     let isScanning = false;
     let barcodeDetector = null;
     let detectionLoop = null;
-    let html5QrCode = null; // Instancia para el fallback (iOS)
 
     // ==========================================
-    // 1. FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
+    // DETECCIÓN DE DISPOSITIVO
+    // ==========================================
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const supportsBarcodeDetector = 'BarcodeDetector' in window;
+
+    console.log("📱 Dispositivo:", isIOS ? "iOS" : "Android/Otro");
+    console.log("🔍 BarcodeDetector:", supportsBarcodeDetector ? "Soportado" : "No soportado");
+
+    // ==========================================
+    // FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
     // ==========================================
 
     // Busca un patrón de RUT (ej: 12.345.678-9 o 12345678-9) dentro de cualquier texto o URL
@@ -139,16 +147,11 @@
     }
 
     // ==========================================
-    // 2. DETECTOR NATIVO DE CÓDIGOS
+    // ANDROID: BARCODE DETECTOR (Tiempo Real)
     // ==========================================
 
     async function iniciarEscanerNativo() {
         try {
-            // Verificar si el navegador soporta BarcodeDetector
-            if (!('BarcodeDetector' in window)) {
-                throw new Error('BarcodeDetector no soportado. Usa Chrome/Edge en Android.');
-            }
-
             // Crear detector con todos los formatos posibles
             const formats = await BarcodeDetector.getSupportedFormats();
             console.log("📋 Formatos soportados:", formats);
@@ -182,6 +185,7 @@
                     
                         const texto = barcodes[0].rawValue;
                         console.log("📄 Contenido:", texto);
+                        console.log("📋 Formato:", barcodes[0].format);
                     
                         const rutLimpio = extraerRutDeTexto(texto);
                         procesarRut(rutLimpio);
@@ -189,7 +193,7 @@
                 } catch (err) {
                     console.error("Error en detección:", err);
                 }
-            }, 500); // Escanea cada 500ms
+            }, 300); // Escanea cada 300ms
 
             document.getElementById('btn-scan').classList.add('d-none');
             document.getElementById('btn-stop').classList.remove('d-none');
@@ -198,7 +202,16 @@
 
         } catch (err) {
             console.error("❌ Error:", err);
-            alert("Error: " + err.message);
+            
+            let mensaje = "No se pudo iniciar la cámara.\n\n";
+            if (err.name === 'NotAllowedError') {
+                mensaje += "🚫 Debes permitir el acceso a la cámara.";
+            } else if (err.name === 'NotFoundError') {
+                mensaje += "📷 No se encontró cámara en tu dispositivo.";
+            } else {
+                mensaje += err.message;
+            }
+            alert(mensaje);
         }
     }
 
@@ -225,112 +238,88 @@
     }
 
     // ==========================================
-    // 3. EVENTOS DE BOTONES
+    // iOS: CAPTURA DE FOTO (Sin video en vivo)
     // ==========================================
+    const fileInput = document.getElementById('file-scan');
 
+    function activarCapturaiOS() {
+        console.log("🍎 Activando captura de foto iOS...");
+        
+        // No mostrar video, solo botón de foto
+        document.getElementById('btn-scan').classList.add('d-none');
+        document.getElementById('btn-photo').classList.remove('d-none');
+        document.getElementById('btn-stop').classList.remove('d-none');
+        
+        alert("📸 En iPhone, presiona el botón 'Foto (iOS)' para tomar una imagen del carnet.");
+    }
+
+    function detenerCapturaiOS() {
+        document.getElementById('btn-scan').classList.remove('d-none');
+        document.getElementById('btn-photo').classList.add('d-none');
+        document.getElementById('btn-stop').classList.add('d-none');
+    }
+
+    document.getElementById('btn-photo').addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        console.log("📸 Procesando foto...");
+
+        try {
+            // Crear nueva instancia SOLO para leer archivo
+            const html5QrCode = new Html5Qrcode("reader-fallback");
+            
+            const decodedText = await html5QrCode.scanFile(file, true);
+            
+            console.log("✅ Foto decodificada:", decodedText);
+            
+            // Limpiar instancia
+            html5QrCode.clear();
+            
+            const rutLimpio = extraerRutDeTexto(decodedText);
+            procesarRut(rutLimpio);
+            
+        } catch (err) {
+            console.error("❌ Error leyendo foto:", err);
+            beepError.play();
+            alert("No se pudo leer el código de la foto.\n\n💡 Tips:\n- Acércate más al carnet\n- Evita brillos del plástico\n- Mejora la iluminación\n- Asegúrate de que el QR esté completo");
+        } finally {
+            // Resetear input para permitir tomar otra foto
+            e.target.value = '';
+        }
+    });
+
+
+    // ==========================================
+    // EVENTOS DE BOTONES
+    // ==========================================
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
         
-        if ('BarcodeDetector' in window) {
-            // Opción A: Navegador Moderno (Android/Chrome) - Tu código actual
-            iniciarEscanerNativo();
+        if (isIOS || !supportsBarcodeDetector) {
+            // iPhone o navegador sin BarcodeDetector
+            activarCapturaiOS();
         } else {
-            // Opción B: iOS / Safari (Fallback)
-            iniciarEscanerCompatibilidad();
+            // Android con Chrome/Edge
+            iniciarEscanerNativo();
         }
     });
 
     document.getElementById('btn-stop').addEventListener('click', function() {
-        if ('BarcodeDetector' in window) {
-            detenerEscaner();
+        if (isIOS || !supportsBarcodeDetector) {
+            detenerCapturaiOS();
         } else {
-            detenerEscanerCompatibilidad();
+            detenerEscaner();
         }
-    }); 
-
-    // ==========================================
-    // 4. ESCÁNER COMPATIBILIDAD (iOS/Fallback)
-    // ==========================================
-    
-    function iniciarEscanerCompatibilidad() {
-        console.log("🍎 Iniciando modo compatibilidad iOS...");
-        
-        // Mostrar botón de Foto como alternativa robusta
-        document.getElementById('btn-photo').classList.remove('d-none');
-        document.getElementById('btn-scan').classList.add('d-none');
-        document.getElementById('btn-stop').classList.remove('d-none');
-
-        // Inicializar librería
-        if(!html5QrCode) {
-            html5QrCode = new Html5Qrcode("reader-fallback");
-        }
-        
-        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-        
-        // Intentar escanear QR y PDF417
-        html5QrCode.start({ facingMode: "environment" }, config, 
-            (decodedText, decodedResult) => {
-                // Éxito
-                console.log("Compatibilidad Scan:", decodedText);
-                detenerEscanerCompatibilidad();
-                const rutLimpio = extraerRutDeTexto(decodedText);
-                procesarRut(rutLimpio);
-            },
-            (errorMessage) => {
-                // Error de lectura frame a frame (ignorar)
-            }
-        ).catch(err => {
-            console.error("Error iniciando cámara fallback:", err);
-            alert("No se pudo iniciar la cámara en vivo. Usa el botón 'Foto (iOS)' que aparecerá ahora.");
-        });
-    }
-
-    function detenerEscanerCompatibilidad() {
-        if (html5QrCode) {
-            html5QrCode.stop().then(() => {
-                html5QrCode.clear();
-                document.getElementById('btn-scan').classList.remove('d-none');
-                document.getElementById('btn-stop').classList.add('d-none');
-                document.getElementById('btn-photo').classList.add('d-none');
-            }).catch(err => {
-                console.log("Error stop fallback", err);
-                // Forzar reset UI si falla el stop
-                document.getElementById('btn-scan').classList.remove('d-none');
-                document.getElementById('btn-stop').classList.add('d-none');
-            });
-        }
-    }
-
-    // --- LÓGICA FOTO (iOS "Silver Bullet") ---
-    // Esta es la mejor opción para leer Carnet en iPhone si el video falla por resolución
-    const fileInput = document.getElementById('file-scan');
-    const btnPhoto = document.getElementById('btn-photo');
-
-    btnPhoto.addEventListener('click', () => fileInput.click());
-
-    fileInput.addEventListener('change', e => {
-        if (e.target.files.length == 0) return;
-
-        const imageFile = e.target.files[0];
-        
-        // Usamos la instancia global si ya existe para evitar errores de "Elemento en uso"
-        if (!html5QrCode) {
-            html5QrCode = new Html5Qrcode("reader-fallback");
-        }
-        
-        html5QrCode.scanFile(imageFile, true)
-        .then(decodedText => {
-            console.log("Foto decodificada:", decodedText);
-            const rutLimpio = extraerRutDeTexto(decodedText);
-            procesarRut(rutLimpio);
-        })
-        .catch(err => {
-            console.error("Error leyendo foto:", err);
-            alert("No se pudo leer el código de la foto. Intenta acercarte más, limpiar el lente o mejorar la luz.");
-        });
     });
 
-    // --- 2. LÓGICA DE PROCESAMIENTO ---
+    // ==========================================
+    // PROCESAMIENTO DE RUT
+    // ==========================================
     function procesarRut(rut) {
         // Preparar UI
         const resultCard = document.getElementById('result-card');
@@ -406,14 +395,16 @@
         });
     }
 
-    // --- 3. LIMPIAR PANTALLA ---
+    // --- LIMPIAR PANTALLA ---
     function resetUI() {
         document.getElementById('result-card').style.display = 'none';
         document.getElementById('manual-rut').value = '';
         isScanning = false; // Permitir escanear de nuevo
     }
 
-    // --- 4. VALIDACIÓN MANUAL ---
+    // ==========================================
+    // VALIDACIÓN MANUAL
+    // ==========================================
     const manualInput = document.getElementById('manual-rut');
     const manualBtn = document.getElementById('btn-validar');
 
