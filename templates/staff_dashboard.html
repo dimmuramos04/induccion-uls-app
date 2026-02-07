@@ -84,8 +84,6 @@
 </script>
 
 
-<script src="https://unpkg.com/@zxing/library@latest"></script>
-
 <script>
     // --- CONFIGURACIÓN DE SONIDOS (LOCALES) ---
     const beepSuccess = new Audio("{{ url_for('static', filename='sounds/success.mp3') }}"); 
@@ -109,8 +107,10 @@
 </script>
 
 <script>
-    let codeReader;
+    let videoStream = null;
     let isScanning = false;
+    let barcodeDetector = null;
+    let detectionLoop = null;
 
     // ==========================================
     // 1. FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
@@ -131,48 +131,104 @@
     }
 
     // ==========================================
-    // 2. CONFIGURACIÓN Y EJECUCIÓN DEL ESCÁNER
+    // 2. DETECTOR NATIVO DE CÓDIGOS
+    // ==========================================
+
+    async function iniciarEscanerNativo() {
+        try {
+            // Verificar si el navegador soporta BarcodeDetector
+            if (!('BarcodeDetector' in window)) {
+                throw new Error('BarcodeDetector no soportado. Usa Chrome/Edge en Android.');
+            }
+
+            // Crear detector con todos los formatos posibles
+            const formats = await BarcodeDetector.getSupportedFormats();
+            console.log("📋 Formatos soportados:", formats);
+        
+            barcodeDetector = new BarcodeDetector({ formats: formats });
+
+            // Obtener stream de video
+            videoStream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    facingMode: 'environment',
+                    width: { ideal: 1920 },
+                    height: { ideal: 1080 }
+                }
+            });
+
+            const videoElement = document.getElementById('reader');
+            videoElement.srcObject = videoStream;
+            videoElement.play();
+
+            // Iniciar detección continua
+            detectionLoop = setInterval(async () => {
+                if (isScanning) return;
+
+                try {
+                    const barcodes = await barcodeDetector.detect(videoElement);
+                
+                    if (barcodes.length > 0) {
+                        console.log("✅ Código detectado:", barcodes[0]);
+                        isScanning = true;
+                    
+                        const texto = barcodes[0].rawValue;
+                        console.log("📄 Contenido:", texto);
+                    
+                        const rutLimpio = extraerRutDeTexto(texto);
+                        procesarRut(rutLimpio);
+                    }
+                } catch (err) {
+                    console.error("Error en detección:", err);
+                }
+            }, 500); // Escanea cada 500ms
+
+            document.getElementById('btn-scan').classList.add('d-none');
+            document.getElementById('btn-stop').classList.remove('d-none');
+        
+            console.log("✅ Escáner nativo iniciado");
+
+        } catch (err) {
+            console.error("❌ Error:", err);
+            alert("Error: " + err.message);
+        }
+    }
+
+    function detenerEscaner() {
+        if (detectionLoop) {
+            clearInterval(detectionLoop);
+            detectionLoop = null;
+        }
+    
+        if (videoStream) {
+            videoStream.getTracks().forEach(track => track.stop());
+            videoStream = null;
+        }
+    
+        const videoElement = document.getElementById('reader');
+        videoElement.srcObject = null;
+    
+        document.getElementById('btn-scan').classList.remove('d-none');
+        document.getElementById('btn-stop').classList.add('d-none');
+    
+        console.log("🛑 Escáner detenido");
+    }
+
+    // ==========================================
+    // 3. EVENTOS DE BOTONES
     // ==========================================
 
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
-
-        codeReader = new ZXing.BrowserPDF417Reader();
-
-        console.log("📷 Iniciando escáner PDF417 (carnets chilenos)...");
-
-        codeReader.decodeFromVideoDevice(
-             undefined,  // deviceId: undefined = cámara por defecto
-            'reader',   // ID del elemento donde mostrar video
-            (result, err) => {
-                if (result && !isScanning) {
-                    console.log("✅ PDF417 detectado:", result.text);
-                    const rutLimpio = extraerRutDeTexto(result.text);
-                    procesarRut(rutLimpio);
-                }
-                if (err && !(err instanceof ZXing.NotFoundException)) {
-                    console.error("❌ Error de lectura:", err);
-                }
-            }
-            ).then(() => {
-                document.getElementById('btn-scan').classList.add('d-none');
-                document.getElementById('btn-stop').classList.remove('d-none');
-                console.log("📷 Cámara iniciada correctamente");
-            })
-            .catch(err => {
-                console.error("❌ Error al iniciar escáner:", err);
-                alert("No se pudo iniciar la cámara. Verifica que:\n1. Estés en HTTPS\n2. Hayas dado permisos de cámara");
-            });
+        if (!('BarcodeDetector' in window)) {
+            alert("⚠️ Tu navegador no soporta el detector nativo.\n\nUsa Chrome o Edge en Android.");
+            return;
+        }
+        iniciarEscanerNativo();
     });
 
     document.getElementById('btn-stop').addEventListener('click', function() {
-        if (codeReader) {
-            codeReader.reset();
-            document.getElementById('btn-scan').classList.remove('d-none');
-            document.getElementById('btn-stop').classList.add('d-none');
-            console.log("🛑 Cámara detenida");
-        }
-    });
+        detenerEscaner();
+    }); 
 
     // --- 2. LÓGICA DE PROCESAMIENTO ---
     function procesarRut(rut) {
