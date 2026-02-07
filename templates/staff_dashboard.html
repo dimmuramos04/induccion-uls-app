@@ -137,14 +137,16 @@
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
 
-        codeReader = new ZXing.BrowserMultiFormatReader();
+        codeReader = new ZXing.BrowserPDF417Reader();
+
+        console.log("📷 Iniciando escáner PDF417 (carnets chilenos)...");
 
         codeReader.decodeFromVideoDevice(
              undefined,  // deviceId: undefined = cámara por defecto
             'reader',   // ID del elemento donde mostrar video
             (result, err) => {
                 if (result && !isScanning) {
-                    console.log("✅ Código detectado:", result.text);
+                    console.log("✅ PDF417 detectado:", result.text);
                     const rutLimpio = extraerRutDeTexto(result.text);
                     procesarRut(rutLimpio);
                 }
