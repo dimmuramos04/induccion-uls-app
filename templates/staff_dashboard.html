@@ -19,15 +19,14 @@
             <div class="card-body px-4 text-center">
                 <div class="my-4">
                     <h5 class="mb-3">Escáner de Cédula</h5>
-                    <div id="reader" class="scanner-box" style="height: 300px;">
-                        <div class="d-flex h-100 align-items-center justify-content-center text-white">
-                            <i class="fas fa-camera fa-3x opacity-50"></i>
-                            <p class="ms-2 mb-0">Cargando cámara...</p>
-                        </div>
-                    </div>
+                    <div id="reader" style="width: 100%; max-width: 500px; margin: auto;"></div>
                     <div class="mt-3">
-                        <button id="btn-scan" class="btn btn-outline-primary"><i class="fas fa-play"></i> Activar Cámara</button>
-                        <button id="btn-stop" class="btn btn-outline-danger d-none"><i class="fas fa-stop"></i> Detener</button>
+                        <button id="btn-scan" class="btn btn-outline-primary">
+                            <i class="fas fa-play"></i> Activar Cámara
+                        </button>
+                        <button id="btn-stop" class="btn btn-outline-danger d-none">
+                            <i class="fas fa-stop"></i> Detener
+                        </button>
                     </div>
                 </div>
 
@@ -82,7 +81,8 @@
     const csrfToken = "{{ csrf_token() }}"; 
 </script>
 
-<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+<script src="https://unpkg.com/@zxing/library@latest"></script>
 
 <script>
     // --- CONFIGURACIÓN DE SONIDOS (LOCALES) ---
@@ -107,7 +107,7 @@
 </script>
 
 <script>
-    let html5QrcodeScanner;
+    let codeReader;
     let isScanning = false;
 
     // ==========================================
@@ -131,61 +131,42 @@
     // ==========================================
     // 2. CONFIGURACIÓN Y EJECUCIÓN DEL ESCÁNER
     // ==========================================
-    
-    function onScanSuccess(decodedText, decodedResult) {
-        if(isScanning) return; 
-
-        // 1. Limpiamos el texto (por si es un carnet con URL)
-        const rutLimpio = extraerRutDeTexto(decodedText);
-        // 2. Procesamos el RUT
-        procesarRut(rutLimpio);
-    }
 
     document.getElementById('btn-scan').addEventListener('click', function() {
         desbloquearAudio();
 
-        // A. Configuración del CUADRO de escaneo (Visual)
-        const config = { 
-            fps: 10, 
-            qrbox: { width: 250, height: 250 },
-            aspectRatio: 1.0,
-            formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ],
-            experimentalFeatures: {
-            useBarCodeDetectorIfSupported: true
+        codeReader = new ZXing.BrowserMultiFormatReader();
+
+        codeReader.decodeFromVideoDevice(
+             undefined,  // deviceId: undefined = cámara por defecto
+            'reader',   // ID del elemento donde mostrar video
+            (result, err) => {
+                if (result && !isScanning) {
+                    console.log("✅ Código detectado:", result.text);
+                    const rutLimpio = extraerRutDeTexto(result.text);
+                    procesarRut(rutLimpio);
+                }
+                if (err && !(err instanceof ZXing.NotFoundException)) {
+                    console.error("❌ Error de lectura:", err);
+                }
             }
-        };
-
-        // B. Configuración de la CÁMARA (Aquí está la mejora)
-        //const cameraConfig = { 
-        //    facingMode: "environment", // Cámara trasera
-            // Pedimos resolución HD para que lea bien desde lejos
-        //    width: { ideal: 1280 },
-        //    height: { ideal: 720 },
-        //    // Intenta activar el auto-enfoque continuo (si el navegador lo soporta)
-        //    focusMode: "continuous"
-        //};
-
-        html5QrcodeScanner = new Html5Qrcode("reader");
-
-        // C. Iniciamos pasando la configuración HD
-        html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess)
-        .then(() => {
-            document.getElementById('btn-scan').classList.add('d-none');
-            document.getElementById('btn-stop').classList.remove('d-none');
-            isScanning = false;
-        })
-        .catch(err => {
-            console.error("Error iniciando cámara:", err);
-            alert("No se pudo iniciar la cámara en alta resolución. Verifica permisos.");
-        });
+            ).then(() => {
+                document.getElementById('btn-scan').classList.add('d-none');
+                document.getElementById('btn-stop').classList.remove('d-none');
+                console.log("📷 Cámara iniciada correctamente");
+            })
+            .catch(err => {
+                console.error("❌ Error al iniciar escáner:", err);
+                alert("No se pudo iniciar la cámara. Verifica que:\n1. Estés en HTTPS\n2. Hayas dado permisos de cámara");
+            });
     });
 
     document.getElementById('btn-stop').addEventListener('click', function() {
-        if (html5QrcodeScanner) {
-            html5QrcodeScanner.stop().then(() => {
-                document.getElementById('btn-scan').classList.remove('d-none');
-                document.getElementById('btn-stop').classList.add('d-none');
-            });
+        if (codeReader) {
+            codeReader.reset();
+            document.getElementById('btn-scan').classList.remove('d-none');
+            document.getElementById('btn-stop').classList.add('d-none');
+            console.log("🛑 Cámara detenida");
         }
     });
 
