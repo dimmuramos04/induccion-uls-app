@@ -24,7 +24,7 @@ def login():
     if current_user.is_authenticated:
         if current_user.role == 'admin':
             return redirect(url_for('admin_dashboard'))
-        elif user.role == 'animador':
+        elif current_user.role == 'animador':
                 return redirect(url_for('animador_dashboard'))
         else:
             return redirect(url_for('staff_dashboard'))
