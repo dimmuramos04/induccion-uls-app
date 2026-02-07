@@ -19,7 +19,9 @@
             <div class="card-body px-4 text-center">
                 <div class="my-4">
                     <h5 class="mb-3">Escáner de Cédula</h5>
-                    <div id="reader" style="width: 100%; max-width: 500px; margin: auto;"></div>
+                    <div style="width: 100%; max-width: 500px; margin: auto; position: relative;">
+                        <video id="reader" style="width: 100%; height: auto; border: 2px solid #dee2e6; border-radius: 8px;"></video>
+                    </div>
                     <div class="mt-3">
                         <button id="btn-scan" class="btn btn-outline-primary">
                             <i class="fas fa-play"></i> Activar Cámara
