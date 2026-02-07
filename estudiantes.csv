@@ -1,51 +1,1872 @@
-199456148;Marion Augui Herrera Peralta;marion.herrera@userena.cl;Ingeniería Civil Industrial
-208268066;Diego Vicente Marambio Manríquez;diego.marambiom@userena.cl;Ingeniería Civil Industrial
-213074202;Diego Agustín Muñoz Canivilo;diego.munozc@userena.cl;Ingeniería Civil Industrial
-216492668;Sophia Andrea Hidalgo Meneses;sophia.meneses@userena.cl;Ingeniería Civil Industrial
-219907079;Yeremy Benjamin Vergara Mancilla;yeremy.vergara@userena.cl;Ingeniería Civil Industrial
-220181103;Constanza Belen Guamán Cautín;constanza.guaman@userena.cl;Ingeniería Civil Industrial
-221108817;Enzo Fabrizio Bruno Sierralta;enzo.bruno@userena.cl;Ingeniería Civil Industrial
-221263928;Felipe Ignacio Trigo Hernández;felipe.trigo@userena.cl;Ingeniería Civil Industrial
-221309855;Lucas Damian Albrecht Fuentes;lucas.albrecht@userena.cl;Ingeniería Civil Industrial
-221595696;Sandier Eloy Vergara Rojo;sandier.vergara@userena.cl;Ingeniería Civil Industrial
-221633776;Raimundo Nicolas Robles Twyman;raimundo.robles@userena.cl;Ingeniería Civil Industrial
-221659392;Sebastián Ignacio Vallejos Rodríguez;sebastian.vallejos@userena.cl;Ingeniería Civil Industrial
-221860233;Benjamin Caleb Green Iglesias;benjamin.green@userena.cl;Ingeniería Civil Industrial
-22282933k;Vicente Fabián Bugueño Jeraldo;vicente.buguenoj@userena.cl;Ingeniería Civil Industrial
-222835909;Danko Jesús Contreras Villalobos;danko.contreras@userena.cl;Ingeniería Civil Industrial
-222883016;Antonia Belén Meneses Espinoza;antonia.meneses@userena.cl;Ingeniería Civil Industrial
-223143415;Mauro Francisco Guerra Guerra;mauro.guerra@userena.cl;Ingeniería Civil Industrial
-223228976;Miguel Ignacio González Neira;miguel.gonzalezn@userena.cl;Ingeniería Civil Industrial
-223300235;Antonia Fernanda Ceura Rojas;antonia.ceurar@userena.cl;Ingeniería Civil Industrial
-223425453;Renato Bastián Vásquez Sepúlveda;renato.vasquez@userena.cl;Ingeniería Civil Industrial
-223574793;Pablo Andrés Torreblanca Sánchez;pablo.torreblanca@userena.cl;Ingeniería Civil Industrial
-223630375;Matías Pablo Osorio Yáñez;matias.osorioy@userena.cl;Ingeniería Civil Industrial
-223659055;Simón Maximiliano Carvajal Campos;simon.carvajal@userena.cl;Ingeniería Civil Industrial
-223761844;Gabriel Andrés Solorza Rees;gabriel.solorza@userena.cl;Ingeniería Civil Industrial
-223799590;Matías Francisco Olivares González;matias.olivaresg@userena.cl;Ingeniería Civil Industrial
-223972837;Fidel Enrique Pizarro Pareja;fidel.pizarro@userena.cl;Ingeniería Civil Industrial
-224053908;Martina Florencia Aguilera Jeraldo;martina.aguileraj@userena.cl;Ingeniería Civil Industrial
-224072139;Benjamin Gustavo Andres Pavez Pinto;benjamin.pavezp@userena.cl;Ingeniería Civil Industrial
-224090498;Marcos Isaac Lagos Herrera;marcos.lagos@userena.cl;Ingeniería Civil Industrial
-224114753;Vicente Benjamín Campos Araya;vicente.camposa@userena.cl;Ingeniería Civil Industrial
-224124279;Sofía Isidora Toledo Moraleda;sofia.toledo@userena.cl;Ingeniería Civil Industrial
-224138962;Gabriel Julio Antonio Coronado Poblete;gabriel.coronado@userena.cl;Ingeniería Civil Industrial
-224155743;Renata Annais Villalobos Herrera;renata.villalobos@userena.cl;Ingeniería Civil Industrial
-224189559;Gonzalo Andrés Cuevas Contuliano;gonzalo.cuevas@userena.cl;Ingeniería Civil Industrial
-22421247k;Renata Catalina Cortés Rivera;renata.cortes@userena.cl;Ingeniería Civil Industrial
-224246803;Máximo Mariano Aguirre Cuello;maximo.aguirre@userena.cl;Ingeniería Civil Industrial
-224263511;Edu Hernán Castillo Reyes;edu.castillo@userena.cl;Ingeniería Civil Industrial
-224282044;Sebastián Ignacio Gatica Gajardo;sebastian.gatica@userena.cl;Ingeniería Civil Industrial
-224283814;Miguel Enrique Gálvez Olivares;miguel.galvezo@userena.cl;Ingeniería Civil Industrial
-224454694;Christyn Juliet Silva Galleguillos;christyn.silva@userena.cl;Ingeniería Civil Industrial
-224457464;Martín Vicente Cortés Barraza;martin.cortesb@userena.cl;Ingeniería Civil Industrial
-224463286;Amalia Fernanda Díaz Soto;amalia.diaz@userena.cl;Ingeniería Civil Industrial
-224467869;Felipe Benjamín Peralta Alfaro;felipe.peraltaa@userena.cl;Ingeniería Civil Industrial
-224469217;Álvaro Javier Cofré Pizarro;alvaro.cofre@userena.cl;Ingeniería Civil Industrial
-224508530;Damary Salem Puca Torres;damary.puca@userena.cl;Ingeniería Civil Industrial
-224622767;Amanda Javiera Correa Ramírez;amanda.correa@userena.cl;Ingeniería Civil Industrial
-224625421;Constanza Alejandra Allende Araya;constanza.allende@userena.cl;Ingeniería Civil Industrial
-224657730;Maximiliano Nicolás Santander Valdivia;maximiliano.santanderv@userena.cl;Ingeniería Civil Industrial
-224714610;Julieta Isabella Maldonado Vargas;julieta.maldonado@userena.cl;Ingeniería Civil Industrial
-224780818;Dannae Millaray Rubina Acuña;dannae.rubina@userena.cl;Ingeniería Civil Industrial
-224826672;Joaquín Alejandro Tapia Gornall;joaquin.tapiag@userena.cl;Ingeniería Civil Industrial
+Rut;Nombre Completo;Email;Nombre Carrera
+199456148;Marion Augui Herrera Peralta;marionherrera@userenacl;Ingeniería Civil Industrial
+208268066;Diego Vicente Marambio Manríquez;diegomarambiom@userenacl;Ingeniería Civil Industrial
+213074202;Diego Agustín Muñoz Canivilo;diegomunozc@userenacl;Ingeniería Civil Industrial
+216492668;Sophia Andrea Hidalgo Meneses;sophiameneses@userenacl;Ingeniería Civil Industrial
+219907079;Yeremy Benjamin Vergara Mancilla;yeremyvergara@userenacl;Ingeniería Civil Industrial
+220181103;Constanza Belen Guamán Cautín;constanzaguaman@userenacl;Ingeniería Civil Industrial
+221108817;Enzo Fabrizio Bruno Sierralta;enzobruno@userenacl;Ingeniería Civil Industrial
+221263928;Felipe Ignacio Trigo Hernández;felipetrigo@userenacl;Ingeniería Civil Industrial
+221309855;Lucas Damian Albrecht Fuentes;lucasalbrecht@userenacl;Ingeniería Civil Industrial
+221595696;Sandier Eloy Vergara Rojo;sandiervergara@userenacl;Ingeniería Civil Industrial
+221633776;Raimundo Nicolas Robles Twyman;raimundorobles@userenacl;Ingeniería Civil Industrial
+221659392;Sebastián Ignacio Vallejos Rodríguez;sebastianvallejos@userenacl;Ingeniería Civil Industrial
+221860233;Benjamin Caleb Green Iglesias;benjamingreen@userenacl;Ingeniería Civil Industrial
+22282933k;Vicente Fabián Bugueño Jeraldo;vicentebuguenoj@userenacl;Ingeniería Civil Industrial
+222835909;Danko Jesús Contreras Villalobos;dankocontreras@userenacl;Ingeniería Civil Industrial
+222883016;Antonia Belén Meneses Espinoza;antoniameneses@userenacl;Ingeniería Civil Industrial
+223143415;Mauro Francisco Guerra Guerra;mauroguerra@userenacl;Ingeniería Civil Industrial
+223228976;Miguel Ignacio González Neira;miguelgonzalezn@userenacl;Ingeniería Civil Industrial
+223300235;Antonia Fernanda Ceura Rojas;antoniaceurar@userenacl;Ingeniería Civil Industrial
+223425453;Renato Bastián Vásquez Sepúlveda;renatovasquez@userenacl;Ingeniería Civil Industrial
+223574793;Pablo Andrés Torreblanca Sánchez;pablotorreblanca@userenacl;Ingeniería Civil Industrial
+223630375;Matías Pablo Osorio Yáñez;matiasosorioy@userenacl;Ingeniería Civil Industrial
+223659055;Simón Maximiliano Carvajal Campos;simoncarvajal@userenacl;Ingeniería Civil Industrial
+223761844;Gabriel Andrés Solorza Rees;gabrielsolorza@userenacl;Ingeniería Civil Industrial
+223799590;Matías Francisco Olivares González;matiasolivaresg@userenacl;Ingeniería Civil Industrial
+223972837;Fidel Enrique Pizarro Pareja;fidelpizarro@userenacl;Ingeniería Civil Industrial
+224053908;Martina Florencia Aguilera Jeraldo;martinaaguileraj@userenacl;Ingeniería Civil Industrial
+224072139;Benjamin Gustavo Andres Pavez Pinto;benjaminpavezp@userenacl;Ingeniería Civil Industrial
+224090498;Marcos Isaac Lagos Herrera;marcoslagos@userenacl;Ingeniería Civil Industrial
+224114753;Vicente Benjamín Campos Araya;vicentecamposa@userenacl;Ingeniería Civil Industrial
+224124279;Sofía Isidora Toledo Moraleda;sofiatoledo@userenacl;Ingeniería Civil Industrial
+224138962;Gabriel Julio Antonio Coronado Poblete;gabrielcoronado@userenacl;Ingeniería Civil Industrial
+224155743;Renata Annais Villalobos Herrera;renatavillalobos@userenacl;Ingeniería Civil Industrial
+224189559;Gonzalo Andrés Cuevas Contuliano;gonzalocuevas@userenacl;Ingeniería Civil Industrial
+22421247k;Renata Catalina Cortés Rivera;renatacortes@userenacl;Ingeniería Civil Industrial
+224246803;Máximo Mariano Aguirre Cuello;maximoaguirre@userenacl;Ingeniería Civil Industrial
+224263511;Edu Hernán Castillo Reyes;educastillo@userenacl;Ingeniería Civil Industrial
+224282044;Sebastián Ignacio Gatica Gajardo;sebastiangatica@userenacl;Ingeniería Civil Industrial
+224283814;Miguel Enrique Gálvez Olivares;miguelgalvezo@userenacl;Ingeniería Civil Industrial
+224454694;Christyn Juliet Silva Galleguillos;christynsilva@userenacl;Ingeniería Civil Industrial
+224457464;Martín Vicente Cortés Barraza;martincortesb@userenacl;Ingeniería Civil Industrial
+224463286;Amalia Fernanda Díaz Soto;amaliadiaz@userenacl;Ingeniería Civil Industrial
+224467869;Felipe Benjamín Peralta Alfaro;felipeperaltaa@userenacl;Ingeniería Civil Industrial
+224469217;Álvaro Javier Cofré Pizarro;alvarocofre@userenacl;Ingeniería Civil Industrial
+224508530;Damary Salem Puca Torres;damarypuca@userenacl;Ingeniería Civil Industrial
+224622767;Amanda Javiera Correa Ramírez;amandacorrea@userenacl;Ingeniería Civil Industrial
+224625421;Constanza Alejandra Allende Araya;constanzaallende@userenacl;Ingeniería Civil Industrial
+224657730;Maximiliano Nicolás Santander Valdivia;maximilianosantanderv@userenacl;Ingeniería Civil Industrial
+224714610;Julieta Isabella Maldonado Vargas;julietamaldonado@userenacl;Ingeniería Civil Industrial
+224780818;Dannae Millaray Rubina Acuña;dannaerubina@userenacl;Ingeniería Civil Industrial
+224826672;Joaquín Alejandro Tapia Gornall;joaquintapiag@userenacl;Ingeniería Civil Industrial
+224904401;Antonella Alejandra Olivares Méndez;antonellaolivares@userenacl;Ingeniería Civil Industrial
+224933681;Dafnne Emily Constanza Hidalgo Alarcón;dafnnehidalgo@userenacl;Ingeniería Civil Industrial
+224966350;Matías Joaquín Alvarado García;matiasalvaradog@userenacl;Ingeniería Civil Industrial
+224979118;Bastián Benjamín Carvajal Izquierdo;bastiancarvajali@userenacl;Ingeniería Civil Industrial
+225042160;Luciano Vicente Pastén Cortés;lucianopasten@userenacl;Ingeniería Civil Industrial
+225055440;Gustavo Alonso Bossans Ahumada;gustavobossans@userenacl;Ingeniería Civil Industrial
+225067899;María Ignacia Zepeda Torres;mariazepedat@userenacl;Ingeniería Civil Industrial
+225074216;Francisco Ignacio Araya Álvarez;franciscoarayaa2@userenacl;Ingeniería Civil Industrial
+225102694;Sebastián Wladimir Giglio Salinas Ávalos;sebastiansalinasa@userenacl;Ingeniería Civil Industrial
+225120986;Konsthanza Danae Cortés Pizarro;konsthanzacortes@userenacl;Ingeniería Civil Industrial
+225138389;Rodrigo Sthefano Excequiel Araya Tapia;rodrigoarayat2@userenacl;Ingeniería Civil Industrial
+225144656;Duvan Alejandro Seura Flores;duvanseura@userenacl;Ingeniería Civil Industrial
+225195358;Joaquín Alexis Peralta Dinamarca;joaquinperalta@userenacl;Ingeniería Civil Industrial
+225203555;Francisca Anaís Araya López;franciscaarayal1@userenacl;Ingeniería Civil Industrial
+22524748k;Benjamín Andrés Oyanedel Pinto;benjaminoyanedel@userenacl;Ingeniería Civil Industrial
+225267197;Lucas Alexis Díaz Guerrero;lucasdiazg@userenacl;Ingeniería Civil Industrial
+22529352k;Valentina Paz Rojas Maya;valentinarojasm@userenacl;Ingeniería Civil Industrial
+225325723;Constanza Sayen Ramírez Olivares;constanzaramirezo@userenacl;Ingeniería Civil Industrial
+225385815;Joaquín Magdiel Andrés Adasme Araya;joaquinadasme@userenacl;Ingeniería Civil Industrial
+225392005;Fernanda Ignacia Toro Trigo;fernandatoro@userenacl;Ingeniería Civil Industrial
+225407355;Fernanda Francisca Antonia Aguirre López;fernandaaguirre@userenacl;Ingeniería Civil Industrial
+225472505;Benjamín Nikolas Pablo Pizarro Veragua;benjaminpizarrov@userenacl;Ingeniería Civil Industrial
+225474265;Javier Antonio Véliz Vásquez;javierveliz@userenacl;Ingeniería Civil Industrial
+225476942;Nicole Alejandra Pereira Flores;nicolepereira@userenacl;Ingeniería Civil Industrial
+225532001;Ricardo Antonio Robles Guerrero;ricardorobles@userenacl;Ingeniería Civil Industrial
+225566437;Paula Elena Opazo Contreras;paulaopazo@userenacl;Ingeniería Civil Industrial
+225620083;Isidora Ignacia Urqueta Michea;isidoraurqueta@userenacl;Ingeniería Civil Industrial
+225705208;Juaquin Alonzo Muñoz Dubo;juaquinmunoz@userenacl;Ingeniería Civil Industrial
+225833168;Vicente Patricio Meyer Cathalifaud;vicentemeyer@userenacl;Ingeniería Civil Industrial
+225909954;Valentina Constanza Saavedra Carmona;valentinasaavedrac@userenacl;Ingeniería Civil Industrial
+22597828k;Mathias Robert Joseph Villarroel Rojas;mathiasvillarroel@userenacl;Ingeniería Civil Industrial
+226111565;Mayckol Yeremy Jesús Araya San Francisco;mayckolaraya@userenacl;Ingeniería Civil Industrial
+226177655;Aracely Anaís Vicencio Lazo;aracelyvicencio@userenacl;Ingeniería Civil Industrial
+226243496;Mateo Ignacio Monroy Urrutia;mateomonroy@userenacl;Ingeniería Civil Industrial
+226263942;Paloma Anastasia Marín Gómez;palomamarin@userenacl;Ingeniería Civil Industrial
+226378073;Kevin Alexander Osorio Araya;kevinosorio@userenacl;Ingeniería Civil Industrial
+226451943;Francisco Enrique Salazar Contreras;franciscosalazarc@userenacl;Ingeniería Civil Industrial
+226484094;Kiara Denisse Solar Neún;kiarasolar@userenacl;Ingeniería Civil Industrial
+226559396;Alejandro Salvador Cubillos Gómez;alejandrocubillos@userenacl;Ingeniería Civil Industrial
+226571566;Luciana Trinidad Pizarro Cortés;lucianapizarro@userenacl;Ingeniería Civil Industrial
+226579354;Mariano Eduardo Ramírez González;marianoramirez@userenacl;Ingeniería Civil Industrial
+226591060;Martín Alejandro Rojas Plaza;martinrojasp1@userenacl;Ingeniería Civil Industrial
+226696954;Sonia Estefani Rubina Astudillo;soniarubina@userenacl;Ingeniería Civil Industrial
+226717420;José Emilio Ramirez Barraza;joseramirezb@userenacl;Ingeniería Civil Industrial
+226729607;Agustín Ignacio Lagos Leiva;agustinlagos@userenacl;Ingeniería Civil Industrial
+226741593;Antonella Francoise Jacqueline Donaire Santos;antonelladonaire@userenacl;Ingeniería Civil Industrial
+226771506;Valentina Noemy Iglesias Jorquera;valentinaiglesias@userenacl;Ingeniería Civil Industrial
+22678537k;Sigrid Estefanía Briceño Carrizo;sigridbriceno@userenacl;Ingeniería Civil Industrial
+226882642;José Antonio Ledezma Rojas;joseledezma@userenacl;Ingeniería Civil Industrial
+226933662;Tomás Gaspar Santelices Espinosa;tomassantelices@userenacl;Ingeniería Civil Industrial
+226965408;Sebastián Ignacio Galleguillos Flores;sebastiangalleguillosf@userenacl;Ingeniería Civil Industrial
+226990089;Camila Laura Inostroza Fuentes;camilainostrozaf@userenacl;Ingeniería Civil Industrial
+227056630;Karla Valentina Carvajal Muñoz;karlacarvajalm@userenacl;Ingeniería Civil Industrial
+227286318;Dafne Alejandra Olivares Jeraldo;dafneolivares@userenacl;Ingeniería Civil Industrial
+227398981;Benjamín Antonio Bustos Aguilar;benjaminbustos@userenacl;Ingeniería Civil Industrial
+227434880;Jasmín Lisette Pizarro Díaz;jasminpizarro@userenacl;Ingeniería Civil Industrial
+227461128;Tomás Antonio Mercado Ortiz;tomasmercado@userenacl;Ingeniería Civil Industrial
+236573486;Elvis Yael Porco Quispe;elvisporco@userenacl;Ingeniería Civil Industrial
+242687221;Jian Piere Morales Siles;jianmorales@userenacl;Ingeniería Civil Industrial
+243075890;Matías Raúl Sarria Dejo;matiassarria@userenacl;Ingeniería Civil Industrial
+279985826;Juan Pablo Vasquez Valderrama;juanvasquezv@userenacl;Ingeniería Civil Industrial
+280823902;Jesus Daniel Lopez Bitriago;jesuslopez@userenacl;Ingeniería Civil Industrial
+204605475;Valentín Mauricio Castillo Valdés;valentincastillo@userenacl;Ingeniería Civil Mecánica
+211552999;Belén Ignacia García Alvarado;belengarcia@userenacl;Ingeniería Civil Mecánica
+212490342;Maximiliano Andrés Fadic Contreras;maximilianofadic@userenacl;Ingeniería Civil Mecánica
+214118513;Benjamín Joaquín González Orellana;benjamingonzalezo1@userenacl;Ingeniería Civil Mecánica
+215123863;Loreto Belén Gajardo Barrera;loretogajardo@userenacl;Ingeniería Civil Mecánica
+215663809;Ricardo Ignacio Sepúlveda Castillo;ricardosepulveda@userenacl;Ingeniería Civil Mecánica
+217216397;José Francisco Pérez Velásquez;joseperezv@userenacl;Ingeniería Civil Mecánica
+21724224k;Felipe Andrés Uriel Lanas Donoso;felipelanas@userenacl;Ingeniería Civil Mecánica
+219863772;Luis Manuel Molina Aracena;luismolinaa1@userenacl;Ingeniería Civil Mecánica
+221280601;Paulo Alejandro Vera Castro;paulovera@userenacl;Ingeniería Civil Mecánica
+221430557;Benjamin Ignacio Morales Pérez;benjaminmoralesp@userenacl;Ingeniería Civil Mecánica
+221461185;Sebástian Michael Rojas Soto;sebastianrojass1@userenacl;Ingeniería Civil Mecánica
+221590317;Nicolas Andres Díaz Díaz;nicolasdiazd@userenacl;Ingeniería Civil Mecánica
+22192021k;Joaquín Ignacio Casanueva Guerrero;joaquincasanueva@userenacl;Ingeniería Civil Mecánica
+222034647;Vicente Alejandro Grez Alaniz;vicentegrez@userenacl;Ingeniería Civil Mecánica
+222438276;Baltazar Ignacio Tapia Muñoz;baltazartapia@userenacl;Ingeniería Civil Mecánica
+222449812;Carlos Jesús Araya Rojas;carlosarayar@userenacl;Ingeniería Civil Mecánica
+22261709k;Mateo Salvador Sagardía Colque;mateosagardia@userenacl;Ingeniería Civil Mecánica
+222617758;Rodrigo Maximiliano Pizarro González;rodrigopizarrog@userenacl;Ingeniería Civil Mecánica
+222632544;Cristóbal Alonso Rojas Tito;cristobalrojast@userenacl;Ingeniería Civil Mecánica
+222932807;Jeannibel Karyme Arancibia Ortiz;jeannibelarancibia@userenacl;Ingeniería Civil Mecánica
+223019692;Benjamín Vicente Gotterbarm Muñoz;benjamingotterbarm@userenacl;Ingeniería Civil Mecánica
+223038166;Maximiliano Ojeda Cuevas;maximilianoojeda@userenacl;Ingeniería Civil Mecánica
+223367011;Catalina Francisca Galleguillos Moreno;catalinagalleguillosm@userenacl;Ingeniería Civil Mecánica
+223413099;Javiera Paloma Gajardo Carrasco;javieragajardo@userenacl;Ingeniería Civil Mecánica
+223500579;Martín Ignacio Fernández Astorga;martinfernandez@userenacl;Ingeniería Civil Mecánica
+223592635;Benjamín Nicolás Rivera Olivares;benjaminriverao@userenacl;Ingeniería Civil Mecánica
+22365830k;Ian Benjamín Schneider Díaz;ianschneider@userenacl;Ingeniería Civil Mecánica
+223721753;Joaquín Eduardo Rodríguez Mamani;joaquinrodriguez@userenacl;Ingeniería Civil Mecánica
+223731198;Edwin Maikel Mita Zambrana;edwinmita@userenacl;Ingeniería Civil Mecánica
+223945767;Manuel Maximiliano Valdivia Astudillo;manuelvaldiviaa@userenacl;Ingeniería Civil Mecánica
+224023227;Benjamín Andrés Cereceda Díaz;benjamincereceda@userenacl;Ingeniería Civil Mecánica
+224161107;Benjamín Alejandro Díaz Torres;benjamindiazt@userenacl;Ingeniería Civil Mecánica
+224228961;Felipe Ignacio Tomás Olivares Araya;felipeolivaresa1@userenacl;Ingeniería Civil Mecánica
+224322046;Eduardo Antonio Rojas Uribe;eduardorojasu@userenacl;Ingeniería Civil Mecánica
+224343302;Spiro Vekoslav Pleticosic Apablaza;spiropleticosic@userenacl;Ingeniería Civil Mecánica
+224446357;Luis Andrés Guerra Mundaca;luisguerram@userenacl;Ingeniería Civil Mecánica
+224501862;Diego Francisco Marín Aguilera;diegomarina1@userenacl;Ingeniería Civil Mecánica
+22461635k;Maite Antonia Miranda Morales;maitemiranda@userenacl;Ingeniería Civil Mecánica
+224648928;Jam Enrique Salazar Ramírez;jamsalazar@userenacl;Ingeniería Civil Mecánica
+224652488;Martín Nahuel Quitral Cortés;martinquitral@userenacl;Ingeniería Civil Mecánica
+224664311;Javier Hernán Astorga Gómez;javierastorgag@userenacl;Ingeniería Civil Mecánica
+224666489;Agustín Alfonso Godoy Ramos;agustingodoy@userenacl;Ingeniería Civil Mecánica
+224673035;Francisca Alexandra Subbrero Navarrete;franciscasubbrero@userenacl;Ingeniería Civil Mecánica
+224759517;Agustín Enrique Cortés Ramos;agustincortes@userenacl;Ingeniería Civil Mecánica
+224834896;Eduardo Veas Rodríguez;eduardoveas@userenacl;Ingeniería Civil Mecánica
+224854765;Vicente Giordanno Oyarce Cortés;vicenteoyarce@userenacl;Ingeniería Civil Mecánica
+225014191;Matías Renato Valera Rojas;matiasvalera@userenacl;Ingeniería Civil Mecánica
+22501941k;Camila Fernanda Moreno Espinoza;camilamoreno@userenacl;Ingeniería Civil Mecánica
+225185166;Freddy Benjamín Carvajal Cortez;freddycarvajal@userenacl;Ingeniería Civil Mecánica
+22533627k;Mathias Andre Díaz Rebolledo;mathiasdiaz@userenacl;Ingeniería Civil Mecánica
+225391203;Axel Yair Bugueño Rivera;axelbugueno@userenacl;Ingeniería Civil Mecánica
+225464219;Bastián Nicolás Cortés Acosta;bastiancortesa@userenacl;Ingeniería Civil Mecánica
+225670145;Benjamín Camilo Andrés Requena Toledo;benjaminrequena@userenacl;Ingeniería Civil Mecánica
+225811083;Benjamín Ignacio Pizarro Jorquera;benjaminpizarroj@userenacl;Ingeniería Civil Mecánica
+225811326;Bastián Alfredo Arias Castillo;bastianarias@userenacl;Ingeniería Civil Mecánica
+225815135;Benjamín Ignacio Marín Araya;benjaminmarina@userenacl;Ingeniería Civil Mecánica
+225861013;Esteban Andrés Luengo Pizarro;estebanluengo@userenacl;Ingeniería Civil Mecánica
+226006281;Leticia Sofía Luna Delgado;leticialuna@userenacl;Ingeniería Civil Mecánica
+226252614;Martín Ignacio León Naveas;martinleon@userenacl;Ingeniería Civil Mecánica
+226592784;Fernando Aaron Pereira Tapia;fernandopereirat@userenacl;Ingeniería Civil Mecánica
+226677593;Diego Alonso Vargas Aliaga;diegovargasa@userenacl;Ingeniería Civil Mecánica
+226715932;Diego Eduardo Rojas Bugueño;diegorojasb@userenacl;Ingeniería Civil Mecánica
+226743081;Emilia Victoria González Parada;emiliagonzalez@userenacl;Ingeniería Civil Mecánica
+226786325;Luis Juan Pablo Plaza Herrera;luisplazah@userenacl;Ingeniería Civil Mecánica
+226917918;Gabriel Alejandro Castillo Araya;gabrielcastilloa@userenacl;Ingeniería Civil Mecánica
+227069252;Benjamín Alejandro Fuentes Tapia;benjaminfuentest@userenacl;Ingeniería Civil Mecánica
+22720088k;Nicolás Alberto Alcayaga Pizarro;nicolasalcayagap@userenacl;Ingeniería Civil Mecánica
+227205458;Álvaro Alonso Bruna Cerda;alvarobruna@userenacl;Ingeniería Civil Mecánica
+227260580;Matías Javier Rojas Araya;matiasrojasa1@userenacl;Ingeniería Civil Mecánica
+251004102;Fernanda Falsiroli Valdivia;fernandafalsiroli@userenacl;Ingeniería Civil Mecánica
+208384783;Oscar Marcelo Castro Matamala;oscarcastro@userenacl;Ingeniería Civil de Minas
+215528510;Tomás Alonso Gómez Zelada;tomasgomez@userenacl;Ingeniería Civil de Minas
+217697921;Mario Jocsan Soza Araya;mariosoza@userenacl;Ingeniería Civil de Minas
+218418058;Benjamín Ignacio Catalán Navarrete;benjamincatalan@userenacl;Ingeniería Civil de Minas
+219643764;Martin Andres Peña Pérez;martinpena@userenacl;Ingeniería Civil de Minas
+220969576;Ivan Luis Peralta Olguín;ivanperalta@userenacl;Ingeniería Civil de Minas
+221365836;Felipe Alexis Alfaro Roco;felipealfaror@userenacl;Ingeniería Civil de Minas
+221602900;Nikko Efraín Oscar Bravo Araya;nikkobravo@userenacl;Ingeniería Civil de Minas
+221722760;Joaquín Eduardo Iñaki Curiante Tobar;joaquincuriante@userenacl;Ingeniería Civil de Minas
+221859448;Joaquín Ignacio González Rodríguez;joaquingonzalezr@userenacl;Ingeniería Civil de Minas
+221998820;Renato Alfredo Díaz Osorio;renatodiazo@userenacl;Ingeniería Civil de Minas
+222388643;Martina Ignacia Hananías Rivera;martinahananias@userenacl;Ingeniería Civil de Minas
+222881765;Cristian Andrés Ruiz Véliz;cristianruiz@userenacl;Ingeniería Civil de Minas
+22309581k;Manuel Ignacio Rojas Sagal;manuelrojass1@userenacl;Ingeniería Civil de Minas
+223224989;Isidora Ignacia Rojas Vernal;isidorarojasv@userenacl;Ingeniería Civil de Minas
+22359008k;Fernando Agustín Cortez Iturrieta;fernandocortez@userenacl;Ingeniería Civil de Minas
+223683312;Almendra de la Paz Rojas Codoceo;almendrarojasc@userenacl;Ingeniería Civil de Minas
+223825516;Simón Alexis Contreras Gajardo;simoncontreras@userenacl;Ingeniería Civil de Minas
+224183909;Angelyna Amelie Pizarro Araya;angelynapizarro@userenacl;Ingeniería Civil de Minas
+224337108;Ignacio Javier Herrera Rosales;ignacioherrerar@userenacl;Ingeniería Civil de Minas
+224371861;Katalina Anahí Rodas González;katalinarodas@userenacl;Ingeniería Civil de Minas
+224434863;Dylan Antonio Rivera Urquieta;dylanrivera@userenacl;Ingeniería Civil de Minas
+224466307;Anthonella Pilar Ramírez Díaz;anthonellaramirez@userenacl;Ingeniería Civil de Minas
+22464213k;Ian Patricio Jeraldo Zambra;ianjeraldo@userenacl;Ingeniería Civil de Minas
+224720203;Martín Ignacio Villanueva Guerra;martinvillanueva@userenacl;Ingeniería Civil de Minas
+224778821;Martín Maximiliano Olivares Mundaca;martinolivaresm@userenacl;Ingeniería Civil de Minas
+224797281;Joaquín Michael Pinkas Fredes;joaquinpinkas@userenacl;Ingeniería Civil de Minas
+224805543;Alondra Carolina Rojas Cortés;alondrarojas@userenacl;Ingeniería Civil de Minas
+224813228;Alexa Ivonne Ovalle Marambio;alexaovalle@userenacl;Ingeniería Civil de Minas
+224854331;Luciano Andrés Barrios Pastén;lucianobarrios@userenacl;Ingeniería Civil de Minas
+224888643;Edwards Omar Páez Cabello;edwardspaez@userenacl;Ingeniería Civil de Minas
+224963076;Franco Andrés Barraza Carrasco;francobarraza@userenacl;Ingeniería Civil de Minas
+225029199;Neyhem Angélica de la Rivera Muñoz;neyhemdelarivera@userenacl;Ingeniería Civil de Minas
+225095647;Nataly Nicole Cortés Araya;natalycortesa1@userenacl;Ingeniería Civil de Minas
+225224005;Ayelen Susana Cid León;ayelencid@userenacl;Ingeniería Civil de Minas
+225226105;Belén Arleth Rojas Villagrán;belenrojasv1@userenacl;Ingeniería Civil de Minas
+225232652;Jourdan Alejandro Cortés Toro;jourdancortes@userenacl;Ingeniería Civil de Minas
+225242445;Siklaly Emilia Cortés Cortés;siklalycortes@userenacl;Ingeniería Civil de Minas
+225257035;Renato Humberto Dorador González;renatodorador@userenacl;Ingeniería Civil de Minas
+225319103;Ignacio Antonio Rojas Rojas;ignaciorojasr@userenacl;Ingeniería Civil de Minas
+225327343;Camila Alejandra Pérez Robles;camilaperezr@userenacl;Ingeniería Civil de Minas
+225337705;Alanna Farella Estuardo Garay;alannaestuardo@userenacl;Ingeniería Civil de Minas
+225357463;César Augusto Yáñez Carvajal;cesaryanez@userenacl;Ingeniería Civil de Minas
+225390487;Benjamín Mauricio Villarroel Monroy;benjaminvillarroel@userenacl;Ingeniería Civil de Minas
+225405778;Lucas Daniel Jofré Vergara;lucasjofre@userenacl;Ingeniería Civil de Minas
+225427518;Agustín Vicente Garrido Álvarez;agustingarrido@userenacl;Ingeniería Civil de Minas
+225429642;Oscar Eduardo Carrasco Muñoz;oscarcarrasco@userenacl;Ingeniería Civil de Minas
+225435871;Katrina Belén Cienfuegos Barraza;katrinacienfuegos@userenacl;Ingeniería Civil de Minas
+225437718;Vicente Esaú Zúñiga Cerda;vicentezuniga@userenacl;Ingeniería Civil de Minas
+22546068k;Matías Benjamín Rojo Leyton;matiasrojo@userenacl;Ingeniería Civil de Minas
+225481857;José Ignacio Jofré Donoso;josejofred@userenacl;Ingeniería Civil de Minas
+225679304;Santiago Ignacio Nicola Donoso;santiagonicola@userenacl;Ingeniería Civil de Minas
+225687560;Matías Andrés Garay Tapia;matiasgaray@userenacl;Ingeniería Civil de Minas
+225769915;Benjamín Esteban Ramírez Molina;benjaminramirezm@userenacl;Ingeniería Civil de Minas
+225841144;Benjamín Alejandro Gallardo Tejada;benjamingallardot@userenacl;Ingeniería Civil de Minas
+225854300;Manuel Alejandro Castillo Pastén;manuelcastillop@userenacl;Ingeniería Civil de Minas
+225865450;Jamie Marcela Aguirre Mendoza;jamieaguirre@userenacl;Ingeniería Civil de Minas
+225878625;Basthián Jesús Pastén Díaz;basthianpasten@userenacl;Ingeniería Civil de Minas
+225912610;Francisco Nicolás Vicencio Cortés;franciscovicencioc@userenacl;Ingeniería Civil de Minas
+225980055;Matías Alejandro Muñoz Vergara;matiasmunozv@userenacl;Ingeniería Civil de Minas
+225986037;Vicente Manuel Barrera Peña;vicentebarrera@userenacl;Ingeniería Civil de Minas
+226077332;Josefa Noemí Pastén Barahona;josefapasten@userenacl;Ingeniería Civil de Minas
+226086544;Vicente Maximiliano Carvajal Cortés;vicentecarvajalc@userenacl;Ingeniería Civil de Minas
+226130225;Cristóbal Sebastián Balcazar Zambrano;cristobalbalcazar@userenacl;Ingeniería Civil de Minas
+226145540;Benjamín Ignacio Soto Díaz;benjaminsotod@userenacl;Ingeniería Civil de Minas
+226198806;Benjamín Alfonso Rojas Salinas;benjaminrojass1@userenacl;Ingeniería Civil de Minas
+226226761;Sebastián Rodrigo Zepeda Vergara;sebastianzepedav1@userenacl;Ingeniería Civil de Minas
+226230602;Maximiliano Daniel Burgos Ponce;maximilianoburgos@userenacl;Ingeniería Civil de Minas
+226249532;Adán Martín Alquinta Araya;adanalquinta@userenacl;Ingeniería Civil de Minas
+226430814;Alan Fabián Valenzuela Araya;alanvalenzuelaa@userenacl;Ingeniería Civil de Minas
+226502548;Emilia Antonia Ledezma Riveros;emilialedezma@userenacl;Ingeniería Civil de Minas
+226514961;Vicente Ignacio Bugueño Molina;vicentebugueno@userenacl;Ingeniería Civil de Minas
+226543538;Tomás Benjamín Conley Muñoz;tomasconley@userenacl;Ingeniería Civil de Minas
+226598839;Jim Alberto Tapia Codoceo;jimtapia@userenacl;Ingeniería Civil de Minas
+226802002;Benjamín Antonio Tapia Yáñez;benjamintapiay@userenacl;Ingeniería Civil de Minas
+226836071;Dixon Giovanni Araya Díaz;dixonaraya@userenacl;Ingeniería Civil de Minas
+226852840;Ignacio Andrés Mundaca Contreras;ignaciomundaca@userenacl;Ingeniería Civil de Minas
+226878254;Diego Sebastián Caimanque Dubo;diegocaimanque@userenacl;Ingeniería Civil de Minas
+226930906;Khiara Michelle Ogalde Jiménez;khiaraogalde@userenacl;Ingeniería Civil de Minas
+227048557;Vicente Thomás Vargas Leiva;vicentevargas@userenacl;Ingeniería Civil de Minas
+22710337k;Vicente Antonio Jiménez Rojas;vicentejimenez@userenacl;Ingeniería Civil de Minas
+227105542;Sthevens Aldo Ledezma Plaza;sthevensledezma@userenacl;Ingeniería Civil de Minas
+227329440;Martina Anahis Tapia Hidalgo;martinatapiah@userenacl;Ingeniería Civil de Minas
+227391936;Tomás Ignacio Contreras Campos;tomascontrerasc1@userenacl;Ingeniería Civil de Minas
+227504854;Pablo Gabriel Fernández Ochoa;pablofernandezo@userenacl;Ingeniería Civil de Minas
+205038086;Marcelo Alejandro Barrios Morales;marcelobarrios@userenacl;Ingeniería Civil
+212836346;Fabián Marcelo Booth Herrera;fabianbooth@userenacl;Ingeniería Civil
+216200322;Alexis Giovanni Barraza Miranda;alexisbarraza@userenacl;Ingeniería Civil
+218172954;Luciano Amaro Reveco Celis;lucianoreveco@userenacl;Ingeniería Civil
+218503160;Joaquín Alberto Moyano Vargas;joaquinmoyano@userenacl;Ingeniería Civil
+221549163;Gerardo Joaquin González Navarro;gerardogonzalezn@userenacl;Ingeniería Civil
+22194450k;Fernando Felipe Torres Urqueta;fernandotorresu@userenacl;Ingeniería Civil
+221969332;Matías Joaquín Solís Arancibia;matiassolisa@userenacl;Ingeniería Civil
+222070090;Allyson Valeria Carmona Segovia;allysoncarmona@userenacl;Ingeniería Civil
+222331714;María Antonella Treverton Casanova;mariatreverton@userenacl;Ingeniería Civil
+222389798;Lourdes Ignacia Contreras Rojas;lourdescontreras@userenacl;Ingeniería Civil
+222746175;Joaquín Antonio Jopia Cortés;joaquinjopia@userenacl;Ingeniería Civil
+222747201;Bruno Alejandro Chávez Carvajal;brunochavez@userenacl;Ingeniería Civil
+222981301;Alonso Emilio Pastén Milla;alonsopasten@userenacl;Ingeniería Civil
+222984882;Diego Tomás Barraza Rojas;diegobarrazar@userenacl;Ingeniería Civil
+223105734;Alexander Ivan Carreño Plaza;alexandercarreno@userenacl;Ingeniería Civil
+223253504;Emilia Julieta Fuenzalida Rojo;emiliafuenzalida@userenacl;Ingeniería Civil
+223654487;Ignacia Pascal Araya Pastén;ignaciaarayap@userenacl;Ingeniería Civil
+223889166;Danny Stefano Lagues Ávalos;dannylagues@userenacl;Ingeniería Civil
+223964419;Agustín Maximiliano Díaz Delgado;agustindiazd@userenacl;Ingeniería Civil
+223999859;Vicente Antonio González Castro;vicentegonzalezc1@userenacl;Ingeniería Civil
+224134533;Rodrigo Zaied Rojas Pizarro;rodrigorojasp1@userenacl;Ingeniería Civil
+224186053;Benjamín Alejandro Aguirre Rojas;benjaminaguirrer@userenacl;Ingeniería Civil
+224212941;Nía Yohanibeth Araya Campos;niaaraya@userenacl;Ingeniería Civil
+224225342;Alex Hernán Villanueva Bolados;alexvillanueva@userenacl;Ingeniería Civil
+224369646;Noelia Fernanda Mosquera Álvarez;noeliamosquera@userenacl;Ingeniería Civil
+224431317;Jhon Andrew Morales Carvajal;jhonmorales@userenacl;Ingeniería Civil
+224436467;Renée Carolina Araya Cuadra;reneearaya@userenacl;Ingeniería Civil
+224472145;Antonella Francisca Noemí González Barra;antonellagonzalezb@userenacl;Ingeniería Civil
+224488998;Isidora Constanza Mánquez Rodríguez;isidoramanquez@userenacl;Ingeniería Civil
+224490275;Renato Manuel Meléndez Muñoz;renatomelendez@userenacl;Ingeniería Civil
+224625618;Jordy Alonso Romero Godoy;jordyromero@userenacl;Ingeniería Civil
+224635206;Agustín de Dios Gálvez Salazar;agustingalvez@userenacl;Ingeniería Civil
+224636717;Diamile Schlomit Olivares Rojas;diamileolivares@userenacl;Ingeniería Civil
+224772114;Valentina Angela Cares Quijada;valentinacares@userenacl;Ingeniería Civil
+224906854;Sebastián Manuel Pineda Rojas;sebastianpinedar@userenacl;Ingeniería Civil
+224976062;José Miguel Henríquez Quevedo;josehenriquez@userenacl;Ingeniería Civil
+225166226;Amalia Francisca Ferrada Bastías;amaliaferrada@userenacl;Ingeniería Civil
+225174458;Javiera Anaís Danae Ramírez Osorio;javieraramirezo@userenacl;Ingeniería Civil
+225179794;Cristian Alejandro Álvarez González;cristianalvarezg@userenacl;Ingeniería Civil
+22523373k;Cristopher Jalil Muñoz Toledo;cristophermunozt@userenacl;Ingeniería Civil
+225359970;Diego Ignacio Díaz Álvarez;diegodiaza@userenacl;Ingeniería Civil
+225361347;Bastián Andrés Gatica Herrera;bastiangatica@userenacl;Ingeniería Civil
+225375682;Sergio Ignacio Ortiz Daza;sergioortizd@userenacl;Ingeniería Civil
+225530114;Lenny Bastián Aguirre Toledo;lennyaguirre@userenacl;Ingeniería Civil
+225573670;Joaquín Adolfo Luna Estay;joaquinluna@userenacl;Ingeniería Civil
+225598754;Bastián Andrés Espina Veliz;bastianespina@userenacl;Ingeniería Civil
+225680647;Francisca Belén Kam Pizarro;franciscakam@userenacl;Ingeniería Civil
+225902186;Agustina Emilia Tagle Ceballos;agustinatagle@userenacl;Ingeniería Civil
+225984158;Fernando Antonio Jofré Ávalos;fernandojofrea@userenacl;Ingeniería Civil
+225987653;Maximiliano Tomás González Aguirre;maximilianogonzaleza@userenacl;Ingeniería Civil
+226006435;Jesús Isaias González Iturriaga;jesusgonzalez@userenacl;Ingeniería Civil
+226241698;Martín David Perez Salinas;martinperezs@userenacl;Ingeniería Civil
+226365133;Cristian Fabián Mundaca Echeverría;cristianmundaca@userenacl;Ingeniería Civil
+226368477;Isabella Antonia Díaz Vega;isabelladiaz@userenacl;Ingeniería Civil
+226459715;Vicente Esteban Espinosa Monárdez;vicenteespinosa@userenacl;Ingeniería Civil
+226529063;Alexandra Nicol Montalván Contreras;alexandramontalvan@userenacl;Ingeniería Civil
+226758844;Cristóbal Rigoberto Emiliano Galvez Rivera;cristobalgalvezr@userenacl;Ingeniería Civil
+226884041;Martín Nicolás Cortés Seura;martincortess@userenacl;Ingeniería Civil
+227040785;Benjamín Ignacio Araya Burgos;benjaminarayab@userenacl;Ingeniería Civil
+227186968;Camila Giulianna Belén Allendes Alfaro;camilaallendes@userenacl;Ingeniería Civil
+227305983;Lucas Richard Reilich Ardiles;lucasreilich@userenacl;Ingeniería Civil
+227334045;Emilia Anaís Barraza Sepúlveda;emiliabarrazas@userenacl;Ingeniería Civil
+22748814k;Brandon Benjamín Paniagua Zamora;brandonpaniagua@userenacl;Ingeniería Civil
+227521732;Sofía Pascale Valencia Olivares;sofiavalencia@userenacl;Ingeniería Civil
+228354651;Jhander Stefhen Sánchez Rodriguez;jhandersanchez@userenacl;Ingeniería Civil
+229483196;Christian Luis Saavedra Contreras;christiansaavedrac@userenacl;Ingeniería Civil
+258794788;Djenie Florius ;djenieflorius@userenacl;Ingeniería Civil
+286944329;Victor Rafael Rodriguez Rivas;victorrodriguezr@userenacl;Ingeniería Civil
+195070334;Bonnie Andrea Ortiz Parra;bortizp1@alumnosulscl;Ingeniería Civil Ambiental
+204571163;Isidora Verónica Munizaga Flores;isidoramunizaga@userenacl;Ingeniería Civil Ambiental
+208847937;Álvaro Alfonso León Rivas;alvaroleon@userenacl;Ingeniería Civil Ambiental
+212011959;Fabián Alberto Díaz Pulgar;fabiandiazp@userenacl;Ingeniería Civil Ambiental
+212066850;Kasny Martina Astudillo Honores;kasnyastudillo@userenacl;Ingeniería Civil Ambiental
+216490673;Aline Beatriz Pastén Olivares;alinepasteno@userenacl;Ingeniería Civil Ambiental
+217958342;Xavi Maxi Alvarado Segovia;xavialvarado@userenacl;Ingeniería Civil Ambiental
+219415486;Diego Alonso Ferreira Véliz;diegoferreira@userenacl;Ingeniería Civil Ambiental
+221447301;Nicolas Andres Layana García;nicolaslayana@userenacl;Ingeniería Civil Ambiental
+221920686;Catalina Isidora Contreras Caro;catalinacontrerasc2@userenacl;Ingeniería Civil Ambiental
+222034299;Laura Elisa Figueroa Cárdenas;laurafigueroa@userenacl;Ingeniería Civil Ambiental
+222324491;Antonia Alejandra Berríos Martínez;antoniaberrios@userenacl;Ingeniería Civil Ambiental
+22301075k;Martina Paz Cortés Martínez;martinacortesm@userenacl;Ingeniería Civil Ambiental
+223237878;Benjamín Eidan Andrés Valencia Casanga;benjaminvalenciac1@userenacl;Ingeniería Civil Ambiental
+223274781;Felipe Ignacio Ahumada Ahumada;felipeahumadaa@userenacl;Ingeniería Civil Ambiental
+223307779;Josefa Isidora Alfaro Alcaíno;josefaalfaroa@userenacl;Ingeniería Civil Ambiental
+223468276;Joaquín Ignacio Higueras Alfaro;joaquinhigueras@userenacl;Ingeniería Civil Ambiental
+223490670;Paz Mabel Araya Rojas;pazaraya@userenacl;Ingeniería Civil Ambiental
+223525970;Diego Alonso Cortés Alfaro;diegocortesa@userenacl;Ingeniería Civil Ambiental
+22362328k;Agustín Alfredo Montecinos Abraham;agustinmontecinos@userenacl;Ingeniería Civil Ambiental
+22374687k;Marcelo Matías Bugueño Guzmán;marcelobuguenog@userenacl;Ingeniería Civil Ambiental
+224145519;Manuela Josefa Lavalle Bathich;manuelalavalle@userenacl;Ingeniería Civil Ambiental
+224432666;Amparo Trinidad Rojas Orellana;amparorojas@userenacl;Ingeniería Civil Ambiental
+224481411;Mathias Enrique Contreras Barraza;mathiascontreras@userenacl;Ingeniería Civil Ambiental
+224582358;Krishna Pascale Collao Bórquez;krishnacollao@userenacl;Ingeniería Civil Ambiental
+224892284;Enrique Alejandro Grandón Otárola;enriquegrandon@userenacl;Ingeniería Civil Ambiental
+22498815k;Eduardo Joaquín Salazar Cortés;eduardosalazarc@userenacl;Ingeniería Civil Ambiental
+225019762;Anastasia Isabel Barraza Olivares;anastasiabarraza@userenacl;Ingeniería Civil Ambiental
+225382751;Josefa Ignacia Caballero Quiroga;josefacaballero@userenacl;Ingeniería Civil Ambiental
+225418233;Meyleen Adais Tafalla García;meyleentafalla@userenacl;Ingeniería Civil Ambiental
+225490147;Emilia Trinidad Guamán Varas;emiliaguaman@userenacl;Ingeniería Civil Ambiental
+225972192;Belén Catalina Toro Vilches;belentoro@userenacl;Ingeniería Civil Ambiental
+226119736;Mathew Ignacio Callet Robledo;mathewcallet@userenacl;Ingeniería Civil Ambiental
+226121137;Renato Rodrigo Bravo Aqueas;renatobravo@userenacl;Ingeniería Civil Ambiental
+226230769;Patricio Alejandro Maldonado Hermosilla;patriciomaldonado@userenacl;Ingeniería Civil Ambiental
+22624624k;Conzuelo Belén Soledad González Cortés;conzuelogonzalezc@userenacl;Ingeniería Civil Ambiental
+226482385;Benjamín Esteban Aguirre Segovia;benjaminaguirres@userenacl;Ingeniería Civil Ambiental
+226632441;Javiera Isidora Jeldes Olguín;javierajeldes@userenacl;Ingeniería Civil Ambiental
+226672494;Valentín Octavio Contreras Césped;valentincontreras@userenacl;Ingeniería Civil Ambiental
+226697462;Nathalya Yanet Anaís Araya Ávalos;nathalyaaraya@userenacl;Ingeniería Civil Ambiental
+226781595;Sayen Ignacia Torrealba Huencho;sayentorrealba@userenacl;Ingeniería Civil Ambiental
+226899197;Catalina Almendra Cárdenas Rojas;catalinacardenas@userenacl;Ingeniería Civil Ambiental
+227292679;Catalina Paz Rojas Herrera;catalinarojash@userenacl;Ingeniería Civil Ambiental
+227471832;Renata Alejandra Pastén Marín;renatapasten@userenacl;Ingeniería Civil Ambiental
+194448864;Benjamin Eduardo Gallardo Ordenes;bgallardo@alumnosulscl;Ingeniería Civil en Computación e Informática
+204418357;Takahiro Patricio Tanohara Valderrama;takahirotanohara@userenacl;Ingeniería Civil en Computación e Informática
+207182125;Daniel Ignacio Ramírez García;danielramirezg@userenacl;Ingeniería Civil en Computación e Informática
+210780165;Lucas Valentín Gutiérrez Bizama;lucasgutierrez@userenacl;Ingeniería Civil en Computación e Informática
+215686051;Gonzalo Martín Valenzuela Alfaro;gonzalovalenzuela@userenacl;Ingeniería Civil en Computación e Informática
+216317068;Benjamín Ignacio Díaz Valdivia;benjamindiazv@userenacl;Ingeniería Civil en Computación e Informática
+216402367;Mateo Facundo Silva Arcos;mateosilva@userenacl;Ingeniería Civil en Computación e Informática
+217508436;Juan Pablo Alexis Varela León;juanvarelal@userenacl;Ingeniería Civil en Computación e Informática
+218234194;Ignacio Andrés Marín Vega;ignaciomarin@userenacl;Ingeniería Civil en Computación e Informática
+218286380;Miguel Cristo Peralta Mena;miguelperaltam@userenacl;Ingeniería Civil en Computación e Informática
+218748066;Joaquín León Velásquez Rojas;joaquinvelasquez@userenacl;Ingeniería Civil en Computación e Informática
+220935752;Sam Aguilar Correa;samaguilar@userenacl;Ingeniería Civil en Computación e Informática
+221313089;Vicente Andrés Jeraldo Ortiz;vicentejeraldo@userenacl;Ingeniería Civil en Computación e Informática
+221527143;Pablo Andrés Torres Briceño;pablotorresb@userenacl;Ingeniería Civil en Computación e Informática
+221536169;Vicenc Andreu Verges Vega;vicencverges@userenacl;Ingeniería Civil en Computación e Informática
+221712684;Diego Eduardo Manuel González Vega;diegogonzalezv@userenacl;Ingeniería Civil en Computación e Informática
+221725271;Kiara Constanza Franz Carranza;kiarafranz@userenacl;Ingeniería Civil en Computación e Informática
+221818458;Nayelly Constanza Miranda Huahuacondori;nayellymiranda@userenacl;Ingeniería Civil en Computación e Informática
+22182010k;Jhaston Nabih Torrejón Castillo;jhastontorrejon@userenacl;Ingeniería Civil en Computación e Informática
+221934083;Martin Ignacio Araya Vidal;martinarayav@userenacl;Ingeniería Civil en Computación e Informática
+222064414;Ignacio Alberto Vilches Monge;ignaciovilches@userenacl;Ingeniería Civil en Computación e Informática
+222376408;Alex Ricardo Rozas Rodríguez;alexrozas@userenacl;Ingeniería Civil en Computación e Informática
+222455758;Noemí Anastacia del Valle Navarrete;noemidelvalle@userenacl;Ingeniería Civil en Computación e Informática
+222455847;Harry Matthew Mackie Lamilla;harrymackie@userenacl;Ingeniería Civil en Computación e Informática
+222587093;Maximiliano Alexander Bustamante Núñez;maximilianobustamante@userenacl;Ingeniería Civil en Computación e Informática
+223020305;Leandro Daniel Marín Araneda;leandromarin@userenacl;Ingeniería Civil en Computación e Informática
+223184286;Nicolás Enrique Ibarra Iturrieta;nicolasibarra@userenacl;Ingeniería Civil en Computación e Informática
+22324887k;Rodrigo Alexis Silva Campusano;rodrigosilvac@userenacl;Ingeniería Civil en Computación e Informática
+223257623;Exequiel Ignacio Saavedra Muñoz;exequielsaavedra@userenacl;Ingeniería Civil en Computación e Informática
+223382649;Jordán Daniel Monardes Monardes;jordanmonardes@userenacl;Ingeniería Civil en Computación e Informática
+22344668k;Joaquín Alonso Ortega Guacte;joaquinortega@userenacl;Ingeniería Civil en Computación e Informática
+223699790;Bryan Marcelo Díaz Arriagada;bryandiaza@userenacl;Ingeniería Civil en Computación e Informática
+223745822;Rodrigo Cristian Espinoza Henríquez;rodrigoespinozah@userenacl;Ingeniería Civil en Computación e Informática
+22385303k;Ignacio Antonio Torreblanca Galleguillos;ignaciotorreblanca@userenacl;Ingeniería Civil en Computación e Informática
+224008007;Juan Pablo Andrés Herrera Monárdez;juanherreram@userenacl;Ingeniería Civil en Computación e Informática
+224084250;Benjamín Sebastián Ramírez Tello;benjaminramirezt@userenacl;Ingeniería Civil en Computación e Informática
+224094523;Manuel Gatica Palacios;manuelgatica@userenacl;Ingeniería Civil en Computación e Informática
+224134347;Rodrigo Benjamín Olivares Paz;rodrigoolivaresp1@userenacl;Ingeniería Civil en Computación e Informática
+224194870;Benjamín Ignacio Álvarez Escalona;benjaminalvareze@userenacl;Ingeniería Civil en Computación e Informática
+224282354;Tomás Ignacio Toro Rojas;tomastoror@userenacl;Ingeniería Civil en Computación e Informática
+224350422;Whaldo Ignacio Rojas Álvarez;whaldorojas@userenacl;Ingeniería Civil en Computación e Informática
+22437318k;Gonzalo Andrés Diaz Matus;gonzalodiazm2@userenacl;Ingeniería Civil en Computación e Informática
+224444583;Vicente Alfredo Cortés Alburquenque;vicentecortesa1@userenacl;Ingeniería Civil en Computación e Informática
+224460627;Manuel Matías Sebastián Cofré Tapia;manuelcofre@userenacl;Ingeniería Civil en Computación e Informática
+224746601;Marcelo Alonso Álvarez Codoceo;marceloalvarezc1@userenacl;Ingeniería Civil en Computación e Informática
+224769547;Vladimir Alonso Aguilera Marín;vladimiraguilera@userenacl;Ingeniería Civil en Computación e Informática
+224769644;Fabián Aron David Elgueta Castañeda;fabianelgueta@userenacl;Ingeniería Civil en Computación e Informática
+224817851;Héctor Joaquín Castillo Astudillo;hectorcastilloa1@userenacl;Ingeniería Civil en Computación e Informática
+22483196k;Samael Joaquín Olivares Peña;samaelolivares@userenacl;Ingeniería Civil en Computación e Informática
+224855907;Cristopher Alejandro Acuña Araya;cristopheracunaa@userenacl;Ingeniería Civil en Computación e Informática
+225077290;Alex Ignacio Valenzuela Clifft;alexvalenzuelac@userenacl;Ingeniería Civil en Computación e Informática
+225104077;Gabriel Elías Araos Lazo;gabrielaraos@userenacl;Ingeniería Civil en Computación e Informática
+225170363;Leonardo Andrés Enrique Paillao González;leonardopaillao@userenacl;Ingeniería Civil en Computación e Informática
+225172218;Adolfo Arnaldo Olivares Olivares;adolfoolivares@userenacl;Ingeniería Civil en Computación e Informática
+225201145;Maximiliano Lucio Arqueros Yimes;maximilianoarqueros@userenacl;Ingeniería Civil en Computación e Informática
+225395101;Cristóbal Alonso Lobos Saldaña;cristoballobos@userenacl;Ingeniería Civil en Computación e Informática
+225490791;Veredhein Mario Alberto Díaz Ormazábal;veredheindiaz@userenacl;Ingeniería Civil en Computación e Informática
+225568383;Jostin Andrés Pizarro Cortés;jostinpizarro@userenacl;Ingeniería Civil en Computación e Informática
+225648042;Vicente Juan Pablo Salamanca Castro;vicentesalamanca@userenacl;Ingeniería Civil en Computación e Informática
+225740372;Vicente Moisés Santiagos Franulich;vicentesantiagos@userenacl;Ingeniería Civil en Computación e Informática
+225743916;Maximiliano Alonso Guerrero Zepeda;maximilianoguerreroz@userenacl;Ingeniería Civil en Computación e Informática
+225858276;Nicolás Ignacio Díaz Chinga;nicolasdiazc@userenacl;Ingeniería Civil en Computación e Informática
+22591253k;Carlos Nicolás Guerra Segovia;carlosguerras@userenacl;Ingeniería Civil en Computación e Informática
+225989567;Eduardo Antonio Castillo Araya;eduardocastilloa@userenacl;Ingeniería Civil en Computación e Informática
+226053387;CristóbalAaron Farías Geraldo;cristobalaaronfarias@userenacl;Ingeniería Civil en Computación e Informática
+226333606;Maximiliano Patricio Trigo Almendares;maximilianotrigo@userenacl;Ingeniería Civil en Computación e Informática
+226568387;Maximiliano Yohao Marín Núñez;maximilianomarinn@userenacl;Ingeniería Civil en Computación e Informática
+226654402;Yosef Paulo Urquieta Opazo;yosefurquieta@userenacl;Ingeniería Civil en Computación e Informática
+226697160;Martín Darío Godoy Concha;martingodoy@userenacl;Ingeniería Civil en Computación e Informática
+226756558;Maximiliano Alonso Peña Araya;maximilianopenaa@userenacl;Ingeniería Civil en Computación e Informática
+226757074;Maximiliano Benjamín Contreras Astudillo;maximilianocontreras@userenacl;Ingeniería Civil en Computación e Informática
+226764801;Jorge Axel Vicencio Pinto;jorgevicenciop@userenacl;Ingeniería Civil en Computación e Informática
+226912584;Christian Dylan Urrutia Barraza;christianurrutia@userenacl;Ingeniería Civil en Computación e Informática
+227032359;Diego Tomás Rojas Rojas;diegorojasr2@userenacl;Ingeniería Civil en Computación e Informática
+227141727;Yastin Jesús Araya Valdés;yastinaraya@userenacl;Ingeniería Civil en Computación e Informática
+227170182;Fernando Sebastián Herman Alcayaga;fernandohermana@userenacl;Ingeniería Civil en Computación e Informática
+227171669;Ander Luis Almonacid Jara;anderalmonacid@userenacl;Ingeniería Civil en Computación e Informática
+22733195k;Valeria Priscilla Scarlet Mánquez González;valeriamanquez@userenacl;Ingeniería Civil en Computación e Informática
+227510005;Gabriel Isaias Almendares Salas;gabrielalmendares@userenacl;Ingeniería Civil en Computación e Informática
+22752121k;Matías Gerardo Pérez Contreras;matiasperezc@userenacl;Ingeniería Civil en Computación e Informática
+22755035k;Dixsson Benjamín Huerta Moreno;dixssonhuerta@userenacl;Ingeniería Civil en Computación e Informática
+247139591;Martha Cecilia Males Morales;marthamales@userenacl;Ingeniería Civil en Computación e Informática
+258250753;Paola Valentina Perez la Rosa;paolaperezl@userenacl;Ingeniería Civil en Computación e Informática
+269305460;Xadvier Yolvan Carrero Peraza;xadviercarrero@userenacl;Ingeniería Civil en Computación e Informática
+282651610;Jean Carlos Reyes Alvarado;jeanreyesa@userenacl;Ingeniería Civil en Computación e Informática
+283467597;Daniel Alejandro Zarraga Chango;danielzarraga@userenacl;Ingeniería Civil en Computación e Informática
+284899326;Eblys Hernandez Baez;eblyshernandez@userenacl;Ingeniería Civil en Computación e Informática
+206010428;Martín Ignacio Arancibia Álvarez;martinarancibiaa@userenacl;Ingeniería en Construcción
+207407682;Diego Alejandro Chepillo Miranda;diegochepillo@userenacl;Ingeniería en Construcción
+213007327;Maximiliano Andrés Ortega Antiñirre;maximilianoortega@userenacl;Ingeniería en Construcción
+215352692;Tomás Andrés Muñoz Zepeda;tomasmunoz@userenacl;Ingeniería en Construcción
+218133827;Mauricio Ignacio Eade Castillo;mauricioeade@userenacl;Ingeniería en Construcción
+218300480;Gonzalo Andrés Calderón Valenzuela;gonzalocalderonv@userenacl;Ingeniería en Construcción
+219201257;Sebastián Mauricio Rojas Rojas;sebastianrojasr1@userenacl;Ingeniería en Construcción
+219299362;Javier Andres Valdés Maturana;javiervaldes@userenacl;Ingeniería en Construcción
+22028283k;Esteban Gabriel Bugueño Castillo;estebanbuguenoc@userenacl;Ingeniería en Construcción
+220357821;Felipe Ignacio Torres Trujillo;felipetorrest@userenacl;Ingeniería en Construcción
+221289056;Tomás Maximiliano Orellana Bolvarán;tomasorellanab@userenacl;Ingeniería en Construcción
+221413385;Javiera Paz Belen Domínguez Rivera;javieradominguezr@userenacl;Ingeniería en Construcción
+22190902k;Benjamín Ignacio Valencia Carreño;benjaminvalenciac@userenacl;Ingeniería en Construcción
+222249910;Nicol Antonia Cabrera Ortiz;nicolcabrera@userenacl;Ingeniería en Construcción
+222694906;Carlos Felipe Serqueira Urriche;carlosserqueira@userenacl;Ingeniería en Construcción
+222913780;Gabriel Elías Quiñones González;gabrielquinones@userenacl;Ingeniería en Construcción
+223021700;Alonso León Chacón Ulloa;alonsochacon@userenacl;Ingeniería en Construcción
+223082440;Constanza Belén Espinoza Briceño;constanzaespinozab@userenacl;Ingeniería en Construcción
+223106560;Benjamín Enrique Pastén Uribe;benjaminpastenu@userenacl;Ingeniería en Construcción
+223207316;Paloma Alejandra Catalina Tamblay Campos;palomatamblay@userenacl;Ingeniería en Construcción
+223255310;Maximiliano Renato Ogalde Rojas;maximilianoogalde@userenacl;Ingeniería en Construcción
+22371112k;Joaquín Andrés Donoso Galaz;joaquindonoso@userenacl;Ingeniería en Construcción
+223745113;Benjamín Alejandro Veas Carvajal;benjaminveasc@userenacl;Ingeniería en Construcción
+223884822;Ignacio Xavier Alfonso Grandón Toro;ignaciograndon@userenacl;Ingeniería en Construcción
+223934498;Luciano Enrique Valencia Barraza;lucianovalencia@userenacl;Ingeniería en Construcción
+223946828;Matías Andrés Barraza Janampa;matiasbarrazaj@userenacl;Ingeniería en Construcción
+223983847;Juan Francisco Muñoz Miranda;juanmunozm2@userenacl;Ingeniería en Construcción
+224093373;Lucas Miguel Gonzalez Bórquez;lucasgonzalezb@userenacl;Ingeniería en Construcción
+224113587;Isaac Manuel García Valdés;isaacgarcia@userenacl;Ingeniería en Construcción
+224361262;Dixon Alexis Pardo Sotela;dixonpardo@userenacl;Ingeniería en Construcción
+224613636;Victoria Paz Duarte Castillo;victoriaduarte@userenacl;Ingeniería en Construcción
+224629559;Daney Meibol Figueroa Segovia;daneyfigueroa@userenacl;Ingeniería en Construcción
+224679211;Francisco Andrés Bravo Avilés;franciscobravoa@userenacl;Ingeniería en Construcción
+224730713;Vicente Antonio Rojo Campusano;vicenterojo@userenacl;Ingeniería en Construcción
+225050716;Benjamín Lorenzo Zambra Alfaro;benjaminzambra@userenacl;Ingeniería en Construcción
+22505536k;Rocío Antonia Céspedes Barraza;rociocespedes@userenacl;Ingeniería en Construcción
+225060193;Rodrigo Ignacio Valdivia Velásquez;rodrigovaldiviav@userenacl;Ingeniería en Construcción
+225080526;Francisca Ignacia Rivera Sepúlveda;franciscariveras@userenacl;Ingeniería en Construcción
+225346011;Jordán Virgilio Ramos Canivilo;jordanramos@userenacl;Ingeniería en Construcción
+225357412;Diego Andrés Monsalve Ahumada;diegomonsalvea@userenacl;Ingeniería en Construcción
+225537992;Ignacio Aaron Arturo Toro Zúñiga;ignaciotoro@userenacl;Ingeniería en Construcción
+225547025;Amelia Iglesias Pallauta;ameliaiglesias@userenacl;Ingeniería en Construcción
+225589593;Daniel Alexander Bravo Torrejón;danielbravot@userenacl;Ingeniería en Construcción
+225653194;Tomás Robles Sepúlveda;tomasrobles@userenacl;Ingeniería en Construcción
+225678405;Antony Américo Gómez Rojas;antonygomez@userenacl;Ingeniería en Construcción
+225833907;Vicente Joaquín Durán Delgado;vicenteduran@userenacl;Ingeniería en Construcción
+226153322;Martín Ignacio Enrique Castro Bolados;martincastrob@userenacl;Ingeniería en Construcción
+226334459;Yanela Emixel Araya Calderón;yanelaaraya@userenacl;Ingeniería en Construcción
+226336028;Matías Ariel Ogalde Bastral;matiasogaldeb@userenacl;Ingeniería en Construcción
+226436790;Katherin Yuliana Cortés Santander;katherincortes@userenacl;Ingeniería en Construcción
+226447946;Demian Antonio Alegría Troncoso;demianalegria@userenacl;Ingeniería en Construcción
+226588345;Josue Nicolás Zúñiga Urízar;josuezuniga@userenacl;Ingeniería en Construcción
+226741534;Monserrat Geovanna Benavides Contreras;monserratbenavides@userenacl;Ingeniería en Construcción
+226768610;Jonathan Maykol Castillo Flores;jonathancastillof@userenacl;Ingeniería en Construcción
+226930817;Josefa Elena Rivera Latin;josefarivera@userenacl;Ingeniería en Construcción
+227031050;Joaquín Ignacio Cortés Castillo;joaquincortesc@userenacl;Ingeniería en Construcción
+227033037;Carolina Paz Salazar Cortés;carolinasalazarc@userenacl;Ingeniería en Construcción
+22706479k;Isidora Paskal Belén Castillo Rojas;isidoracastillo@userenacl;Ingeniería en Construcción
+22722665k;Benjamín Mauricio Urrutia Azola;benjaminurrutiaa@userenacl;Ingeniería en Construcción
+227348984;Nicolás Axl Sepúlveda Cortés;nicolassepulvedac@userenacl;Ingeniería en Construcción
+236590976;Richard Josue Duval Moreira;richardduval@userenacl;Ingeniería en Construcción
+279234456;Jose  David Moreno Nina;josemorenon@userenacl;Ingeniería en Construcción
+282693844;Daniel Eduardo Salas Gonzalez;danielsalas@userenacl;Ingeniería en Construcción
+151667562;Alexis Alberto Kayro Pizarro Cuba;alexispizarroc@userenacl;Arquitectura
+212923486;Renato Alonso Ibarra Iturrieta;renatoibarra@userenacl;Arquitectura
+219646135;Benjamín Javier Mercado Arancibia;benjaminmercado@userenacl;Arquitectura
+220372472;Martín Jeremías Pizarro Díaz;martinpizarrod@userenacl;Arquitectura
+221084756;Aurora Rayén Vejar Chandía;auroravejar@userenacl;Arquitectura
+221156498;Paolo Ignacio Ramos Marín;paoloramos@userenacl;Arquitectura
+221196406;Catalina Gabriela Salinas Jopia;catalinasalinasj@userenacl;Arquitectura
+221256891;Laura Emilia Díaz Abarca;lauradiaza@userenacl;Arquitectura
+22133163k;Antonella Matilde Amalia Díaz Arriagada;antonelladiaza@userenacl;Arquitectura
+221587774;Nataly Isidora Clarke Valenzuela;natalyclarke@userenacl;Arquitectura
+221834658;Bastián Benjamín Milles Araya;bastianmilles@userenacl;Arquitectura
+222798531;Leonela Sofía Rojas Araya;leonelarojas@userenacl;Arquitectura
+22287131k;Joaquín Fernando Yáñez Avilés;joaquinyanez@userenacl;Arquitectura
+222892562;Marcelo Elías Muñoz Bordones;marcelomunozb@userenacl;Arquitectura
+223275915;Bárbara Constanza Aguilera Arancibia;barbaraaguileraa@userenacl;Arquitectura
+223418708;Angiel Scarlette Villalobos Araya;angielvillalobos@userenacl;Arquitectura
+223730981;Javiera Anaís Rojas Tapia;javierarojast@userenacl;Arquitectura
+223735290;Benjamín Abel Carvajal López;benjamincarvajall@userenacl;Arquitectura
+22379095k;Josefa Linette Lamas Araya;josefalamas@userenacl;Arquitectura
+223794904;José Ignacio Dinamarca Abarca;josedinamarca@userenacl;Arquitectura
+22387925k;Marieth Ariadne Beatriz Guerrero Álvarez;mariethguerrero@userenacl;Arquitectura
+223879926;Pía Isidora Briceño Gutiérrez;piabricenog@userenacl;Arquitectura
+22395278k;Joaquín Vicente Castillo Torres;joaquincastillot1@userenacl;Arquitectura
+223973949;Carlos Sebastián Haro Olano;carlosharo@userenacl;Arquitectura
+224041020;Catalina Ignacia Callejas Barriga;catalinacallejas@userenacl;Arquitectura
+224512511;Antonia Fernanda Olivares Vásquez;antoniaolivaresv@userenacl;Arquitectura
+224682492;Vicente Andrés Flores Gordillo;vicenteflores@userenacl;Arquitectura
+224730349;Santiago Alonso Rojo Campusano;santiagorojo@userenacl;Arquitectura
+224961154;Gerrard Ismael Torres Rojas;gerrardtorres@userenacl;Arquitectura
+225046980;Úrsula Angélica Díaz Torres;ursuladiaz@userenacl;Arquitectura
+225075026;Valentina Eduarda Maureira Valenzuela;valentinamaureira@userenacl;Arquitectura
+225156441;Valentina Cañas González;valentinacanas@userenacl;Arquitectura
+225243433;Anaís Constanza López Céspedes;anaislopez@userenacl;Arquitectura
+225250278;Luis Maximiliano Aguirre Aguirre;luisaguirrea@userenacl;Arquitectura
+225275459;Ignacia Francisca Pastén Belmar;ignaciapasten@userenacl;Arquitectura
+225305498;Lucas Damián Riffo Guerra;lucasriffo@userenacl;Arquitectura
+225315787;Cristopher Felipe Guamán Olmos;cristopherguaman@userenacl;Arquitectura
+225381763;Nivaska Antonia Díaz Rodríguez;nivaskadiaz@userenacl;Arquitectura
+225481776;Paskal Mauren Contreras Grangey;paskalcontreras@userenacl;Arquitectura
+225515832;Constanza Anahiz Higueras Alarcón;constanzahigueras@userenacl;Arquitectura
+225652511;María Paz Aguilera Vega;mariaaguilerav@userenacl;Arquitectura
+225678391;Vicente Daniel Enrique Varas Martínez;vicentevaras@userenacl;Arquitectura
+225715807;Anne Marie Charlotte Aguilar Cofré;anneaguilar@userenacl;Arquitectura
+225717966;Javiera Denisse Chepillo Cortés;javierachepillo@userenacl;Arquitectura
+225767874;Einzenge Josefa Rodríguez Vargas;einzengerodriguez@userenacl;Arquitectura
+225920567;Cristóbal Patricio Carrasco Araya;cristobalcarrasco@userenacl;Arquitectura
+225965781;Gonzalo Enrique Miño Rojas;gonzalomino@userenacl;Arquitectura
+226001352;Dylan Alejandro Rojas Villalobos;dylanrojasv@userenacl;Arquitectura
+226118349;Francisca Magdalena Segovia Calderón;franciscasegovia@userenacl;Arquitectura
+226224149;Emilia Rebeca Chepillo Pulgar;emiliachepillo@userenacl;Arquitectura
+226230874;Yuan Daniel Burgos Ponce;yuanburgos@userenacl;Arquitectura
+226238778;Francisca Martina Cepeda Bugueño;franciscacepeda@userenacl;Arquitectura
+226545905;Matías Jesús Rivera Mery;matiasriveram@userenacl;Arquitectura
+226604693;Sofía Isidora Díaz Martínez;sofiadiazm@userenacl;Arquitectura
+226606890;Diego Antonio Benjamín Loyola Vicencio;diegoloyola@userenacl;Arquitectura
+226719849;Millaray Antonia Penna Bórquez;millaraypenna@userenacl;Arquitectura
+22680000k;Mario Antonio Carvajal Torres;mariocarvajalt@userenacl;Arquitectura
+226832955;Emely Alexandra Rivera Carvajal;emelyrivera@userenacl;Arquitectura
+226907440;Martín Gerardo Améstica Espinosa;martinamestica@userenacl;Arquitectura
+226955542;Joaquín Alexis Flores Barraza;joaquinfloresb@userenacl;Arquitectura
+227246235;Colomba Madelaine Herminia Rodríguez Galleguillos;colombarodriguez@userenacl;Arquitectura
+227275766;María José González Morales;mariagonzalezm1@userenacl;Arquitectura
+227481773;Genesis Natalia Araya Varas;genesisarayav@userenacl;Arquitectura
+22755004k;Anaís Belén Espejo Ilabel;anaisespejo@userenacl;Arquitectura
+227574593;Agustina Amparo Millar Díaz;agustinamillar@userenacl;Arquitectura
+260110527;Pilar Marcela Lima Gonzalez;pilarlima@userenacl;Arquitectura
+263311841;Yaritza Lajara Regalado;yaritzalajara@userenacl;Arquitectura
+268105638;Maria Jose Escobar Sanchez;mariaescobars1@userenacl;Arquitectura
+269478233;Nicolle Alejandra Barroso Andara;nicollebarroso@userenacl;Arquitectura
+274271787;Wilfort Mercado Arteaga;wilfortmercado@userenacl;Arquitectura
+282141337;Luan Andres Arciniegas Pabon;paulaarciniegas@userenacl;Arquitectura
+208172425;Renato Ignacio López Cáceres;renatolopez@userenacl;Ingeniería Mecánica
+210684891;Maximiliano Alberto Olivares Cortés;maximilianoolivaresc@userenacl;Ingeniería Mecánica
+212247855;José Ignacio Balbontín Rivera;josebalbontin@userenacl;Ingeniería Mecánica
+213059971;Maximiliano Cristóbal Barrera Castillo;maximilianobarrera@userenacl;Ingeniería Mecánica
+21411299k;Vicente Eduardo Jamet Santos;vicentejamet@userenacl;Ingeniería Mecánica
+215539423;Martín Ignacio Cortés Astudillo;martincortesa@userenacl;Ingeniería Mecánica
+216411412;Ian Alexander Garrote Pacheco;iangarrote@userenacl;Ingeniería Mecánica
+216467744;Joaquín Gabriel Oscar Leiva Rojas;joaquinleivar@userenacl;Ingeniería Mecánica
+218310443;Enzo Andrés Alcorce Lazo;enzoalcorce@userenacl;Ingeniería Mecánica
+219427808;Benjamin Ignacio Heredia Arancibia;benjaminheredia@userenacl;Ingeniería Mecánica
+220720225;Agatha Antonella Castro Contreras;agathacastro@userenacl;Ingeniería Mecánica
+221291735;Eduardo Ignacio Barrera Pérez;eduardobarrerap@userenacl;Ingeniería Mecánica
+221360745;Benjamin Nicolas Jaime Rojas;benjaminjaime@userenacl;Ingeniería Mecánica
+221563352;Ignacio Eduardo Cuadra Valenzuela;ignaciocuadra@userenacl;Ingeniería Mecánica
+221664299;Elías Joseph Díaz Hurtado;eliasdiaz@userenacl;Ingeniería Mecánica
+221801016;Maximiliano Alejandro Araya Peralta;maximilianoarayap@userenacl;Ingeniería Mecánica
+221807111;Franco Hernán Zepeda Codoceo;francozepeda@userenacl;Ingeniería Mecánica
+221864816;Cristian Benjamín Bravo Castillo;cristianbravoc@userenacl;Ingeniería Mecánica
+221911539;Catalina Constanza Miranda Veloso;catalinamirandav@userenacl;Ingeniería Mecánica
+221960548;Munier Ezequiél Lazo Lazo;munierlazo@userenacl;Ingeniería Mecánica
+222058163;Constanza Elena Anaís Marambio Salas;constanzamarambio@userenacl;Ingeniería Mecánica
+222069661;Williams Alexander Oros Gaete;williamsoros@userenacl;Ingeniería Mecánica
+222173809;Andrés Emilio Leyton Gallegos;andresleytong@userenacl;Ingeniería Mecánica
+222302269;Nicolás Eduardo Tapia Ardiles;nicolastapiaa@userenacl;Ingeniería Mecánica
+222401860;Johans Alexander Barraza Segovia;johansbarraza@userenacl;Ingeniería Mecánica
+222441900;Joaquín Nicolás Antúnez Avilés;joaquinantunez@userenacl;Ingeniería Mecánica
+222833094;Geovanny Oriel Dubó Legua;geovannydubo@userenacl;Ingeniería Mecánica
+222996376;Catalina Antonia Baeza Cabrera;catalinabaeza@userenacl;Ingeniería Mecánica
+223322271;Estrella Antonella Celis Domínguez;estrellacelis@userenacl;Ingeniería Mecánica
+223463711;Liliana Paz Muñoz Morales;lilianamunoz@userenacl;Ingeniería Mecánica
+223510396;Camilo Antonio Debia Cartajena;camilodebiac@userenacl;Ingeniería Mecánica
+223661912;Renato Francisco Ávalos Muñoz;renatoavalosm@userenacl;Ingeniería Mecánica
+223665942;Lukas Matías Hernández Carmona;lukashernandez@userenacl;Ingeniería Mecánica
+223693547;Alessandro Paolo de Filippi Molina;alessandrodefilippi@userenacl;Ingeniería Mecánica
+223882536;Carlos Javier Peña Rojo;carlospena@userenacl;Ingeniería Mecánica
+223913628;Anyelizka Anyelina Alexandra Vidal Rivera;anyelizkavidal@userenacl;Ingeniería Mecánica
+22400561k;Elías Armando González Guerrero;eliasgonzalez@userenacl;Ingeniería Mecánica
+224120753;Maximiliano Guillermo Codoceo Peña;maximilianocodoceo@userenacl;Ingeniería Mecánica
+224190506;Thomas Vicente Blanco González;thomasblanco@userenacl;Ingeniería Mecánica
+224350163;Benjamín Ignacio Fuentes Rojas;benjaminfuentesr@userenacl;Ingeniería Mecánica
+22450263k;Raúl Alejandro González Álvarez;raulgonzaleza@userenacl;Ingeniería Mecánica
+224852886;Matías Ignacio Valencia Calquín;matiasvalenciac@userenacl;Ingeniería Mecánica
+224860498;Said Andrés Pozo Contreras;saidpozo@userenacl;Ingeniería Mecánica
+224861443;Paolo David Becerra Contreras;paolobecerra@userenacl;Ingeniería Mecánica
+224877226;Cristopher Andrés Contreras Olivares;cristophercontreraso@userenacl;Ingeniería Mecánica
+225042055;Annais Valentina Araya Quiroz;annaisaraya@userenacl;Ingeniería Mecánica
+225186219;Brayan Yerco Pizarro Perines;brayanpizarro@userenacl;Ingeniería Mecánica
+225366233;Sofía Antonia Cortés Pulgar;sofiacortesp@userenacl;Ingeniería Mecánica
+225428042;Diego Antonio Vega Rivera;diegovegar@userenacl;Ingeniería Mecánica
+225450978;Wladimir Enrique Peña Flores;wladimirpena@userenacl;Ingeniería Mecánica
+225497443;Martín Alonso Ramírez Flores;martinramirez@userenacl;Ingeniería Mecánica
+225586810;Cristian Mauricio Galleguillos Núñez;cristiangalleguillosn@userenacl;Ingeniería Mecánica
+225667179;Benjamín Jahir Barraza Valdivia;benjaminbarrazav@userenacl;Ingeniería Mecánica
+225676771;Diego Gabriel Nieva Rodríguez;diegonieva@userenacl;Ingeniería Mecánica
+225724008;Jeffrey Maximiliano Castillo Cortés;jeffreycastillo@userenacl;Ingeniería Mecánica
+225817146;Joaquín Rodrigo Aceitón Cortés;joaquinaceiton@userenacl;Ingeniería Mecánica
+22587137k;Sebastián Ignacio Véliz Alfaro;sebastianveliza1@userenacl;Ingeniería Mecánica
+225910855;Catalina Ignacia Ferrada Sandoval;catalinaferradas@userenacl;Ingeniería Mecánica
+225914532;Gabriel Isaac Araya Briceño;gabrielarayab3@userenacl;Ingeniería Mecánica
+225979278;Martín Andrés Jopia Iturbe;martinjopia@userenacl;Ingeniería Mecánica
+22600727k;Monserrat Aguirre Rojas;monserrataguirrer@userenacl;Ingeniería Mecánica
+226189211;Oscar Esteban Francisco Castillo Campusano;oscarcastilloc@userenacl;Ingeniería Mecánica
+226307397;Alonso Javier Barraza Gálvez;alonsobarraza@userenacl;Ingeniería Mecánica
+226344241;Matias Osvaldo Vilca Ayavire;matiasvilca@userenacl;Ingeniería Mecánica
+226367217;Alexander Stevens Sangama Rojas;alexandersangama@userenacl;Ingeniería Mecánica
+226410309;Matia Nicolás Tapia Araya;matiatapia@userenacl;Ingeniería Mecánica
+226674101;Quidel Andrés Vergara Henríquez;quidelvergara@userenacl;Ingeniería Mecánica
+226727051;Luis Amador Cerna Ortega;luiscerna@userenacl;Ingeniería Mecánica
+226808590;Teare Anahis Cavieres Villagra;tearecavieres@userenacl;Ingeniería Mecánica
+226925759;Ignacia Catalina Paicil Gómez;ignaciapaicil@userenacl;Ingeniería Mecánica
+227043059;Martín Ignacio Villarroel Marín;martinvillarroel@userenacl;Ingeniería Mecánica
+246644136;Anghely Brisa Herrera Magne;anghelyherrera@userenacl;Ingeniería Mecánica
+263136322;Jhon Byron Quillay Huisha;jhonquillay@userenacl;Ingeniería Mecánica
+266233213;Jeferson Tapeosi Mollo;jefersontapeosi@userenacl;Ingeniería Mecánica
+271930208;Julián Camilo Triviño Pérez;juliantrivino@userenacl;Ingeniería Mecánica
+273652558;Melani Alejandra Blanca Velasquez;melaniblanca@userenacl;Ingeniería Mecánica
+289213457;Leonardo Leonel Rodriguez Mestanza;leonardorodriguezm@userenacl;Ingeniería Mecánica
+203095597;Carlos Marcelo Avilés Bustos;carlosaviles@userenacl;Ingeniería de Minas
+20457698k;Cristóbal Maximiano Parra Guerrero;cristobalparra@userenacl;Ingeniería de Minas
+215033449;Antonia Loreto Ormeño Ormeño;antoniaormeno@userenacl;Ingeniería de Minas
+215907775;Benjamín Cristobal Nambrard Rojas;benjaminnambrard@userenacl;Ingeniería de Minas
+216600967;Felipe Andrés Tabilo Paz;felipetabilop@userenacl;Ingeniería de Minas
+21739127k;Carlos Alejandro Marín Aguilera;carlosmarina1@userenacl;Ingeniería de Minas
+219282745;Katrina Monserrat Barraza Mujica;katrinabarraza@userenacl;Ingeniería de Minas
+22015128k;Benjamin Antonio García Galleguillos;benjamingarciag@userenacl;Ingeniería de Minas
+220191923;Benjamín Isaac Ignacio Guerra Iriarte;benjaminguerrai@userenacl;Ingeniería de Minas
+221312422;Martina Paz RuyPérez Vergara;martinaruyperez@userenacl;Ingeniería de Minas
+221504631;Gohan Patricio Aguilera Araya;gohanaguilera@userenacl;Ingeniería de Minas
+22161254k;Frank Maximiliano Guerrero Carrasco;frankguerrero@userenacl;Ingeniería de Minas
+221704649;Benjamin Sebastian Gonzalez González;benjamingonzalezg@userenacl;Ingeniería de Minas
+221773381;Cristian Matías Leyton Cornejo;cristianleytonc1@userenacl;Ingeniería de Minas
+221831551;Matias Ignacio Alexander Varas Palape;matiasvarasp@userenacl;Ingeniería de Minas
+22197249k;Anibal Jesús Huerta Silva;anibalhuerta@userenacl;Ingeniería de Minas
+22225101k;Bastián Edgardo Valdivia Valenzuela;bastianvaldiviav@userenacl;Ingeniería de Minas
+222628601;Máximo Sebastián Araya Bustamante;maximoaraya@userenacl;Ingeniería de Minas
+22265050k;Martín Nicolás Cortés Lillo;martincortesl@userenacl;Ingeniería de Minas
+22265825k;Ahron Alexander Leyton Miranda;ahronleyton@userenacl;Ingeniería de Minas
+222921201;Matías Nicolás Godoi Egaña;matiasgodoi@userenacl;Ingeniería de Minas
+223158846;Avril Esperanza Guajardo Miranda;avrilguajardo@userenacl;Ingeniería de Minas
+223163777;Matías Alfonso de Jesús Castillo Carrasco;matiascastilloc1@userenacl;Ingeniería de Minas
+223197671;Renato Agustín Tabilo Godoy;renatotabilo@userenacl;Ingeniería de Minas
+223938256;Cristian Ignacio Godoy Pereira;cristiangodoyp@userenacl;Ingeniería de Minas
+223956270;Constanza Alejandra Godoy Ruiz;constanzagodoyr1@userenacl;Ingeniería de Minas
+224065612;Antonia Isabel Bugueño Mercado;antoniabugueno@userenacl;Ingeniería de Minas
+224079222;Constanza Nohath Huina Véliz;constanzahuina@userenacl;Ingeniería de Minas
+224166575;Benjamín Iván Andrés Araya Cortés;benjaminarayac3@userenacl;Ingeniería de Minas
+224273037;Zaid Exequiel Alfaro Morgado;zaidalfaro@userenacl;Ingeniería de Minas
+224345763;Javiera Valentina Verdugo Véliz;javieraverdugo@userenacl;Ingeniería de Minas
+224355041;Valery Belén Marín Ramírez;valerymarin@userenacl;Ingeniería de Minas
+224364520;Vicente Ignacio Silva Martínez;vicentesilvam@userenacl;Ingeniería de Minas
+224447426;Vicente Jesús Alejandro López Pinto;vicentelopezp@userenacl;Ingeniería de Minas
+224456263;Caterin Alejandra Contreras Galleguillos;caterincontreras@userenacl;Ingeniería de Minas
+224458584;Yeral Javier Guerra Castillo;yeralguerra@userenacl;Ingeniería de Minas
+224474806;Francisco Eduardo Espejo Ortiz;franciscoespejoo@userenacl;Ingeniería de Minas
+224516398;Graciela Liliana Riesco Gómez;gracielariesco@userenacl;Ingeniería de Minas
+224600682;Katalina Antonia Tello Alfaro;katalinatello@userenacl;Ingeniería de Minas
+224607881;Manuel Leandro Alfaro Veras;manuelalfarov@userenacl;Ingeniería de Minas
+224746806;Rodrigo Benjamín Meneses Campusano;rodrigomenesesc@userenacl;Ingeniería de Minas
+224777434;Martín Rodrigo Mallea Milla;martinmallea@userenacl;Ingeniería de Minas
+22492738k;Sebastián Ignacio Iriarte Cereceda;sebastianiriarte@userenacl;Ingeniería de Minas
+224939027;Diego Andrés Solís Rojas;diegosolisr@userenacl;Ingeniería de Minas
+224953968;Renato Andrés Cerda Escobar;renatocerda@userenacl;Ingeniería de Minas
+224957483;Vicente Tomás Mendoza Barrera;vicentemendoza@userenacl;Ingeniería de Minas
+224984596;Juan José Antonio Rojas Matamala;juanrojasm3@userenacl;Ingeniería de Minas
+224989172;Camilo Alejandro Rivera Guamán;camiloriverag@userenacl;Ingeniería de Minas
+225050678;Matías Alexander Véliz Carlos;matiasvelizc@userenacl;Ingeniería de Minas
+225070059;Roger Alexander Daniel Rivera González;rogerrivera@userenacl;Ingeniería de Minas
+225079625;Johan Alexander Sánchez Molina;johansanchezm@userenacl;Ingeniería de Minas
+225178496;Bastián Bladimir Lemus Díaz;bastianlemus@userenacl;Ingeniería de Minas
+225338361;Isidora Andrea Rojas Oyarce;isidorarojaso@userenacl;Ingeniería de Minas
+225348340;Angelo Yair Alfaro Gallardo;angeloalfaro@userenacl;Ingeniería de Minas
+225356785;Vicente Emilio Robe Chávez;vicenterobe@userenacl;Ingeniería de Minas
+225362246;Dante Agustín Cardoza Pastén;dantecardoza@userenacl;Ingeniería de Minas
+22536995k;Constanza Javiera Araya Torres;constanzaarayat@userenacl;Ingeniería de Minas
+225424888;Felipe Andrés Santander Cortés;felipesantanderc@userenacl;Ingeniería de Minas
+225450641;Nathalí Alexandra Franchesca Mora Jiménez;nathalimora@userenacl;Ingeniería de Minas
+225477477;Alan Benjamín Gómez Herrera;alangomezh@userenacl;Ingeniería de Minas
+225518467;Matías Yaniro Zamora Aranda;matiaszamora@userenacl;Ingeniería de Minas
+225550689;Damaris Yanella Molina Rojas;damarismolina@userenacl;Ingeniería de Minas
+225687633;Rayen Danae Castilla Ponce;rayencastilla@userenacl;Ingeniería de Minas
+225742383;Damary Alexandra Ortiz Jofré;damaryortiz@userenacl;Ingeniería de Minas
+22574355k;Badhir José Sacre Astorga;badhirsacre@userenacl;Ingeniería de Minas
+225935351;Jonathan Andrés Gaete Jermany;jonathangaete@userenacl;Ingeniería de Minas
+225978840;Fernando Benjamín Zuñiga Zúñiga;fernandozunigaz@userenacl;Ingeniería de Minas
+226155783;Benjamín Ignacio Tirado Aguilera;benjamintirado@userenacl;Ingeniería de Minas
+226181962;Gonzalo Karim Campusano Walker;gonzalocampusano@userenacl;Ingeniería de Minas
+226506470;Ignacia Isabel Milla Urqueta;ignaciamilla@userenacl;Ingeniería de Minas
+22653007k;Benjamín Alejandro Alfaro Castillo;benjaminalfaroc@userenacl;Ingeniería de Minas
+226550526;Ivan Ismael Moraga Mundaca;ivanmoraga@userenacl;Ingeniería de Minas
+226662022;Victor Manuel de Jesus Calderon Grin;victorcalderon@userenacl;Ingeniería de Minas
+226664793;Florencia Antonia Marín Munizaga;florenciamarin@userenacl;Ingeniería de Minas
+226788514;Samuel Eugenio Palma Laborda;samuelpalma@userenacl;Ingeniería de Minas
+226851208;Alex Antonio Bugueño Saavedra;alexbugueno@userenacl;Ingeniería de Minas
+226868356;Antonella Scarlett Rojas Huerta;antonellarojas@userenacl;Ingeniería de Minas
+226954600;Víctor Lino Ahumada Oliveros;victorahumada@userenacl;Ingeniería de Minas
+227035102;Fernando Alonso Herrera Guerrero;fernandoherrera@userenacl;Ingeniería de Minas
+227059265;Ronaldo Ignacio López González;ronaldolopez@userenacl;Ingeniería de Minas
+227140305;Joaquín Vicente Bugueño Barrera;joaquinbugueno@userenacl;Ingeniería de Minas
+227140593;Martín Antonio Bugueño Barrera;martinbuguenob@userenacl;Ingeniería de Minas
+227458585;Vicente Luciano Guerrero Aguilar;vicenteguerreroa@userenacl;Ingeniería de Minas
+211796855;Javier Humberto Astudillo Núñez;javierastudillon@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+214873265;Catalina Magdalena Quezada Zárate;catalinaquezadaz@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+215410846;Eduardo Ignacio Godoy Bahamondes;eduardogodoyb@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+217934613;Delean Denimme Guzmán Monroy;deleanguzman@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+220457222;Constanza Annais Aguilera Santander;constanzaaguileras@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221051874;María José Cortés Arqueros;mariacortesa5@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221319419;Valeria Fernanda Wasaff Vergara;valeriawasaff@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221385799;Anastasia Cobs Castillo;anastasiacobs@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221834860;Gabriel Hernan Pizarro Ulloa;gabrielpizarrou@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221859421;Allison Katrina Callejas Díaz;allisoncallejas@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+221864875;Felipe Ignacio Inostroza Morales;felipeinostrozam@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+222058783;Laura Jesús Palma Bugueño;laurapalmab@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+222403103;Rocío Carolina Ossandón González;rocioossandon@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+223407935;Renato Alonso Arias Mánquez;renatoarias@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22378254k;Antonia Marina Pía Olivares Cortés;antoniaolivaresc@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+223947433;Ariana Antonella Cerda Flores;arianacerda@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22420437k;Isidora Alejandra Cáceres Portilla;isidoracaceres@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22435441k;Valentina Marisol Ortiz Alfaro;valentinaortiz@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224508670;Dania Scarleth Órdenez Hurtado;daniaordenez@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224701950;Josefa Belén del Carmen Segovia Sáez;josefasegovia@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22470996k;Rafaela Pascal Oros Lillo;rafaelaoros@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224776888;Javiera Antonia Meza Vásquez;javierameza@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22479147k;Isaac Misael Rivera González;isaacrivera@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+22480380k;Cristian Eduardo Garrido Bravo;cristiangarridob@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224815891;Constanza Catalina Puelles Cabezas;constanzapuelles@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224893825;Antonia Zuvic Santander;antoniazuvic@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+224943547;Nicolás Vicente Rivera Pizarro;nicolasriverap2@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+225063656;Vicente Facundo Araya Rivera;vicentearayar1@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+225070016;Jorge de Jesús Díaz Valderrama;jorgediazv@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+225087091;Valentina Anett Mattos González;valentinamattos@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+225384207;Hugo Antonio Laflor Cortés;hugolaflor@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+225446717;María Jesús Pizarro Quispe;mariapizarroq@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226009035;Benjamín Ignacio Ortiz Cortés;benjaminortiz@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226065784;Paulina Alejandra Aguirre Hernandez;paulinaaguirre@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226438610;Belén Antonia Noemí Cerda Cortés;belencerda@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226526803;Elisa Ayin Pizarro Antiñirre;elisapizarroa@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226609148;Araceli Antonia Alfaro González;aracelialfaro@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+226670327;Catalina Liliana Varela Flores;catalinavarelaf@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+227189886;Eduardo Antonio Galleguillos Díaz;eduardogalleguillosd@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+227595507;Javiera Francisca Aquivequi Hernández;javieraaquivequi@userenacl;Ingeniería en Biotecnología, Mención en Alimentos o Procesos Sustentables
+207344850;Francisca Valentina Varas Díaz;franciscavaras@userenacl;Pedagogía en Biología y Ciencias Naturales
+210970924;Constanza Fernanda Moyano Vargas;constanzamoyano@userenacl;Pedagogía en Biología y Ciencias Naturales
+213168665;Clemente Ignacio Patiño Tabilo;clementepatino@userenacl;Pedagogía en Biología y Ciencias Naturales
+217126274;Bastián Alexander Brown Fuentes;bastianbrown@userenacl;Pedagogía en Biología y Ciencias Naturales
+222487153;Claudio Alfonso García Contreras;claudiogarciac@userenacl;Pedagogía en Biología y Ciencias Naturales
+222790727;Benjamín Alejandro Yáñez Valdivia;benjaminyanez@userenacl;Pedagogía en Biología y Ciencias Naturales
+222999898;Isidora Ignacia Castillo Palta;isidoracastillop@userenacl;Pedagogía en Biología y Ciencias Naturales
+223213677;Emanuel Alejandro Ortiz Campos;emanuelortiz@userenacl;Pedagogía en Biología y Ciencias Naturales
+223734170;Emilia Viviana Fredes Colman;emiliafredes@userenacl;Pedagogía en Biología y Ciencias Naturales
+226274359;Dominique Antonia Cortés Cortés;dominiquecortes@userenacl;Pedagogía en Biología y Ciencias Naturales
+227024461;Javiera Belén Núñez Araya;javieranunez@userenacl;Pedagogía en Biología y Ciencias Naturales
+165965361;Alfonso Rodrigo Cortes Bugueño;acortes13@alumnosulscl;Pedagogía en Matemáticas y Física
+187546818;Jermy Jan de Jesus Barraza Escalante;jbarraza7@alumnosulscl;Pedagogía en Matemáticas y Física
+204602573;Paz Belén Avilés Valenzuela;pazaviles@userenacl;Pedagogía en Matemáticas y Física
+221519531;Natalia Mabel Flores Trujillo;nataliaflorest@userenacl;Pedagogía en Matemáticas y Física
+223193374;Benjamín Alejandro Huidobro Munizaga;benjaminhuidobro@userenacl;Pedagogía en Matemáticas y Física
+223796001;Vicente Mathias Ignacio González Cereceda;vicentegonzalezc2@userenacl;Pedagogía en Matemáticas y Física
+223882161;Andrés Raimundo Zúñiga González;andreszuniga@userenacl;Pedagogía en Matemáticas y Física
+224253540;Darío Enrique Araya Vaccaro;darioaraya@userenacl;Pedagogía en Matemáticas y Física
+224314450;Valeria Fernanda Cumsille Peña;valeriacumsille@userenacl;Pedagogía en Matemáticas y Física
+224611226;Danny Israel Maluenda Cruz;dannymaluenda@userenacl;Pedagogía en Matemáticas y Física
+224759665;Antonia Florencia Levill Teneb;antonialevill@userenacl;Pedagogía en Matemáticas y Física
+225176043;Esperanza Priscila Cortés López;esperanzacortes@userenacl;Pedagogía en Matemáticas y Física
+225773149;Catalina Andrea Rivera Ortiz;catalinariverao@userenacl;Pedagogía en Matemáticas y Física
+226176292;Miyaray Annais Véliz Gallardo;miyarayveliz@userenacl;Pedagogía en Matemáticas y Física
+226665390;Victoria Fernanda Villalobos Cortés;victoriavillalobos@userenacl;Pedagogía en Matemáticas y Física
+226835571;Nicolás Mateo Álvarez Beck;nicolasalvarezb@userenacl;Pedagogía en Matemáticas y Física
+170019865;Karla Javiera Suazo Arévalo;karlasuazo@userenacl;Licenciatura en Astronomía
+181778997;Rodrigo Andres Vargas Cortes;rodrigovargasc1@userenacl;Licenciatura en Astronomía
+197122633;Pablo Antonio Tapia Michea;pablotapiam@userenacl;Licenciatura en Astronomía
+199518054;Felipe Adolfo Ramirez Castillo;feliperamirezc1@userenacl;Licenciatura en Astronomía
+208358073;Dylan Aaron Carrasco Maulén;dylancarrasco@userenacl;Licenciatura en Astronomía
+216612205;Vicente Nicolás Meléndez CortésMonroy;vicentemelendezc@userenacl;Licenciatura en Astronomía
+21962915k;Martina Yeray Arancibia Traslaviña;martinaarancibia@userenacl;Licenciatura en Astronomía
+220825612;Giancarlo Patricio Marín Gálvez;giancarlomarin@userenacl;Licenciatura en Astronomía
+221488490;Daniel Renato Villalobos Molina;danielvillalobosm@userenacl;Licenciatura en Astronomía
+221499131;Sebastián Ignacio Monardes Aguilera;sebastianmonardes@userenacl;Licenciatura en Astronomía
+221797140;Maura Florencia Muñoz Seura;mauramunozs@userenacl;Licenciatura en Astronomía
+222010403;Maithe Antonella Oyanedel Galdámez;maitheoyanedel@userenacl;Licenciatura en Astronomía
+222454476;Natalia Lagos Huerta;natalialagos@userenacl;Licenciatura en Astronomía
+222784131;Neyerka Andrea Cabrera Rojas;neyerkacabrera@userenacl;Licenciatura en Astronomía
+223220886;Amaru Ernesto Harder Tapia;amaruharder@userenacl;Licenciatura en Astronomía
+22346789k;Valentín Segundo Cortés Villalobos;valentincortes@userenacl;Licenciatura en Astronomía
+223661297;Maite Rocío Castillo Rodríguez;maitecastillo@userenacl;Licenciatura en Astronomía
+223915213;Arit Zamir Salgado Duarte;aritsalgado@userenacl;Licenciatura en Astronomía
+223937306;Sam Sebastian Rojas Rivera;samrojas@userenacl;Licenciatura en Astronomía
+224075715;Eduarda Belén Guzmán Collao;eduardaguzman@userenacl;Licenciatura en Astronomía
+22432698k;Simón Moisés Aguilera Tapia;simonaguilera@userenacl;Licenciatura en Astronomía
+224835558;Lorenzo Andrés Méndez Payauta;lorenzomendez@userenacl;Licenciatura en Astronomía
+224870787;Matilda Andrea Gallardo Araya;matildagallardo@userenacl;Licenciatura en Astronomía
+224879032;Nicanor Javier Fajardo Rojas;nicanorfajardo@userenacl;Licenciatura en Astronomía
+225026971;Constanza Alizee Molina Torres;constanzamolinat@userenacl;Licenciatura en Astronomía
+225193096;Amanda Paz Jeria Bugedo;amandajeria@userenacl;Licenciatura en Astronomía
+225271100;Benjamín Maximiliano Vega Villalobos;benjaminvegav@userenacl;Licenciatura en Astronomía
+225437807;Manuel Alejandro Vallejos Cortés;manuelvallejos@userenacl;Licenciatura en Astronomía
+225549214;Florencia Francisca Rojas Arredondo;florenciarojas@userenacl;Licenciatura en Astronomía
+225622523;Vicente Gabriel Lillo Verasay;vicentelillo@userenacl;Licenciatura en Astronomía
+225648018;Antonia Poleth Ahumada Soto;antoniaahumadas@userenacl;Licenciatura en Astronomía
+225665672;Priscila Alejandra Roldán Vega;priscilaroldan@userenacl;Licenciatura en Astronomía
+22627071k;Francisca Javiera Riveros Díaz;franciscariverosd@userenacl;Licenciatura en Astronomía
+226317260;Agustín Henry Mardones González;agustinmardones@userenacl;Licenciatura en Astronomía
+226542280;Felipe Amaro González Segovia;felipegonzalezs1@userenacl;Licenciatura en Astronomía
+226557644;Loreto Martina Carrasco Carvajal;loretocarrascoc@userenacl;Licenciatura en Astronomía
+22658112k;Emilio Diego Jerez Vega;emiliojerezv@userenacl;Licenciatura en Astronomía
+226589333;Victoria Catalina Antonia Castro Altamirano;victoriacastro@userenacl;Licenciatura en Astronomía
+226891145;Yastín Isaías Álvarez Canihuante;yastinalvarez@userenacl;Licenciatura en Astronomía
+227241209;Paola Stephanie Mondaca Ramos;paolamondaca@userenacl;Licenciatura en Astronomía
+13760437k;Marcos Aurelio Rivera Rodriguez;marcosriverar@userenacl;Pedagogía en Matemáticas
+204600902;Alejandro Nicolás Aros Rojas;alejandroaros@userenacl;Pedagogía en Matemáticas
+21339326k;Martín Elías Aguilera Muñoz;martinaguilera@userenacl;Pedagogía en Matemáticas
+221117115;Vicente Alberto Rojas Rojas;vicenterojasr@userenacl;Pedagogía en Matemáticas
+222043239;Naysa Helen Martínez Escobar;naysamartinez@userenacl;Pedagogía en Matemáticas
+223630189;Joaquín Exequiel Trigo Rojas;joaquintrigo@userenacl;Pedagogía en Matemáticas
+223686435;Yashor Adolfo Adones Cortés;yashoradones@userenacl;Pedagogía en Matemáticas
+223708536;Rocío Isidora Mena Baldassare;rociomena@userenacl;Pedagogía en Matemáticas
+224295774;Constanza Abigail Salinas Olivares;constanzasalinaso@userenacl;Pedagogía en Matemáticas
+224467559;Emilio Antonio Gómez Rojas;emiliogomez@userenacl;Pedagogía en Matemáticas
+224824874;Dante René López Andrade;dantelopez@userenacl;Pedagogía en Matemáticas
+224960948;Cristóbal Gerardo Gallardo Pérez;cristobalgallardop@userenacl;Pedagogía en Matemáticas
+225635218;Belén Alejandra Leyton Figueroa;belenleyton@userenacl;Pedagogía en Matemáticas
+225716900;Maximiliano Andrés Portilla Alfaro;maximilianoportilla@userenacl;Pedagogía en Matemáticas
+225902666;David Vicente Fritz Mazzeri;davidfritz@userenacl;Pedagogía en Matemáticas
+225990530;Thiare Aylin Saavedra Worden;thiaresaavedra@userenacl;Pedagogía en Matemáticas
+227016841;Benjamín Ignacio Contreras Torres;benjamincontrerast@userenacl;Pedagogía en Matemáticas
+263618580;Santiago David Zambrano Mendez;santiagozambrano@userenacl;Pedagogía en Matemáticas
+217821436;Daniela Alejandra Medalla Leyton;danielamedalla@userenacl;Enfermería
+219344007;Konsthanza Antonia González Castro;konsthanzagonzalez@userenacl;Enfermería
+220029107;Fernanda Andrea Vásquez Cabello;fernandavasquezc@userenacl;Enfermería
+220302571;Esperanza Paz López Cáceres;esperanzalopez@userenacl;Enfermería
+22058464k;Sofia Leonor Araya Villafaña;sofiaarayav@userenacl;Enfermería
+221200829;Londra Katrina Araya Minchea;londraaraya@userenacl;Enfermería
+221944046;Sofia Trinidad Godoy Mesina;sofiagodoym@userenacl;Enfermería
+22237734k;Sofía Jesús Galleguillos Jaime;sofiagalleguillos@userenacl;Enfermería
+222715571;Juan Alberto Villalobos Contreras;juanvillalobosc@userenacl;Enfermería
+223011160;Benjamín Antonio Sotella Rivera;benjaminsotella@userenacl;Enfermería
+223291236;Denisse Antonella Michea Zamora;denissemichea@userenacl;Enfermería
+223660371;Fenix Alejandra Vergara Barrera;fenixvergara@userenacl;Enfermería
+223867995;Antonella Anaís Villalobos Gil;antonellavillalobos@userenacl;Enfermería
+223970877;Francisco David Carmona Ávalos;franciscocarmonaa@userenacl;Enfermería
+224086245;Anahis Fernanda Contreras Pizarro;anahiscontreras@userenacl;Enfermería
+224117612;Pilar Ignacia Aravena Mondaca;pilararavenam@userenacl;Enfermería
+224380429;Sofía Catalina Marambio Bolvarán;sofiamarambiob@userenacl;Enfermería
+224500947;Sofía Isidora Venegas Medalla;sofiavenegas@userenacl;Enfermería
+224896824;María Jesús Vives Smith;mariavives@userenacl;Enfermería
+225058342;Josefa Emilia Pacheco Marín;josefapacheco@userenacl;Enfermería
+225083746;Karolina Angélica Carmona Zamora;karolinacarmona@userenacl;Enfermería
+225166161;Anita María Álvarez Guevara;anitaalvarez@userenacl;Enfermería
+225222118;Javiera Belén Flores Ossandón;javierafloreso1@userenacl;Enfermería
+225277532;Samuel Ángel Manton Guerrero;constanzamanton@userenacl;Enfermería
+225278121;Francisca Andrea Labraña Castillo;franciscalabrana@userenacl;Enfermería
+225621225;Josefina Antonia Rojas Leiva;josefinarojas@userenacl;Enfermería
+225901457;Yerty Sofía Azócar Araya;yertyazocar@userenacl;Enfermería
+225984980;Matilda Antonia Pizarro Zarricueta;matildapizarro@userenacl;Enfermería
+226343814;Isidora Francisca Álvarez Morgado;isidoraalvarezm@userenacl;Enfermería
+22651533k;Matt Vieira Olmos;catalinavieira@userenacl;Enfermería
+226668683;Sofía Gabriela Rodríguez Olivares;sofiarodriguezo@userenacl;Enfermería
+227242574;Eniger Schariz Aguilera Plaza;enigeraguilera@userenacl;Enfermería
+227263539;Johan Eloy Acuña Balcazar;johanacuna@userenacl;Enfermería
+230043760;Martina Isidora Flores Díaz;martinaflores@userenacl;Enfermería
+215883906;Valentina Antonia Pérez Castillo;valentinaperezc1@userenacl;Odontología
+217079446;Valentina Javiera Alejandra Valencia Gómez;valentinavalencia@userenacl;Odontología
+218016200;Catalina Antonia Fajardo López;catalinafajardol@userenacl;Odontología
+218783600;Tamara Antonia Lara Mena;tamaralara@userenacl;Odontología
+219189133;Sebastián Agustín Martínez Rodríguez;sebastianmartinezr@userenacl;Odontología
+219861044;Valentina Almendra Guerra Bravo;valentinaguerrab@userenacl;Odontología
+221378822;Cristobal Orlando Cruz Montecino;cristobalcruz@userenacl;Odontología
+22164316k;Sofia Sol Rojas Neyra;sofiarojasn@userenacl;Odontología
+221747240;Joaquín Ignacio Barraza Hernández;joaquinbarrazah@userenacl;Odontología
+221988825;Pilar Jasmín Barraza Arias;pilarbarrazaa@userenacl;Odontología
+222339758;Javiera Belén González Herrera;javieragonzalezh1@userenacl;Odontología
+222539811;Belén Alejandra González Estatopulos;belengonzaleze@userenacl;Odontología
+222701058;Antonio Fabrizio Bolados Arriagada;antoniobolados@userenacl;Odontología
+222900913;Marcelo Antonio Sepúlveda Linco;marcelosepulvedal@userenacl;Odontología
+223072828;Sofía Antonella Yáñez Brizuela;sofiayanezb@userenacl;Odontología
+223819613;Agustina Paz Bustos Alcayaga;agustinabustos@userenacl;Odontología
+224059256;Renata Isidora Martina Sepúlveda Honores;renatasepulveda@userenacl;Odontología
+224218524;Ignacia Antonia Vivado Santiagos;ignaciavivado@userenacl;Odontología
+224295952;Matías Benjamín Villanueva San Martín;matiasvillanuevas@userenacl;Odontología
+224442890;Catalina Sofía Victoria Araya Godoy;catalinaarayag@userenacl;Odontología
+224621442;Martina Julieth Gálvez Salazar;martinagalvez@userenacl;Odontología
+224747551;Carolain Fernanda Rodríguez Valenzuela;carolainrodriguez@userenacl;Odontología
+225129142;Silvana Anaís Laferte Cortés;silvanalaferte@userenacl;Odontología
+225309736;Eduardo Alexis Alday Galleguillos;eduardoalday@userenacl;Odontología
+225331278;Leysa Fernanda Segura Gómez;leysasegura@userenacl;Odontología
+225450889;Consuelo de Lourdes Bravo Bravo;consuelobravo@userenacl;Odontología
+225457964;Eduardo Valentino Pérez Farías;eduardoperezf@userenacl;Odontología
+225555184;Anaís Antonia Pérez Aparicio;anaispereza@userenacl;Odontología
+225621756;Alanís Catalina Andrea Araya Pérez;alanisaraya@userenacl;Odontología
+225663270;Carol Antonia Carrasco Muñoz;carolcarrasco@userenacl;Odontología
+225684294;Catalina Elizabeth Fuentes Pereira;catalinafuentesp@userenacl;Odontología
+225778930;Álvaro Damián Andrés Ponce Duarte;alvaroponce@userenacl;Odontología
+225791201;Nhia Esperanza Serey Halles;nhiaserey@userenacl;Odontología
+225828881;Juan Pablo Andrés Díaz Merino;juandiazm@userenacl;Odontología
+22592774k;Kimi Raynner Ramos Díaz;kimiramos@userenacl;Odontología
+225981205;Benjamín Rhamces Smith Aburto;benjaminsmith@userenacl;Odontología
+226581952;Consuelo Ignacia Muñoz Espinoza;consuelomunoz@userenacl;Odontología
+22664444k;Francisca Isidora Díaz Hervia;franciscadiazh@userenacl;Odontología
+226717994;María Belén Lobos Robledo;marialobosr@userenacl;Odontología
+226788433;Juliette Dayana Valenzuela Yáñez;juliettevalenzuela@userenacl;Odontología
+226831649;Catalina Belén Torres Carrasco;catalinatorresc@userenacl;Odontología
+227296356;Edith Francceska Vidal Rocco;edithvidal@userenacl;Odontología
+22736033k;Soraya Linor Pizarro Azola;sorayapizarro@userenacl;Odontología
+227463554;Vicente Javier Paxton Paez Valenzuela;vicentepaez@userenacl;Odontología
+228680648;Franco Damian Villagra Suarez;francovillagra@userenacl;Odontología
+265290256;Karen Paola Felten Olmedo;karenfelten@userenacl;Odontología
+215515311;Renato Eduardo Sepúlveda Ávalos;renatosepulveda@userenacl;Kinesiología
+218730477;Aracelli Antonia Sola Portilla;aracellisola@userenacl;Kinesiología
+218833020;Martín Jeremías Ávila Adaros;martinavila@userenacl;Kinesiología
+219482833;Francisca Antonia Alcayaga Morales;franciscaalcayagam@userenacl;Kinesiología
+220028100;Francisco Tomas Cortés Salinas;franciscocortess@userenacl;Kinesiología
+221470583;Vicente Andrés Alvarado Díaz;vicentealvaradod@userenacl;Kinesiología
+221914597;Valentina Belén Phillips Trigo;valentinaphillips@userenacl;Kinesiología
+222007429;Florencia Anasol Galleguillos Espinosa;florenciagalleguillos@userenacl;Kinesiología
+222010381;Joaquín Alejandro Cortés Nettle;joaquincortesn@userenacl;Kinesiología
+222025559;Josefa Alondra Órdenes González;josefaordenes@userenacl;Kinesiología
+222203546;Cristobal Ignacio Gómez Rodríguez;cristobalgomezr@userenacl;Kinesiología
+222385431;Alejandro José Suarez del Villar Araya;alejandrosuarezdelvillar@userenacl;Kinesiología
+222417643;Anair Anthonya López Carvajal;anairlopez@userenacl;Kinesiología
+222582407;Emily Antonia Villalobos Jiménez;emilyvillalobos@userenacl;Kinesiología
+222637961;Noemí Ester Vargas Aguilera;noemivargas@userenacl;Kinesiología
+223017568;Matías Sebastián Pereira Zepeda;matiaspereira@userenacl;Kinesiología
+223052266;Antonia Jacqueline Anacona Núñez;antoniaanacona@userenacl;Kinesiología
+223161847;Martín Alonso Durán Gallardo;martinduran@userenacl;Kinesiología
+223197868;Benjamín Alejandro Uribe Plaza;benjaminuribe@userenacl;Kinesiología
+223454534;Florencia Martina Pizarro Cerda;florenciapizarroc@userenacl;Kinesiología
+223993753;Javiera Belén López Araya;javieralopeza1@userenacl;Kinesiología
+224092776;Eduardo Ignacio Guerrero Guzmán;eduardoguerrerog@userenacl;Kinesiología
+224261845;Constanza Cecilia Bugueño Navarro;constanzabugueno@userenacl;Kinesiología
+224306342;José Patricio Castro Cortés;josecastroc@userenacl;Kinesiología
+224321864;Felipe Tomás Alzamora Silva;felipealzamoras@userenacl;Kinesiología
+224369751;Renata Antonia Bahamondes Molina;renatabahamondes@userenacl;Kinesiología
+224492057;Giovanny Rubén Rodrigo Cataldo Araya;giovannycataldo@userenacl;Kinesiología
+224687273;Ricardo Ignacio Santelices Muñoz;ricardosantelices@userenacl;Kinesiología
+224698119;Gabriela Fernanda Pizarro Vicencio;gabrielapizarro@userenacl;Kinesiología
+224712898;Sofía Valentina Arredondo Aguirre;sofiaarredondo@userenacl;Kinesiología
+224857675;Elías Alonso Espinoza Vera;eliasespinoza@userenacl;Kinesiología
+224860064;Catalina Nicole Salinas Flores;catalinasalinasf@userenacl;Kinesiología
+224874693;Vicente Antonio Farías Barrios;vicentefarias@userenacl;Kinesiología
+224901178;Gabriel Ignacio González Rojas;gabrielgonzalezr@userenacl;Kinesiología
+224935730;Emilia Francisca Jofré Olivares;emiliajofre@userenacl;Kinesiología
+225038295;Benjamín Yan Zheng Linay Ayabire;benjaminlinay@userenacl;Kinesiología
+225259364;Eytan Josue Espinoza Rojas;eytanespinoza@userenacl;Kinesiología
+225336083;Hellen Araceli Lemus Gallardo;hellenlemusg@userenacl;Kinesiología
+225340382;Yanella Belén Soto Zúñiga;yanellasoto@userenacl;Kinesiología
+225387745;Anabel Lobely Salas Muñoz;anabelsalas@userenacl;Kinesiología
+225401276;Edinson Danilo Antonio Bascuñán Moreno;edinsonbascunan@userenacl;Kinesiología
+225466203;Gaspar Alonso Colarte López;gasparcolarte@userenacl;Kinesiología
+225582084;Harold Alberto Gómez Piñones;haroldgomez@userenacl;Kinesiología
+225592950;Juan Guillermo Cárcamo Alcayaga;juancarcamo@userenacl;Kinesiología
+225978786;Martín Nicolás Frías González;martinfrias@userenacl;Kinesiología
+226085297;Fernanda Valentina García Barraza;fernandagarciab@userenacl;Kinesiología
+226276122;Valentina Antonia Cofré Carvajal;valentinacofre@userenacl;Kinesiología
+226404805;Claudio Antonio Gómez Romero;claudiogomez@userenacl;Kinesiología
+226469095;Agustina Anastasia Rojas Piñones;agustinarojas@userenacl;Kinesiología
+226519459;Maite Isidora Rojas González;maiterojasg@userenacl;Kinesiología
+226786015;Cristopher Andrés Flores Molina;cristopherflores@userenacl;Kinesiología
+226863095;Mayra Trinidad Olivares León;mayraolivares@userenacl;Kinesiología
+227081023;Javiera Paz Rojas Araya;javierarojasa1@userenacl;Kinesiología
+227104570;Viktor Enrique Rojas Gajardo;viktorrojas@userenacl;Kinesiología
+227292245;Vicente Andrés Medina Ahumada;vicentemedina@userenacl;Kinesiología
+22744908k;Gianella Cristina León Santander;gianellaleon@userenacl;Kinesiología
+227586389;Catalina Andrea Salvatierra Rojas;catalinasalvatierra@userenacl;Kinesiología
+268152067;Sherley Anahy Guzman Lora;sherleyguzman@userenacl;Kinesiología
+268925740;Alenny Saray Aldana Linares;alennyaldana@userenacl;Kinesiología
+212727229;Even Deng Sang;evendeng@userenacl;Química
+217973805;Benjamín Alejandro Yáñez Moyano;benjaminyanezm@userenacl;Química
+218821251;Consuelo Simoney Galleguillos Encina;consuelogalleguillose@userenacl;Química
+219794169;Didier Ignacio Vicente Bazán Vega;didierbazan@userenacl;Química
+221845218;Sofía Trinidad Cofré Carmona;sofiacofre@userenacl;Química
+222191238;Constanza Catalina Inostroza Nates;constanzainostroza@userenacl;Química
+22233926k;Martina Florencia Araya Puentes;martinaarayap@userenacl;Química
+222534437;Álvaro Nicolás Cerda Hernández;alvarocerdah@userenacl;Química
+223068200;Claudia Anyelén Álvarez Gutiérrez;claudiaalvarezg@userenacl;Química
+223296491;Dannáe Antonia Requena Parada;dannaerequena@userenacl;Química
+223761631;Ayaren Illari Sáez González;ayarensaez@userenacl;Química
+223806414;Anasol Esperanza Zapata Álvarez;anasolzapata@userenacl;Química
+223973086;Benjamín Vicente Hernández Rojo;benjaminhernandezr@userenacl;Química
+224016522;Horus Martiniano Gallo Santoro;horusgallo@userenacl;Química
+224031866;Isidora Francisca Herrera Dinamarca;isidoraherrera@userenacl;Química
+224042027;Matías Sebastián Castro Zapata;matiascastroz@userenacl;Química
+224206801;Juan Emilio José Lohmayer Espinosa;juanlohmayer@userenacl;Química
+224230508;Catalina Isidora Guerra Cortés;catalinaguerrac@userenacl;Química
+224248083;Alexandra Ignacia Alfaro Reynoso;alexandraalfaror@userenacl;Química
+224292619;Naomí Antonia Reyes Yáñez;naomireyes@userenacl;Química
+224473214;Nathaly Kristy Santibáñez Quijada;nathalysantibanez@userenacl;Química
+224590881;Carlos Joaquín Gonzalo Araya Villalobos;carlosarayav@userenacl;Química
+224595980;Ignacio Rafael Aravena Latapicctt;ignacioaravena@userenacl;Química
+224706715;Pedro Javier Valdivia Cisternas;pedrovaldivia@userenacl;Química
+224787863;Martina Daniela Díaz Robledo;martinadiazr@userenacl;Química
+224806264;Diego Bastián Rojas Michea;diegorojasm1@userenacl;Química
+224957920;Natalia Fernanda Bugueño Campos;nataliabugueno@userenacl;Química
+225138761;Alejandra Rayen Moralera Lucero;alejandramoralera@userenacl;Química
+225147795;Tomás Antonio Zepeda Araya;tomaszepedaa@userenacl;Química
+225178585;Joaquín Matías Áragon Leyton Carvajal;joaquinleyton@userenacl;Química
+225249121;Cianella Valentina Carvajal Mundaca;cianellacarvajal@userenacl;Química
+225256446;Jade Colomba Cepeda Cortés;jadecepeda@userenacl;Química
+225780706;Sebastián Benjamín Espejo López;sebastianespejo@userenacl;Química
+225816832;Sofía Antonia Legua Godoy;sofialegua@userenacl;Química
+225862052;Vicente Daniel Angel Torres;vicenteangel@userenacl;Química
+225976880;Álvaro Nicolás Morales Fuentes;alvaromorales@userenacl;Química
+226185399;Benjamín Eduardo Muñoz Díaz;benjaminmunozd@userenacl;Química
+226298827;Monserrat Antonia Díaz Silva;monserratdiaz@userenacl;Química
+226347127;Jhonn Alexander Pastén Chepillo;jhonnpasten@userenacl;Química
+226417508;Robbie Danilo Rubilar Ardiles;robbierubilar@userenacl;Química
+226612238;Yuri Vicente Valdivia Rojas;yurivaldivia@userenacl;Química
+226614346;Fernanda París Benítez Cerda;fernandabenitez@userenacl;Química
+22667506k;Héctor Mauricio Hernán Rojas Trujillo;hectorrojast@userenacl;Química
+226780750;Emilia Segura Ramos;emiliasegura@userenacl;Química
+22706062k;Benjamín Antonio González Aranda;benjamingonzaleza@userenacl;Química
+209070014;Pablo Mauricio Machuca Corrotea;pablomachuca@userenacl;Química y Farmacia
+212874647;María Jesús Diaz del Rio Cabrera;mariadiazdelrio@userenacl;Química y Farmacia
+216111079;Sebastián Alexis Maluenda Maluenda;sebastianmaluendam@userenacl;Química y Farmacia
+216165721;Luciano Andrés Angel Lepe;lucianoangel@userenacl;Química y Farmacia
+216191862;Isidora Leonor Quinteros Hernández;isidoraquinteros@userenacl;Química y Farmacia
+216736699;Krisly Meylyn Ramírez Pizarro;krislyramirez@userenacl;Química y Farmacia
+218533884;Lucas Vicente Taquias González;lucastaquias@userenacl;Química y Farmacia
+219501862;Alejandro Alfonso Antonio Bascuñán Moreno;alejandrobascunan@userenacl;Química y Farmacia
+220685292;Vicente Ignacio Muñoz Jofré;vicentemunozj@userenacl;Química y Farmacia
+220860450;Isidora Francisca Torres Olivares;isidoratorres@userenacl;Química y Farmacia
+220981290;Joaquín Emilio Muñoz Alcayaga;joaquinmunoza@userenacl;Química y Farmacia
+221422333;Fernanda Sofia Rojas Grez;fernandarojasg@userenacl;Química y Farmacia
+221579100;Trinity Anilda Ogalde Milla;trinityogalde@userenacl;Química y Farmacia
+222060958;Gonzalo Alfonso Hidalgo Yáñez;gonzalohidalgoy@userenacl;Química y Farmacia
+222083958;Catalina Emilia Santos Marín;catalinasantos@userenacl;Química y Farmacia
+222098610;Libertad Antonia Aguilera Schnettler;libertadaguilera@userenacl;Química y Farmacia
+222323150;Katalina Javiera Alarcón Zepeda;katalinaalarcon@userenacl;Química y Farmacia
+222357802;Sofía Andrea Cabrera Núñez;sofiacabrera@userenacl;Química y Farmacia
+222393256;Javiera Paz Antezana Castillo;javieraantezana@userenacl;Química y Farmacia
+222718376;Félix Aarón Guerrero Bugueño;felixguerrero@userenacl;Química y Farmacia
+22273889k;Florencia Belén Manque Contreras;florenciamanque@userenacl;Química y Farmacia
+222749689;Martina Isidora Ledezma González;martinaledezma@userenacl;Química y Farmacia
+223213057;Anabella Carolina Pérez Alcorta;anabellaperez@userenacl;Química y Farmacia
+223287123;Rebeca Monserrat Cortés Pinilla;rebecacortes@userenacl;Química y Farmacia
+223411479;Mayra Constanza Leiva Johnson;mayraleiva@userenacl;Química y Farmacia
+223486703;Camila Alejandra Castillo Rodríguez;camilacastillor@userenacl;Química y Farmacia
+223817130;Daniel Alejandro Flores Vásquez;danielflores@userenacl;Química y Farmacia
+223840590;Benjamín Eduardo Rivera Gálvez;benjaminriverag@userenacl;Química y Farmacia
+223956599;Sofía Alejandra Olivares Lobos;sofiaolivaresl@userenacl;Química y Farmacia
+224008724;Francisca Matilda Cabrera Olivares;franciscacabrera@userenacl;Química y Farmacia
+224050666;Scarleth Sofía Araya Ceura;scarletharaya@userenacl;Química y Farmacia
+224182163;Martín Román Castro Aguilera;martincastro@userenacl;Química y Farmacia
+224330553;Francisca Trinidad Gallardo Ahumada;franciscagallardoa@userenacl;Química y Farmacia
+224572085;Vicente Ignacio Cordero Figueroa;vicentecordero@userenacl;Química y Farmacia
+224918593;Nayarette Victoria Bugueño Rodríguez;nayarettebugueno@userenacl;Química y Farmacia
+225060444;Benjamín Victoriano Egaña Vega;benjaminegana@userenacl;Química y Farmacia
+225137013;Rafael Ignacio Ramírez Santander;rafaelramirez@userenacl;Química y Farmacia
+225334919;Antonella Aillyn Guerrero Ávalos;antonellaguerreroa@userenacl;Química y Farmacia
+22535233k;Agustina Emilia Vázquez Alcayaga;agustinavazquez@userenacl;Química y Farmacia
+225485372;Nicolás Fernando Parra Flores;nicolasparraf@userenacl;Química y Farmacia
+225638195;Kamila Antonella Díaz Ávila;kamiladiaz@userenacl;Química y Farmacia
+225711496;Constanza Valentina Corona Ramirez;constanzacoronar@userenacl;Química y Farmacia
+225716013;Jorge Enrique Arancibia Lizarraga;jorgearancibial@userenacl;Química y Farmacia
+225728461;José Matías Ramírez Zepeda;joseramirezz@userenacl;Química y Farmacia
+225813221;Amira Ayelén Véliz Meneses;amiraveliz@userenacl;Química y Farmacia
+22614885k;Farid Elías Mauad Zumarán;faridmauad@userenacl;Química y Farmacia
+226155074;Rebeca Javiera Escobar Bustos;rebecaescobar@userenacl;Química y Farmacia
+226221875;Vicente Andrés Acevedo Rojas;vicenteacevedor@userenacl;Química y Farmacia
+226659153;Belén Anaí Loredo Ahumada;belenloredo@userenacl;Química y Farmacia
+226776478;Camila Paz Izquierdo Ardiles;camilaizquierdo@userenacl;Química y Farmacia
+226843515;Emilia Florencia Narria Marín;emilianarria@userenacl;Química y Farmacia
+227034181;Nayareth Antonella Puelles Vargas;nayarethpuellesv@userenacl;Química y Farmacia
+227105232;Víctor Manuel Farfán Urqueta;victorfarfan@userenacl;Química y Farmacia
+227201479;Sofía Aurora Traslaviña Manque;sofiatraslavina@userenacl;Química y Farmacia
+199488724;Bryan Maximiliano Galvez Lopez;bryangalvez@userenacl;Pedagogía en Castellano y Filosofía
+199492853;Noel Antonio Cabrera Barraza;noelcabrera@userenacl;Pedagogía en Castellano y Filosofía
+215909433;Fernando Valentín Mutis Oróstica;fernandomutis@userenacl;Pedagogía en Castellano y Filosofía
+218830811;Marcos Antonio López Levicán;marcoslopezl@userenacl;Pedagogía en Castellano y Filosofía
+219854277;Bastián Diego Gómez Angel;bastiangomeza@userenacl;Pedagogía en Castellano y Filosofía
+220433242;Antonella Nevenka Méndez Villegas;antonellamendez@userenacl;Pedagogía en Castellano y Filosofía
+220910334;Ayline Antonia Maluenda Rojas;aylinemaluenda@userenacl;Pedagogía en Castellano y Filosofía
+221076370;Stephanie Isabel Antonia Araya Herrera;stephaniearaya@userenacl;Pedagogía en Castellano y Filosofía
+221356489;Ivannia Josefa Ramírez Zepeda;ivanniaramirez@userenacl;Pedagogía en Castellano y Filosofía
+221668812;Thomas Alejandro Flores Rivera;fabianaflores@userenacl;Pedagogía en Castellano y Filosofía
+222371538;Betsabé Isadora del Rosario Jara Rojas;betsabejara@userenacl;Pedagogía en Castellano y Filosofía
+222603528;Jorge Alejandro Araya Cerezo;jorgearayac4@userenacl;Pedagogía en Castellano y Filosofía
+222713609;Antonia Magdalena Ahumada Esparza;antoniaahumadae@userenacl;Pedagogía en Castellano y Filosofía
+222809800;Sofía Alicia Carrasco Cerda;sofiacarrasco@userenacl;Pedagogía en Castellano y Filosofía
+222988810;Valentina Isidora Tapia Navea;valentinatapian@userenacl;Pedagogía en Castellano y Filosofía
+223924344;Benjamín Mauricio Pozo Valencia;benjaminpozo@userenacl;Pedagogía en Castellano y Filosofía
+224160585;Francisca Antonia López Gerding;franciscalopezg@userenacl;Pedagogía en Castellano y Filosofía
+224216238;Nicolás Felipe Ortiz Correa;nicolasortizc@userenacl;Pedagogía en Castellano y Filosofía
+224232179;Pascal Anaís de Belén Ortiz Tapia;pascalortiz@userenacl;Pedagogía en Castellano y Filosofía
+224247486;Emily Francisca Varas Gajardo;emilyvaras@userenacl;Pedagogía en Castellano y Filosofía
+224286732;Nadia Carolina Alarcón Reyes;nadiaalarcon@userenacl;Pedagogía en Castellano y Filosofía
+224744595;Pía Gabriela Tirado Aguirre;piatirado@userenacl;Pedagogía en Castellano y Filosofía
+224764499;Natalia Antonia Torrealba Rojas;nataliatorrealba@userenacl;Pedagogía en Castellano y Filosofía
+224802226;Paloma Sofía Díaz Galleguillos;palomadiazg@userenacl;Pedagogía en Castellano y Filosofía
+224866860;Amanda Carmín Troncoso Vidaurrazaga;amandatroncoso@userenacl;Pedagogía en Castellano y Filosofía
+224982291;Danisa Javiera Constanza Espinoza Pizarro;danisaespinoza@userenacl;Pedagogía en Castellano y Filosofía
+225076448;Florencia Emilia Flores Flores;florenciaflores@userenacl;Pedagogía en Castellano y Filosofía
+225222533;Martina Belén Toro Anjel;martinatoroa@userenacl;Pedagogía en Castellano y Filosofía
+225656096;Catalina Antonia Rojas Olmos;catalinarojaso1@userenacl;Pedagogía en Castellano y Filosofía
+225748020;Sofía Antonia Salinas Valenzuela;sofiasalinasv@userenacl;Pedagogía en Castellano y Filosofía
+225748365;Dayanne Franchesca Muñoz Lillo;dayannemunoz@userenacl;Pedagogía en Castellano y Filosofía
+225860866;Cristopher Ariel Gómez Angel;cristophergomez@userenacl;Pedagogía en Castellano y Filosofía
+225895457;Florencia Belén Torres Arancibia;florenciatorres@userenacl;Pedagogía en Castellano y Filosofía
+22629239k;Vicente Ignacio Rodríguez Martínez;vicenterodriguez@userenacl;Pedagogía en Castellano y Filosofía
+22636868k;Maximiliano Antonio Muñoz Ortiz;maximilianomunozo@userenacl;Pedagogía en Castellano y Filosofía
+226479376;Adela Antonia Egaña Vásquez;adelaegana@userenacl;Pedagogía en Castellano y Filosofía
+226499989;Amanda Carolina López González;amandalopezg@userenacl;Pedagogía en Castellano y Filosofía
+226590323;Joaquín Hernán Gálvez Liberona;joaquingalvez@userenacl;Pedagogía en Castellano y Filosofía
+22666212k;Antonia Martina Haydée Rojas Díaz;antoniarojasd@userenacl;Pedagogía en Castellano y Filosofía
+108510102;Jeannette Veronica Araya Rojas;jeannettearaya@userenacl;Pedagogía en Historia y Geografía
+210726802;Carolina Andrea Contreras Hidalgo;carolinacontrerash@userenacl;Pedagogía en Historia y Geografía
+216752511;Rodrigo Andrés Romero Rojas;rodrigoromero@userenacl;Pedagogía en Historia y Geografía
+21814537k;Romina Paz Constanza Rivera Cabrera;rominariverac@userenacl;Pedagogía en Historia y Geografía
+218925901;Benjamín Ignacio Villalobos Salfate;benjaminvillaloboss@userenacl;Pedagogía en Historia y Geografía
+220011941;Pascual Facundo Varas Herborn;pascualvaras@userenacl;Pedagogía en Historia y Geografía
+220868931;Santiago Daniel Estupiñán Mejías;santiagoestupinan@userenacl;Pedagogía en Historia y Geografía
+222185858;Valentina Belén Ramos Basaure;valentinaramosb@userenacl;Pedagogía en Historia y Geografía
+222477344;Luis Alexis Cortés Pizarro;luiscortesp@userenacl;Pedagogía en Historia y Geografía
+222737729;Josefa Martina Castañeda Briceño;josefacastaneda@userenacl;Pedagogía en Historia y Geografía
+223114512;Sean Nicolás Gómez Castro;seangomez@userenacl;Pedagogía en Historia y Geografía
+223327397;Héctor Gustavo Alejandro Marín Basaure;hectormarinb@userenacl;Pedagogía en Historia y Geografía
+22354987k;Claudio Amaru Omon Castro;claudioomon@userenacl;Pedagogía en Historia y Geografía
+223633161;Ángel Muñoz Castillo;danielamunozc@userenacl;Pedagogía en Historia y Geografía
+223718647;Fabián Rodrigo Pallero Chirino;fabianpallero@userenacl;Pedagogía en Historia y Geografía
+223722830;Florencia Rosario Pizarro Paz;florenciapizarrop@userenacl;Pedagogía en Historia y Geografía
+224044119;Catalina Isidora Huereman García;catalinahuereman@userenacl;Pedagogía en Historia y Geografía
+224118732;Juxy Simoney Cortés Cortés;juxycortes@userenacl;Pedagogía en Historia y Geografía
+224180209;Antonia Catalina Barrales Delgado;antoniabarralesd@userenacl;Pedagogía en Historia y Geografía
+224287011;Anahi Arlet González Pizarro;anahigonzalez@userenacl;Pedagogía en Historia y Geografía
+22447900k;Catalina Denisse Lemus Ocayo;catalinalemus@userenacl;Pedagogía en Historia y Geografía
+224639899;Maximiliano Enrique Cortés Campos;maximilianocortesc1@userenacl;Pedagogía en Historia y Geografía
+224865813;Yerald Benjamín Wolta Torres;yeraldwolta@userenacl;Pedagogía en Historia y Geografía
+225006644;Benjamín Ignacio Contreras Carmona;benjamincontrerasc2@userenacl;Pedagogía en Historia y Geografía
+225270635;Ismael Mauricio Tapia Araos;ismaeltapia@userenacl;Pedagogía en Historia y Geografía
+225783713;Elizabeth Alondra Trujillo Alarcón;elizabethtrujillo@userenacl;Pedagogía en Historia y Geografía
+226366865;Alan Kímani Wladimir Cortez Flores;alancortez@userenacl;Pedagogía en Historia y Geografía
+226628711;Derwin Lovejee Efraín Adaos González;derwinadaos@userenacl;Pedagogía en Historia y Geografía
+226656138;Javiera Leticia Fernández González;javierafernandezg@userenacl;Pedagogía en Historia y Geografía
+226971831;Isabel Victoria Barraza Jansson;isabelbarraza@userenacl;Pedagogía en Historia y Geografía
+227464038;Isidora Edecia Ascencio Olmos;isidoraascencio@userenacl;Pedagogía en Historia y Geografía
+227516518;Mauricio Ignacio Fuentes Hernández;mauriciofuentes@userenacl;Pedagogía en Historia y Geografía
+214677121;Matías Ignacio Rivera Berenguela;matiasriverab@userenacl;Pedagogía en Inglés
+216131541;Natalia Angélica Almonacid Olivares;nataliaalmonacid@userenacl;Pedagogía en Inglés
+216195981;Mildred Ellette Contreras Alcayaga;mildredcontreras@userenacl;Pedagogía en Inglés
+216273591;Jannis Constanza Antonia López Hurtado;jannislopez@userenacl;Pedagogía en Inglés
+216288882;Florencia Isidora Cubillos Cortez;florenciacubillosc@userenacl;Pedagogía en Inglés
+219753527;Trinidad Isidora Trujillo Reyes;trinidadtrujillo@userenacl;Pedagogía en Inglés
+219940289;Álvaro Ignacio Zuleta Grez;alvarozuleta@userenacl;Pedagogía en Inglés
+221762045;Sebastian Antonio González Astudillo;sebastiangonzaleza1@userenacl;Pedagogía en Inglés
+22269860k;Sofía Esperanza Veas Rojas;sofiaveas@userenacl;Pedagogía en Inglés
+22284200k;Belén Alejandra Monroy Godoy;belenmonroy@userenacl;Pedagogía en Inglés
+222873827;Adán Gabriel Morales Barrera;adanmorales@userenacl;Pedagogía en Inglés
+222952433;Renato Alonso Pinochet Escobar;renatopinochet@userenacl;Pedagogía en Inglés
+223295428;Bárbara Valentina Cortés Zepeda;barbaracortesz@userenacl;Pedagogía en Inglés
+223442285;Emilia Ignacia Araya Chacana;emiliaaraya@userenacl;Pedagogía en Inglés
+223660037;Diego Alonso Paredes Aliaga;diegoparedes@userenacl;Pedagogía en Inglés
+223660738;Scarlett Alejandra González Marín;scarlettgonzalez@userenacl;Pedagogía en Inglés
+223795471;Lius Katalina Castañeda Aguirre;liuscastaneda@userenacl;Pedagogía en Inglés
+223833756;Fernanda Sofía Williams Neira;fernandawilliams@userenacl;Pedagogía en Inglés
+223880576;Millaray Sayen Bruna Robledo;millaraybruna@userenacl;Pedagogía en Inglés
+223932398;Maite Catalina Moreno Espínola;maitemoreno@userenacl;Pedagogía en Inglés
+224605935;Maximiliano Vladimir Díaz Bórquez;maximilianodiazb@userenacl;Pedagogía en Inglés
+22480475k;Florencia Rafaela Escobar Rodríguez;florenciaescobarr@userenacl;Pedagogía en Inglés
+225070954;Joaquín Elías Figueroa Arancibia;joaquinfigueroa@userenacl;Pedagogía en Inglés
+225166528;Noelia Anaís Pastén Curín;noeliapasten@userenacl;Pedagogía en Inglés
+22527214k;Francisco Andrés Colman Barahona;franciscocolman@userenacl;Pedagogía en Inglés
+225544182;Benjamín Elías Miranda Infanta;benjaminmirandai@userenacl;Pedagogía en Inglés
+225912513;Máximo Clemente Rebuelta Vega;maximorebuelta@userenacl;Pedagogía en Inglés
+225932409;Joaquín Alfredo Esbry Gallegos;joaquinesbry@userenacl;Pedagogía en Inglés
+226174192;Fernanda Pilar Rivera Gálvez;fernandariverag@userenacl;Pedagogía en Inglés
+226395644;Dania Angélica Tapia Tapia;daniatapiat@userenacl;Pedagogía en Inglés
+226398147;Celeste Antonia Vega Castillo;celestevega@userenacl;Pedagogía en Inglés
+226416374;Haylin Alessandra Flores Barrios;haylinflores@userenacl;Pedagogía en Inglés
+226461604;Gabriel Fernando Enoch Guerra Maluenda;gabrielguerram@userenacl;Pedagogía en Inglés
+227047577;Paz Mia Pascal Rodríguez Gómez;pazrodriguez@userenacl;Pedagogía en Inglés
+227123893;Millaray Antonia Clavería Flores;millarayclaveria@userenacl;Pedagogía en Inglés
+227336390;Ariela Marina Flores Aguirre;arielaflores@userenacl;Pedagogía en Inglés
+227497246;Elizabeth Sofía Reyes Rojas;elizabethreyesr@userenacl;Pedagogía en Inglés
+227513071;Abigail Dareth Rojas Rojas;abigailrojas@userenacl;Pedagogía en Inglés
+227568429;Sebastián Mauricio Gómez Valdivia;sebastiangomezv@userenacl;Pedagogía en Inglés
+22882416k;Leo Valero Godoy;sofiavalero@userenacl;Pedagogía en Inglés
+240471051;Naely Cielo Ito Alanguia;naelyito@userenacl;Pedagogía en Inglés
+208842897;Julián Estefano Pérez Gallo;julianperez@userenacl;Pedagogía en Educación Musical
+214316641;Cristopher René Cáceres Álvarez;cristophercaceres@userenacl;Pedagogía en Educación Musical
+215479544;Carlos Guillermo Barrera Firmani;carlosbarrera@userenacl;Pedagogía en Educación Musical
+219863926;Vicente Benjamin Pardo Lillo;vicentepardo@userenacl;Pedagogía en Educación Musical
+219950705;Sebastian Patricio Espinoza González;sebastianespinozag@userenacl;Pedagogía en Educación Musical
+22140730k;Martin Oliver Seura Muñoz;martinseura@userenacl;Pedagogía en Educación Musical
+222065232;Antonia Elizabeth Barraza Tello;antoniabarraza@userenacl;Pedagogía en Educación Musical
+222648874;Isidora Antonia Segovia Ibarra;isidorasegovia@userenacl;Pedagogía en Educación Musical
+223311318;Esteban Matías Valenzuela Araya;estebanvalenzuela@userenacl;Pedagogía en Educación Musical
+223751938;Simón Ben jo Orellana Irarrázabal;simonorellana@userenacl;Pedagogía en Educación Musical
+224510977;Paulo César Palma Ramírez;paulopalma@userenacl;Pedagogía en Educación Musical
+224901291;Felipe Enrique Soto Santana;felipesoto@userenacl;Pedagogía en Educación Musical
+224973446;Felipe Alejandro Rivera Guerra;feliperiverag1@userenacl;Pedagogía en Educación Musical
+225148066;Joely Mariel Araya González;joelyaraya@userenacl;Pedagogía en Educación Musical
+225701652;Analia Katiuska Robles Pizarro;analiarobles@userenacl;Pedagogía en Educación Musical
+226102760;Benjamín Ignacio Sanchez López;benjaminsanchez@userenacl;Pedagogía en Educación Musical
+226151516;Amaro Ignacio Rojas Olivares;amarorojas@userenacl;Pedagogía en Educación Musical
+226436618;Matías Alonso Carmona Ampuero;matiascarmonaa@userenacl;Pedagogía en Educación Musical
+226454152;Simón Gabriel Pastén Rozas;simonpasten@userenacl;Pedagogía en Educación Musical
+227072644;Mateo Echeverría Ossandón;mateoecheverria@userenacl;Pedagogía en Educación Musical
+227164190;Pablo Antonio Cerda Ramírez;pablocerdar@userenacl;Pedagogía en Educación Musical
+17846504k;Sebastian Alejandro Espinoza Miranda;sebastianespinozam1@userenacl;Licenciatura en Música
+218115667;Benjamín Ignacio Lobos Zapata;benjaminlobosz@userenacl;Licenciatura en Música
+221033914;Adrián Esteban Ayala Ravanal;adrianayala@userenacl;Licenciatura en Música
+221297334;Benjamín Antonio Pino Calderón;benjaminpino@userenacl;Licenciatura en Música
+222079322;Agustín Ignacio Cotal Pereira;agustincotal@userenacl;Licenciatura en Música
+222631254;Nick Jesús Rodríguez Zárate;nickrodriguez@userenacl;Licenciatura en Música
+222864941;Dylan Joel Maldonado Valdés;dylanmaldonado@userenacl;Licenciatura en Música
+223582222;Víctor Javier Quintrel Guenteo;victorquintrel@userenacl;Licenciatura en Música
+224013922;Simón Ariel Muñoz Baez;simonmunoz@userenacl;Licenciatura en Música
+224434650;Amaro Hernán Eduardo Urrutia Barboza;amarourrutia@userenacl;Licenciatura en Música
+224725205;Martín Fernando Vistoso Vega;martinvistoso@userenacl;Licenciatura en Música
+22513863k;Alonso Eduardo Esteban Aguilera Salinas;alonsoaguilera@userenacl;Licenciatura en Música
+225752567;Rodrigo Alonso Alfaro Jaime;rodrigoalfaroj@userenacl;Licenciatura en Música
+225787115;Diego Pablo Tabilo Araya;diegotabiloa@userenacl;Licenciatura en Música
+225816077;Julieta Irene Varas López;julietavaras@userenacl;Licenciatura en Música
+225925356;Benjamín Leonel Salazar Martínez;benjaminsalazar@userenacl;Licenciatura en Música
+225959196;Sofía Sarabati Ramos Vargas;sofiaramos@userenacl;Licenciatura en Música
+226391649;Lukas Vicente Álvarez Álvarez;lukasalvarez@userenacl;Licenciatura en Música
+226704264;Josefina Paz Kolimbatovic Urquieta;josefinakolimbatovic@userenacl;Licenciatura en Música
+227064897;Agustina Paz Tapia Alcayaga;agustinatapia@userenacl;Licenciatura en Música
+227073411;Antonia Belén Arteaga Paillacar;antoniaarteaga@userenacl;Licenciatura en Música
+237790839;Patricio Gabriel Uriel Cisternas Silva;patriciocisternas@userenacl;Licenciatura en Música
+247557911;Deizi Saca Morales;deizisaca@userenacl;Licenciatura en Música
+287641303;Maria Juliana Quimbay Plazas;mariaquimbay@userenacl;Licenciatura en Música
+217330319;Valentina Ignacia Pérez González;valentinaperezg@userenacl;Pedagogía en Educación Parvularia
+221087291;Isabella Velasco Quinteros;isabellavelasco@userenacl;Pedagogía en Educación Parvularia
+222263514;Keytel Danae Pinilla Figueroa;keytelpinilla@userenacl;Pedagogía en Educación Parvularia
+222982332;Mia Antonella Vallejos Bono;miavallejos@userenacl;Pedagogía en Educación Parvularia
+223393365;Camila Roxana Aguilera Ite;camilaaguilerai@userenacl;Pedagogía en Educación Parvularia
+223957382;Yaritza Scarlet Vega Santander;yaritzavega@userenacl;Pedagogía en Educación Parvularia
+224945116;Constanza Emilia Sánchez Sotoconil;constanzasanchez@userenacl;Pedagogía en Educación Parvularia
+225004978;Sofía Dannea Guzmán Arancibia;sofiaguzman@userenacl;Pedagogía en Educación Parvularia
+225193029;Francisca Paz Pizarro Díaz;franciscapizarrod@userenacl;Pedagogía en Educación Parvularia
+225236208;Fernanda Isidora Villega Rojas;fernandavillega@userenacl;Pedagogía en Educación Parvularia
+225636664;Anthonia Stephania Rojas Valdivia;anthoniarojas@userenacl;Pedagogía en Educación Parvularia
+225658137;Constanza Javiera Gálvez Araya;constanzagalveza@userenacl;Pedagogía en Educación Parvularia
+225896879;Raffaella Anaís Pizarro Contreras;raffaellapizarro@userenacl;Pedagogía en Educación Parvularia
+226480676;Catalina Gómez Zarricueta;catalinagomezz@userenacl;Pedagogía en Educación Parvularia
+226529632;Tabata Monserrat Anahis Navarro Chávez;tabatanavarro@userenacl;Pedagogía en Educación Parvularia
+226607927;Kambry Antonia Lobos Lafertt;kambrylobos@userenacl;Pedagogía en Educación Parvularia
+227205695;Yenifer Isabel del Carmen Meneses Milla;yenifermeneses@userenacl;Pedagogía en Educación Parvularia
+227284013;Allison Noelia Muñoz Zamora;allisonmunoz@userenacl;Pedagogía en Educación Parvularia
+227363193;Javiera Monserrat Barrios Alcayaga;javierabarrios@userenacl;Pedagogía en Educación Parvularia
+25719518k;Valentina Antonia Sánchez Carrasco;valentinasanchezc@userenacl;Pedagogía en Educación Parvularia
+196600272;Francisca Carolina Cortes Godoi;franciscacortesg1@userenacl;Pedagogía en Educación General Básica
+201271428;Catalina Andrea San Juan Valdivia;catalinasanjuan@userenacl;Pedagogía en Educación General Básica
+218519229;Carolina Antonia Jerez Gallardo;carolinajerez@userenacl;Pedagogía en Educación General Básica
+221245296;Josefa Belén Núñez Farfán;josefanunez@userenacl;Pedagogía en Educación General Básica
+221345916;Fernanda Angélica Valencia Cortés;fernandavalencia@userenacl;Pedagogía en Educación General Básica
+221721217;Valentina del Carmen Araya Villarroel;valentinaarayav1@userenacl;Pedagogía en Educación General Básica
+222180325;Rafael Ernesto Barraza Maya;rafaelbarraza@userenacl;Pedagogía en Educación General Básica
+222322561;Millaray Antonia Guzmán Godoy;millarayguzmang@userenacl;Pedagogía en Educación General Básica
+223278493;Alaniz Rayen Miranda Millán;alanizmiranda@userenacl;Pedagogía en Educación General Básica
+223490239;Katrina Andrea Castro Araya;katrinacastro@userenacl;Pedagogía en Educación General Básica
+223919073;Francisca Elizabeth Neumann Marín;franciscaneumann@userenacl;Pedagogía en Educación General Básica
+224509928;Paula Antonia Villagra Calderón;paulavillagra@userenacl;Pedagogía en Educación General Básica
+225173567;Itzamara Ivette Salazar Hidalgo;itzamarasalazar@userenacl;Pedagogía en Educación General Básica
+225328919;Jennyfer Stephanie Álvarez Acevedo;jennyferalvarez@userenacl;Pedagogía en Educación General Básica
+225339414;Carolina Elizabeth Pérez Zepeda;carolinaperez@userenacl;Pedagogía en Educación General Básica
+225706611;Giuliana Annielle Herrera Rocco;giulianaherrerar@userenacl;Pedagogía en Educación General Básica
+226585443;Camila Constanza Ossandón Antiquera;camilaossandona1@userenacl;Pedagogía en Educación General Básica
+226746013;Sofía Katherine Ramos Rojas;sofiaramosr@userenacl;Pedagogía en Educación General Básica
+217606845;Miriel Tinuviel Caro Madrid;mirielcaro@userenacl;Pedagogía en Educación Diferencial
+218568556;Victoria Sofía Rojas Carvajal;victoriarojasc2@userenacl;Pedagogía en Educación Diferencial
+221655168;Florencia Rocio Pizarro Rodríguez;florenciapizarro@userenacl;Pedagogía en Educación Diferencial
+222361338;Sara Antonella Páez Páez;sarapaez@userenacl;Pedagogía en Educación Diferencial
+222652855;Amalia Jesús Espejo Clavería;amaliaespejo@userenacl;Pedagogía en Educación Diferencial
+223201644;Antonella Paz Pizarro Rivera;antonellapizarror@userenacl;Pedagogía en Educación Diferencial
+223425925;Fernanda Carolina Gallo Lamas;fernandagallo@userenacl;Pedagogía en Educación Diferencial
+223871739;Antonia Esperanza González Cuellar;antoniagonzalezc@userenacl;Pedagogía en Educación Diferencial
+224440499;Valentina Alicia Cortés Carmona;valentinacortesc2@userenacl;Pedagogía en Educación Diferencial
+224504071;Mónica del Carmen Barraza Núñez;monicabarraza@userenacl;Pedagogía en Educación Diferencial
+224505396;Scarlet Polet Cerda Araya;scarletcerda@userenacl;Pedagogía en Educación Diferencial
+224657404;Claudia Francisca Barraza Rodríguez;claudiabarrazar@userenacl;Pedagogía en Educación Diferencial
+224792697;María Isabel Varas Muñoz;mariavarasm@userenacl;Pedagogía en Educación Diferencial
+225182949;Martina Javiera Galleguillos Ortiz;martinagalleguilloso@userenacl;Pedagogía en Educación Diferencial
+225709130;Valentina Isabel López Carvajal;valentinalopezc1@userenacl;Pedagogía en Educación Diferencial
+225735913;Renata Lucía Leyton Villalobos;renataleyton@userenacl;Pedagogía en Educación Diferencial
+225750033;Jade Florencia Rivera Rodríguez;jaderivera@userenacl;Pedagogía en Educación Diferencial
+226230149;Mayte Monserrat Mery Contreras;maytemery@userenacl;Pedagogía en Educación Diferencial
+226373322;Alanis Antonia Castro Olivares;alaniscastro@userenacl;Pedagogía en Educación Diferencial
+226442715;Josefa Antonia Bruna Leiva;josefabruna@userenacl;Pedagogía en Educación Diferencial
+226742468;Sophia Antonia Vega Godoy;sophiavega@userenacl;Pedagogía en Educación Diferencial
+226748369;Martina Ignacia Yáñez Rojas;martinayanezr@userenacl;Pedagogía en Educación Diferencial
+226794913;Fabián Alfredo Collao Carrillo;fabiancollaoc@userenacl;Pedagogía en Educación Diferencial
+227168757;Sofía Francisca Órdenes Tapia;sofiaordenest@userenacl;Pedagogía en Educación Diferencial
+227299959;Martina Belén López Hernández;martinalopezh@userenacl;Pedagogía en Educación Diferencial
+227399449;Estefanía Isabel Cortés Bugueño;estefaniacortesb@userenacl;Pedagogía en Educación Diferencial
+288339880;Victoria Sarahis Urbina Morales;victoriaurbina@userenacl;Pedagogía en Educación Diferencial
+199450158;Maria Francia Hernandez Palma;mariahernandezp@userenacl;Pedagogía en Educación General Básica
+20091175k;Eva Maria Carvajal Solar;evacarvajal@userenacl;Pedagogía en Educación General Básica
+218449794;Scarleth Antonia Alfaro Rojas;scarlethalfaro@userenacl;Pedagogía en Educación General Básica
+219440421;Antonella Ignacia Valentina Robles Castillo;antonellarobles@userenacl;Pedagogía en Educación General Básica
+219608969;Franchesco Ronaldo Araya Egaña;franchescoaraya@userenacl;Pedagogía en Educación General Básica
+220425622;Claudia Elizabeth Castillo Robles;claudiacastillor@userenacl;Pedagogía en Educación General Básica
+22091500k;Anahis Paskale Contreras Maluenda;anahiscontrerasm@userenacl;Pedagogía en Educación General Básica
+221060350;Martina Alejandra Saavedra Vallejos;martinasaavedra@userenacl;Pedagogía en Educación General Básica
+221348427;Camila Milena Ortiz González;camilaortizg@userenacl;Pedagogía en Educación General Básica
+222616506;Antonia Rafaella Cabrera Gallegos;antoniacabrera@userenacl;Pedagogía en Educación General Básica
+223056652;Sarang Lim Cortés Valdés;sarangcortes@userenacl;Pedagogía en Educación General Básica
+224028822;Diana Christal López Barraza;dianalopez@userenacl;Pedagogía en Educación General Básica
+225285152;Ivania Damarys Rojas Alfaro;ivaniarojasa@userenacl;Pedagogía en Educación General Básica
+22548502k;Paula Andrea Polette Godoy Flores;paulagodoyf@userenacl;Pedagogía en Educación General Básica
+225678073;Franciska Aylin Parra Pereira;franciskaparra@userenacl;Pedagogía en Educación General Básica
+174521743;Fernando Patricio Olivares Castro;fernandoolivares@userenacl;Auditoría
+209829762;Bastián Emilio Guerra Ayala;bastianguerra@userenacl;Auditoría
+214844761;Juan Antonio Álvarez Gahona;juanalvarezg1@userenacl;Auditoría
+216833007;Víctor Adolfo Núñez Aracena;victornuneza@userenacl;Auditoría
+216842324;Amaro León Vargas López;amarovargas@userenacl;Auditoría
+218942857;Sergio José Baraqui Carvajal;sergiobaraqui@userenacl;Auditoría
+219783337;Javiera Antonella de Maria Tapia Cisternas;javieratapiac1@userenacl;Auditoría
+22012813k;Yuliana Kenitt Monzón Vega;yulianamonzon@userenacl;Auditoría
+220757269;Vicente Joel Andrés Velásquez Olivares;vicentevelasquezo@userenacl;Auditoría
+222033217;Yamaira Dannish Navarro Lagues;yamairanavarro@userenacl;Auditoría
+223503837;Sofía Macarena Muñoz Ahumada;sofiamunoz@userenacl;Auditoría
+223691110;Emilia Gabriela Vergara Beltrán;emiliavergara@userenacl;Auditoría
+223698336;Karen Daniela Paz Rojas Valenzuela;karenrojas@userenacl;Auditoría
+224337140;Katalina Alexandra Vergara Villalobos;katalinavergara@userenacl;Auditoría
+224476833;Christopher Alonso Pérez Molina;christopherperez@userenacl;Auditoría
+224647417;Yakutsca Ivonnet Castillo Inostroza;yakutscacastillo@userenacl;Auditoría
+224707991;Rosario Gabriela Zambra Zambra;rosariozambra@userenacl;Auditoría
+224771614;Gabriel Marcelo Durán Tabilo;gabrielduran@userenacl;Auditoría
+224809131;Monsserrat Antonia Campos Jorquera;monsserratcampos@userenacl;Auditoría
+224820658;Pablo Said Véliz Alucema;pabloveliza@userenacl;Auditoría
+224851162;Dylan Adair Guerrero Maluenda;dylanguerrero@userenacl;Auditoría
+224979282;Kathleen Georgeth Silva Manríquez;kathleensilva@userenacl;Auditoría
+22516410k;Blanca Valentina Urqueta Arriagada;blancaurqueta@userenacl;Auditoría
+225167974;Martina Isabel Rojas Rojas;martinarojas@userenacl;Auditoría
+225194874;Anaís de la Paz Varas Michea;anaisvaras@userenacl;Auditoría
+225222193;Ignacia Antonia Aguilera Downey;ignaciaaguilera@userenacl;Auditoría
+225325626;Sofía Ailyn Yáñez Ibacache;sofiayanez@userenacl;Auditoría
+225346399;Paskal Graciela Cabello Carrasco;paskalcabello@userenacl;Auditoría
+225419795;Einzige Tanisha Lynette Ceriche Draguicevic;einzigeceriche@userenacl;Auditoría
+225429790;Catalina Montserrat Valencia Henríquez;catalinavalenciah@userenacl;Auditoría
+225493766;Anahí Antonia Hidalgo Contreras;anahihidalgo@userenacl;Auditoría
+225517231;Vicente Ignacio Gálvez Fuentes;vicentegalvez@userenacl;Auditoría
+225533318;Sofía Angélica Maldonado Campusano;sofiamaldonado@userenacl;Auditoría
+225703728;Anaís Paskal Araya López;anaisarayal@userenacl;Auditoría
+225731349;Sofía Catalina Acuña López;sofiaacuna@userenacl;Auditoría
+225870217;Karol Lissette Torrejón Martínez;karoltorrejonm@userenacl;Auditoría
+225871612;Nayareth Eliett Acosta Araya;nayarethacosta@userenacl;Auditoría
+225918384;Lía Catalina Rodríguez García;liarodriguez@userenacl;Auditoría
+225931917;Constanza Pilar Ramírez Rivera;constanzaramirezr@userenacl;Auditoría
+22598302k;Brandon Gabriel Velásquez Canihuante;brandonvelasquez@userenacl;Auditoría
+225994897;Matías Andrés González Araya;matiasgonzaleza1@userenacl;Auditoría
+226080082;Isidora Ignacia García Maluenda;isidoragarciam@userenacl;Auditoría
+226090908;Matías Paolo Cortés Angel;matiascortesa1@userenacl;Auditoría
+226158286;Martín Alonso Rojas Rubilar;martinrojasr@userenacl;Auditoría
+226202048;Melany Alexandra Trigo Vega;melanytrigo@userenacl;Auditoría
+226301879;Sihomara Valentina Campusano Robles;sihomaracampusano@userenacl;Auditoría
+226400222;José Tomás Cuellar Lazo;josecuellarl@userenacl;Auditoría
+226449396;Hans Alexis Leiva Arrieta;hansleiva@userenacl;Auditoría
+226534520;Johed Aníbal Parraguez Mercado;johedparraguez@userenacl;Auditoría
+226643923;Josefa Leonor Salas Contador;josefasalas@userenacl;Auditoría
+226732950;Hasmara Susanly Lanas Díaz;hasmaralanas@userenacl;Auditoría
+226844058;Sofía Belén Villalobos Gálvez;sofiavillalobosg@userenacl;Auditoría
+226901604;Nayibe Alexandra Martínez Véliz;nayibemartinez@userenacl;Auditoría
+227019735;Catalina Antonia Rodríguez Tobar;catalinarodriguezt@userenacl;Auditoría
+227077964;Ricardo Ignacio Rojas Carvajal;ricardorojasc2@userenacl;Auditoría
+227203080;Karen Alejandra Alfaro Huertas;karenalfaro@userenacl;Auditoría
+265271855;Yennifer Alejandra Barraza Flores;yenniferbarraza@userenacl;Auditoría
+269299584;Maria Jean ;mariajean@userenacl;Auditoría
+279683293;Esteban Javier Rosas Rozo;estebanrosas@userenacl;Auditoría
+280696609;Viktor Daniel Morao Rodriguez;viktormorao@userenacl;Auditoría
+150380553;Isidora Lorena Morales Campusano;isidoramorales@userenacl;Traducción Inglés Español
+210223495;Gonzalo Tomás Salas Núñez;gonzalosalasn@userenacl;Traducción Inglés Español
+216939514;Sofía Esperanza Rosales Mertens;sofiarosales@userenacl;Traducción Inglés Español
+217633354;Belén Aylin Rojas Vega;belenrojasv@userenacl;Traducción Inglés Español
+218920233;Daniela Fernanda Torres Rojas;danielatorresr@userenacl;Traducción Inglés Español
+220159965;Valeria Elisa Beoriza Lobos;valeriabeoriza@userenacl;Traducción Inglés Español
+220756521;Juan Carlos Rodrigo Madariaga Aguirre;juanmadariagaa@userenacl;Traducción Inglés Español
+220953467;Krishna Antonela Piñones Dubo;krishnapinones@userenacl;Traducción Inglés Español
+221082842;Daniela Paz Opazo Cortés;danielaopazo@userenacl;Traducción Inglés Español
+222196604;Laura Constanza Araya Araya;lauraarayaa@userenacl;Traducción Inglés Español
+222735424;Eimily Sofía Pastén Tapia;eimilypasten@userenacl;Traducción Inglés Español
+223134858;Lucas Maximiliano Barrera Donoso;lucasbarrera@userenacl;Traducción Inglés Español
+223705391;Antares Costa Iglesias;antarescosta@userenacl;Traducción Inglés Español
+223833055;Flor Margarita Villalobos Araya;florvillalobos@userenacl;Traducción Inglés Español
+224633092;Nayareht Fernanda González Honores;nayarehtgonzalez@userenacl;Traducción Inglés Español
+224901011;Javiera Antonia González Mondaca;javieragonzalezm@userenacl;Traducción Inglés Español
+224956754;Victoria Isabel Iturriaga Guamán;victoriaiturriaga@userenacl;Traducción Inglés Español
+225571511;Mauro Adán Navarro Albarrán;mauronavarro@userenacl;Traducción Inglés Español
+225662142;Christopher Joaquín Andrés Bascur Bugueño;christopherbascur@userenacl;Traducción Inglés Español
+226233644;Constanza Valentina Sepúlveda Viera;constanzasepulveda@userenacl;Traducción Inglés Español
+226396128;Martina Ignacia Iriarte González;martinairiarte@userenacl;Traducción Inglés Español
+226464549;Franchesca Danae Barraza Vega;franchescabarraza@userenacl;Traducción Inglés Español
+226841377;Oscar Maximiliano Bustos Ulloa;oscarbustos@userenacl;Traducción Inglés Español
+227244763;Valentina Ignacia Pastén Monterrey;valentinapastenm@userenacl;Traducción Inglés Español
+264856256;Antonia Paz Espinoza Tapia;antoniaespinoza@userenacl;Traducción Inglés Español
+273936025;Deinni Sharick Garcia Zapata;deinnigarcia@userenacl;Traducción Inglés Español
+215231941;Juan Carlos Daniel Barraza Barrera;juanbarrazab@userenacl;Psicología
+216832868;Constanza Alondra Adaos Rojas;constanzaadaos@userenacl;Psicología
+217648351;Catalina de los Angeles Rebeco Leiva;catalinarebeco@userenacl;Psicología
+21994134k;Martina Belén Castillo Pizarro;martinacastillop@userenacl;Psicología
+220574970;Nicoleth Almendra Angel Carvajal;nicolethangel@userenacl;Psicología
+22079511k;Javiera Catalina Arenas Araya;javieraarenas@userenacl;Psicología
+221020626;Maximiliano Ricardo Farías Hermosilla;maximilianofarias@userenacl;Psicología
+221363302;Axel Rodrigo Ramírez Velásquez;axelramirez@userenacl;Psicología
+221780892;Emily Rayén Flores Munita;emilyflores@userenacl;Psicología
+221994531;Micaela Paz Rodríguez Jorquera;micaelarodriguez@userenacl;Psicología
+222100704;Gabriel Vicente Tapia Araya;gabrieltapiaa@userenacl;Psicología
+222106583;Franchesca Dolly Magdalena Alfaro Alfaro;franchescaalfaro@userenacl;Psicología
+222107202;Scarleth Rayen Alexia Castro Carvajal;scarlethcastro@userenacl;Psicología
+222390478;Trinidad Rayhen Muñoz Toledo;trinidadmunoz@userenacl;Psicología
+222497094;Agustina Victoria Anjel Corral;agustinaanjel@userenacl;Psicología
+223452477;Mark Javier Carvajal Piñones;constanzacarvajalp@userenacl;Psicología
+223490255;Paula Antonia Marín Cárdenas;paulamarinc@userenacl;Psicología
+223608906;Franklin Vicente Pastén Daza;franklinpasten@userenacl;Psicología
+223779077;Simón Pablo Cavieres Díaz;simoncavieres@userenacl;Psicología
+224370318;Emilio Vicente Dabed Fica;emiliodabedf@userenacl;Psicología
+224471270;Pascale Valentina Borja Monsalve;pascaleborja@userenacl;Psicología
+224585543;Fernanda Belén Corvalán Barrera;fernandacorvalan@userenacl;Psicología
+224726309;Antonella Anaís Zavala Castro;antonellazavala@userenacl;Psicología
+224772599;Luciano Andrés Cuellar Vicencio;lucianocuellar@userenacl;Psicología
+224938179;Cristopher Ismael Barrios Trigo;cristopherbarrios@userenacl;Psicología
+225015538;Ashleey Catalina Espino Vega;ashleeyespino@userenacl;Psicología
+225149720;Mayra Selina Brito Codorniú;mayrabrito@userenacl;Psicología
+22524314k;Matías Alexander Quiroz Muñoz;matiasquirozm@userenacl;Psicología
+225255237;Almendra Millaray García García;almendragarciag@userenacl;Psicología
+225261806;Madeleine Belén Ramirez Ramírez;madeleineramirez@userenacl;Psicología
+22545101k;Martina Esperanza Araya Rojas;martinaarayar@userenacl;Psicología
+225486840;Benjamín Nicolás Toro Aguilar;benjamintoroa@userenacl;Psicología
+22552324k;Fabiana Eloísa Flores Espinoza;fabianaflorese@userenacl;Psicología
+225533962;Rosa Poleth Flores Ayala;rosafloresa@userenacl;Psicología
+225578648;Cristóbal Eduardo Piñones Guzmán;cristobalpinones@userenacl;Psicología
+22562478k;Sebastián Alonso Ibarra López;sebastianibarral@userenacl;Psicología
+225685274;Amparo Andrea Quiroga Galleguillos;amparoquiroga@userenacl;Psicología
+225702160;Constanza Belén Albanez Tapia;constanzaalbanez@userenacl;Psicología
+225751234;Sofía Noemí Balanda Brandt;sofiabalanda@userenacl;Psicología
+226083081;Francisca Ignacia Jorquera Jofré;franciscajorqueraj@userenacl;Psicología
+226105557;Vicente Antonio García Mahnert;vicentegarcia@userenacl;Psicología
+22611405k;Fernanda Elizabeth Trujillo Pallante;fernandatrujillop@userenacl;Psicología
+226201572;Benjamín Ignacio Guzmán Saldívar;benjaminguzman@userenacl;Psicología
+226512845;Steffi Esperanza Antiquera Castillo;steffiantiquera@userenacl;Psicología
+226557350;Josefa Agustina Olivares Cerda;josefaolivaresc@userenacl;Psicología
+226658505;Alejandra Antonia Cortés Jeraldo;alejandracortesj@userenacl;Psicología
+226696695;Martina Norelle Peralta Ramos;martinaperaltar@userenacl;Psicología
+226820140;Mikaela Katalina Villegas Ramírez;mikaelavillegas@userenacl;Psicología
+226902813;Javiera Antonia Sánchez Rojas;javierasanchezr@userenacl;Psicología
+227196653;Victoria Carolina Cataldo Torres;victoriacataldo@userenacl;Psicología
+227627131;Gabriela Constanza Omara Ramos Díaz;gabrielaramos@userenacl;Psicología
+244965113;Juanita Tapias Arias;juanitatapias@userenacl;Psicología
+270176666;Valeria Fernanda Gutierrez Arias;valeriagutierreza@userenacl;Psicología
+272350191;Isabella de los Angeles Briñez Maza;isabellabrinez@userenacl;Psicología
+183181270;Alejandro Esteban Araya Molina;alejandroarayam@userenacl;Periodismo
+186889673;Nicolas Andres Jofre Rojas;nicolasjofre@userenacl;Periodismo
+210222758;Vicente Eduardo Sulantay Gutiérrez;vicentesulantay@userenacl;Periodismo
+211394250;Pía Catalina Marín Tapia;piamarin@userenacl;Periodismo
+212487791;Tania Fiorella Belén Aracena Tirado;taniaaracena@userenacl;Periodismo
+215149013;Ashley Camille Vidal Avilés;ashleyvidal@userenacl;Periodismo
+21680287k;Mauricio Ignacio Molina Muñoz;mauriciomolinam@userenacl;Periodismo
+21693282k;Eros Kenai Gómez Gómez;erosgomez@userenacl;Periodismo
+219553862;Konstanza Estefanya Rodríguez Ahumada;konstanzarodriguez@userenacl;Periodismo
+219859619;Catalina Ignacia González Saavedra;catalinagonzalezs@userenacl;Periodismo
+220663108;Lucas Maximiliano Vergara Gómez;lucasvergara@userenacl;Periodismo
+220863735;Antonia Isabella Cortés Maurel;antoniacortesm@userenacl;Periodismo
+221256042;Anahís Alejandra Adones Díaz;anahisadones@userenacl;Periodismo
+221281292;Vicente Constantino Moore Vergara;vicentemoore@userenacl;Periodismo
+221333276;Nayeli Athenea López Berna;nayelilopez@userenacl;Periodismo
+221421418;Gaspar Alonso Collao Araya;gasparcollao@userenacl;Periodismo
+221465199;Ara Ayelen Riveros Pino;arariveros@userenacl;Periodismo
+221498240;Maite Antonia González Bórquez;maitegonzalezb@userenacl;Periodismo
+221542355;Anthonella Andrea Iriarte Cea;anthonellairiarte@userenacl;Periodismo
+221917723;Maria Eugenia Olivares Bugueño;mariaolivaresb@userenacl;Periodismo
+222047412;Maalia Indayra Michea García;maaliamichea@userenacl;Periodismo
+222094100;Cristian Benjamin Plaza Tirado;cristianplaza@userenacl;Periodismo
+222324653;Constanza Isabel Poblete Pizarro;constanzapoblete@userenacl;Periodismo
+222387574;Martina Ignacia Casanova Ríos;martinacasanova@userenacl;Periodismo
+22274699k;Ignacia Alejandra Donoso Leighton;ignaciadonoso@userenacl;Periodismo
+222807352;Agustina Pilar Arriagada Cerda;agustinaarriagada@userenacl;Periodismo
+222822971;Carlos Salvador Meneses Rojas;carlosmenesesr1@userenacl;Periodismo
+223174205;Marthina Paz Urzúa Pereira;marthinaurzua@userenacl;Periodismo
+223483232;Marlú Catalina Campusano Muñoz;marlucampusano@userenacl;Periodismo
+223715427;Benjamín Amaro Riffo Robledo;benjaminriffo@userenacl;Periodismo
+223970397;Raphaela Fernanda Gómez Ferrada;raphaelagomez@userenacl;Periodismo
+224230117;Yamil Alexi Castillo Pastén;yamilcastillop@userenacl;Periodismo
+22431163k;Liha Isabella Bohme Astorga;lihabohme@userenacl;Periodismo
+22457861k;Aranza Beatriz de Giorgis Zavala;aranzadegiorgis@userenacl;Periodismo
+224788231;Maite Isidora Guerrero Ugalde;maiteguerrero@userenacl;Periodismo
+224861982;Antonia Elisa Bordones Flores;antoniabordones@userenacl;Periodismo
+224872569;Catalina Belén Bravo Barahona;catalinabravob1@userenacl;Periodismo
+224922973;Antonella Ignacia Pérez Vega;antonellaperez@userenacl;Periodismo
+22514298k;Anaís Ignacia Ramírez Ortiz;anaisramirez@userenacl;Periodismo
+225211019;Antonia Agustina Valenzuela González;antoniavalenzuela@userenacl;Periodismo
+225536872;Dante Eduardo Morán Ramírez;dantemoran@userenacl;Periodismo
+225868972;Catalina Ignacia Godoy Barraza;catalinagodoyb1@userenacl;Periodismo
+226261850;Álvaro Matías Díaz Astudillo;alvarodiaza@userenacl;Periodismo
+226577580;Matilda Isabella Malen Seguel Araos;matildaseguel@userenacl;Periodismo
+226651314;Javiera Isabela López Tapia;javieralopezt@userenacl;Periodismo
+226720847;Edna Gabriela Andrade Alegre;ednaandrade@userenacl;Periodismo
+226760768;Ivan Ignacio Jerez Rivera;ivanjerez@userenacl;Periodismo
+22692504k;Daniza Andrea Valera Serricueta;danizavalera@userenacl;Periodismo
+227164468;Fernanda Belén Martínez González;fernandamartinez@userenacl;Periodismo
+246586675;Mara Ailen Ruiz Astorga;mararuiz@userenacl;Periodismo
+254134783;Minerva Gissel Gonzales Molina;minervagonzales@userenacl;Periodismo
+288010153;Kimberlin Beatriz Perdomo Quintero;kimberlinperdomo@userenacl;Periodismo
+209208903;Ignacia Carolina Araya Lagos;ignaciaaraya@userenacl;Diseño
+212604305;Karyn Francisca Moreno Godoy;karynmoreno@userenacl;Diseño
+213518879;Juan Pedro Silva Silva;juansilvas@userenacl;Diseño
+216307046;Bastián Andrés Chacana Valdés;bastianchacana@userenacl;Diseño
+216496027;Enzo Bastián Becerra Soto;enzobecerra@userenacl;Diseño
+218415822;Constanza Isidora Fuentes Garmendia;constanzafuentesg@userenacl;Diseño
+219351682;Abigail Catalina Cabrera Moya;abigailcabrera@userenacl;Diseño
+21968486k;Melissa Ignacia Alzamora Villanueva;melissaalzamora@userenacl;Diseño
+219830823;Antonella Izaga Parada;antonellaizaga@userenacl;Diseño
+220828735;Catalina Paola Aguilera Álvarez;catalinaaguileraa@userenacl;Diseño
+221082397;Martina Anaís Chinga Villegas;martinachinga@userenacl;Diseño
+221124537;Victoria Paz Díaz Aliaga;victoriadiaza@userenacl;Diseño
+22132742k;Amanda Sol Pizarro González;amandapizarro@userenacl;Diseño
+221366646;Matías Ignacio Vargas Astudillo;matiasvargasa@userenacl;Diseño
+221673611;Anaís Antonia Cantuarias Riveros;anaiscantuarias@userenacl;Diseño
+221834429;Sofía Paz Carrillo Muñoz;sofiacarrillo@userenacl;Diseño
+222183227;Victoria Santander Flores;victoriasantander@userenacl;Diseño
+222350875;Josefa Natalie Bravo Rodríguez;josefabravo@userenacl;Diseño
+222470986;Raimundo Salvador Reyes Riquelme;raimundoreyes@userenacl;Diseño
+222934052;Sofía Antonia Díaz Segovia;sofiadiazs@userenacl;Diseño
+223181120;Annays Scarleth Valencia Ramírez;annaysvalencia@userenacl;Diseño
+223419186;Aracelly Rosario Alcayaga Carvajal;aracellyalcayaga@userenacl;Diseño
+223629954;Benjamín Matías López Gallardo;benjaminlopezg@userenacl;Diseño
+22375998k;Benjamín Guillermo Villalobos Urtubia;benjaminvillalobos@userenacl;Diseño
+223783538;Rocío Belén Vega Huentrutripay;rociovegah@userenacl;Diseño
+223864694;Matías Alberto Espinoza Alfaro;matiasespinozaa@userenacl;Diseño
+224052529;Melisa Antonia Torres Olivares;melisatorres@userenacl;Diseño
+224088183;Emilia Fernanda Gavilán Juica;emiliagavilan@userenacl;Diseño
+224473176;Valentina Amaral Gahona Robles;valentinagahona@userenacl;Diseño
+224744471;Aylin Contanza Tirado Aguirre;aylintirado@userenacl;Diseño
+225229775;Genesis Martina Araya Cortés;genesisarayac@userenacl;Diseño
+225421323;Leonardo Nicolás Espinoza Espinoza;leonardoespinoza@userenacl;Diseño
+225678340;Danae Paulett Tapia Laferte;danaetapial@userenacl;Diseño
+225846251;Vicente Nicolás Álvarez Valencia;vicentealvarezv@userenacl;Diseño
+226310061;María Daniela Ignacia Carmona San Francisco;mariacarmonas@userenacl;Diseño
+226475311;Almendra Antonia Campusano Sion;almendracampusano@userenacl;Diseño
+226654259;Michaella Gloria Velásquez Rojas;michaellavelasquez@userenacl;Diseño
+226786511;Blanca Valentina Alcamán Pinilla;blancaalcaman@userenacl;Diseño
+227093471;Dylan Alexis Araneda Michea;dylanaraneda@userenacl;Diseño
+207383066;Paula Javiera Bugueño Oñate;paulabuguenoo@userenacl;Ingeniería Comercial
+209117754;Tamara Michelle Nicole Plaza Chandía;tamaraplaza@userenacl;Ingeniería Comercial
+219403909;Isabela Sefora Calderón Álvarez;isabelacalderon@userenacl;Ingeniería Comercial
+219415478;Paulo Alberto Ferreira Véliz;pauloferreira@userenacl;Ingeniería Comercial
+220036502;Nicolás Joaquín Hidalgo Velasquez;nicolashidalgo@userenacl;Ingeniería Comercial
+220079856;Iñaki Andres Navas Jaque;inakinavas@userenacl;Ingeniería Comercial
+220194450;Agustín Alejandro Sepúlveda Peña;agustinsepulvedap@userenacl;Ingeniería Comercial
+220487326;Fiorella Sofía Sola Flores;fiorellasola@userenacl;Ingeniería Comercial
+221044789;Mauricio José Barraza Escalante;mauriciobarrazae@userenacl;Ingeniería Comercial
+221197666;Renato Andrés Carmona Muñiz;renatocarmona@userenacl;Ingeniería Comercial
+221295226;Bastián Andrés Díaz Contreras;bastiandiazc@userenacl;Ingeniería Comercial
+221667174;Matías Patricio Rojas Roco;matiasrojasr1@userenacl;Ingeniería Comercial
+221695720;Antonia Francisca Ramos Plaza;antoniaramos@userenacl;Ingeniería Comercial
+221785142;Martina Victoria Contreras González;martinacontrerasg@userenacl;Ingeniería Comercial
+221969758;Vicente Alejandro Vicuña Peña;vicentevicuna@userenacl;Ingeniería Comercial
+222088135;Renato Moises Cerda Zambra;renatocerdaz@userenacl;Ingeniería Comercial
+222089379;Pia Macarena Carvajal Pastén;piacarvajalp@userenacl;Ingeniería Comercial
+222091519;Martín Andres Soto Torres;martinsoto@userenacl;Ingeniería Comercial
+222102375;Maria Jose Ledezma Castillo;marialedezmac@userenacl;Ingeniería Comercial
+222619734;Paloma Ignacia Núñez Olivares;palomanunez@userenacl;Ingeniería Comercial
+222787653;Crishna Soledad Elgueta Peralta;crishnaelgueta@userenacl;Ingeniería Comercial
+223602983;Maríajosé Cirem Olivera Banda;mariajoseolivera@userenacl;Ingeniería Comercial
+223661491;Joaquín Santiago Escalona Tirado;joaquinescalona@userenacl;Ingeniería Comercial
+223722962;Eskarlet Constanza Mancilla Rivas;eskarletmancilla@userenacl;Ingeniería Comercial
+224015607;Fernanda Anahiz Araya Carmona;fernandaarayac@userenacl;Ingeniería Comercial
+224024215;Nicolás Andrés Rojas Olivares;nicolasrojaso2@userenacl;Ingeniería Comercial
+224033192;Gabriela Paz Pérez Rivera;gabrielaperezr@userenacl;Ingeniería Comercial
+224142269;Constanza Antonia Fernández Angel;constanzafernandeza@userenacl;Ingeniería Comercial
+224293054;Javiera Consuelo Tapia Contreras;javieratapiac@userenacl;Ingeniería Comercial
+224293259;Benjamín Ignacio Pino Santos;benjaminpinos@userenacl;Ingeniería Comercial
+22433527k;Eglenn Isaac Pizarro Orellana;eglennpizarro@userenacl;Ingeniería Comercial
+224599498;Joaquín Alexander Contreras Plaza;joaquincontrerasp@userenacl;Ingeniería Comercial
+224619278;Arliz Dethyn Vega Pérez;arlizvega@userenacl;Ingeniería Comercial
+224712049;Danilo Maximiliano Becker Portilla;danilobecker@userenacl;Ingeniería Comercial
+224797842;Cristóbal Andrés Ledezma Araya;cristoballedezma@userenacl;Ingeniería Comercial
+225052794;Antonella Belén Titichoca Cordes;antonellatitichoca@userenacl;Ingeniería Comercial
+225190194;Valentina Constanza Paz Ugaz Valdivia;valentinaugaz@userenacl;Ingeniería Comercial
+225225834;Benjamín Nicolás Jofré Muñoz;benjaminjofrem@userenacl;Ingeniería Comercial
+225342342;Francisca Muriel Ledesma Iriarte;franciscaledesma@userenacl;Ingeniería Comercial
+225615799;Benjamín Sebastián Mario Navea del Canto;benjaminnavea@userenacl;Ingeniería Comercial
+225715475;LíaPascal de los Ángeles Cerda Carvajal;liapascalcerda@userenacl;Ingeniería Comercial
+225898707;Francisca María Mena Tapia;franciscamena@userenacl;Ingeniería Comercial
+225913536;Víctor Manuel Illanes Blanco;victorillanes@userenacl;Ingeniería Comercial
+22591480k;Ignacia Magdalena Martínez Ulloa;ignaciamartinezu@userenacl;Ingeniería Comercial
+225917949;Yobeli Scarleth Angel Angel;yobeliangel@userenacl;Ingeniería Comercial
+226242074;Eimy Dennis Vargas Donoso;eimyvargas@userenacl;Ingeniería Comercial
+226312846;Constanza Belén Andana Carrizo;constanzaandana@userenacl;Ingeniería Comercial
+22643223k;Kevin Patricio Ortiz Rojas;kevinortiz@userenacl;Ingeniería Comercial
+226471758;Martina Paz Belén Nara Olivares;martinanara@userenacl;Ingeniería Comercial
+226582312;Wilson Ignacio Pablo Macías Iglesias;wilsonmacias@userenacl;Ingeniería Comercial
+226756043;Benjamín Fernando Bascur Molina;benjaminbascur@userenacl;Ingeniería Comercial
+226839097;Annaís Scarlett Rojo Miranda;annaisrojo@userenacl;Ingeniería Comercial
+227063874;Matías Bastián Peña Ortiz;matiaspena@userenacl;Ingeniería Comercial
+227196696;Isabella Catalina Hermosilla Maldonado;isabellahermosilla@userenacl;Ingeniería Comercial
+22725467k;Dante Maximiliano Irish Jara;danteirish@userenacl;Ingeniería Comercial
+227433817;Simoney Araceli Balcazar Cortés;simoneybalcazar@userenacl;Ingeniería Comercial
+227611324;Bastián Armando Naveas Contreras;bastiannaveas@userenacl;Ingeniería Comercial
+275224219;Barbara Alanis Cadenas Rodriguez;barbaracadenas@userenacl;Ingeniería Comercial
+277450178;Yarith Camila Arroyave Alvarado;yaritharroyave@userenacl;Ingeniería Comercial
+209775751;Daniel Ignacio Castillo Castillo;danielcastilloc@userenacl;Ingeniería en Administración de Empresas
+216087380;Samuel Patricio Santander Maturana;samuelsantander@userenacl;Ingeniería en Administración de Empresas
+218830242;Antonia Carolina Romo Cortés;antoniaromo@userenacl;Ingeniería en Administración de Empresas
+219278055;Agustín Esteban Díaz Contreras;agustindiazc@userenacl;Ingeniería en Administración de Empresas
+220550974;Benjamín Andrés Rojas Salas;benjaminrojass@userenacl;Ingeniería en Administración de Empresas
+22059789k;Sebastián Eduardo Carreño Adasme;sebastiancarrenoa@userenacl;Ingeniería en Administración de Empresas
+221021711;Genesis Nazareth Gómez Chamorro;genesisgomez@userenacl;Ingeniería en Administración de Empresas
+221448626;Antonio José Sepúlveda Bascuñán;antoniosepulveda@userenacl;Ingeniería en Administración de Empresas
+222390788;Matilde Isabel Quezada Gallardo;matildequezada@userenacl;Ingeniería en Administración de Empresas
+222578515;Martín Alberto Cabeza Castro;martincabeza@userenacl;Ingeniería en Administración de Empresas
+223014291;Nicolás Jupsef Montenegro Jure;nicolasmontenegro@userenacl;Ingeniería en Administración de Empresas
+223307159;Renato Enrique Eade Castillo;renatoeade@userenacl;Ingeniería en Administración de Empresas
+22363527k;Valentina Constanza García Silva;valentinagarcias@userenacl;Ingeniería en Administración de Empresas
+223776760;Catalina Anaiss Guzmán Romero;catalinaguzman@userenacl;Ingeniería en Administración de Empresas
+224018037;Hugo Matías Araya Morgado;hugoaraya@userenacl;Ingeniería en Administración de Empresas
+22402326k;Claudio Alexander Navarro Hidalgo;claudionavarro@userenacl;Ingeniería en Administración de Empresas
+224053606;Gaspar Antonio Céspedes Cabrera;gasparcespedes@userenacl;Ingeniería en Administración de Empresas
+224104219;Jassmín Dámary Andrea Sepúlveda Peregrin;jassminsepulveda@userenacl;Ingeniería en Administración de Empresas
+224184484;Belén Lizbeth Peñaloza Acuña;belenpenaloza@userenacl;Ingeniería en Administración de Empresas
+224290152;Scarlet Soraya Ogalde Rojas;scarletogalde@userenacl;Ingeniería en Administración de Empresas
+224309627;Josefina Andrea Olmos Rivera;josefinaolmos@userenacl;Ingeniería en Administración de Empresas
+224852819;Alfonsina Leonor Zepeda Campos;alfonsinazepeda@userenacl;Ingeniería en Administración de Empresas
+225063885;Sebastián Felipe Barraza Carvajal;sebastianbarrazac@userenacl;Ingeniería en Administración de Empresas
+225095256;Verónica Krisnha Gallegos Toro;veronicagallegos@userenacl;Ingeniería en Administración de Empresas
+225245002;Constanza Anaís Godoy González;constanzagodoyg1@userenacl;Ingeniería en Administración de Empresas
+225299161;Constanza Alejandra Gálvez Rojas;constanzagalvezr@userenacl;Ingeniería en Administración de Empresas
+225377677;Alanis Jael Acosta Cortés;alanisacosta@userenacl;Ingeniería en Administración de Empresas
+225414262;Kimberly Lizbeth Erices Espinoza;kimberlyerices@userenacl;Ingeniería en Administración de Empresas
+225462909;Patricio Ignacio Elgueta Chávez;patricioelgueta@userenacl;Ingeniería en Administración de Empresas
+225664129;Emiliano Gustavo Rojas Álvarez;emilianorojasa@userenacl;Ingeniería en Administración de Empresas
+225803358;Francisco Andrés Carabantes Caimanque;franciscocarabantes@userenacl;Ingeniería en Administración de Empresas
+225809755;Katina Arlet González Guerrero;katinagonzalez@userenacl;Ingeniería en Administración de Empresas
+225975647;Angely Makarena Melo Cook;angelymelo@userenacl;Ingeniería en Administración de Empresas
+225991049;Nicolás Norton Villalobos Rojas;nicolasvillalobosr@userenacl;Ingeniería en Administración de Empresas
+22608374k;Andrés Mijael Alejandro Contreras Morales;andrescontrerasm@userenacl;Ingeniería en Administración de Empresas
+226399186;Bárbara Belén Benítez Tapia;barbarabenitez@userenacl;Ingeniería en Administración de Empresas
+22640158k;Herman Alonso Ortiz Salgado;hermanortiz@userenacl;Ingeniería en Administración de Empresas
+226539727;Jazmín Marianne Lamas Arancibia;jazminlamas@userenacl;Ingeniería en Administración de Empresas
+226549269;Aylin Millaray Valdivia Zepeda;aylinvaldivia@userenacl;Ingeniería en Administración de Empresas
+226704752;Antonella Patricia Torres Pizarro;antonellatorres@userenacl;Ingeniería en Administración de Empresas
+227097043;Francisca Belén Moreno Morales;franciscamoreno@userenacl;Ingeniería en Administración de Empresas
+227215348;Francisca Javiera Rojas Araya;franciscarojasa5@userenacl;Ingeniería en Administración de Empresas
+227229527;Benjamín Ronaldo Ramos Ramírez;benjaminramosr@userenacl;Ingeniería en Administración de Empresas
+227517557;Martina Ignacia Collado Rojas;martinacollado@userenacl;Ingeniería en Administración de Empresas
+236467201;Darlyn Rafaela Vásquez Carrillo;darlynvasquez@userenacl;Ingeniería en Administración de Empresas
+244416640;Mabel del Pilar Fuentes González;mabelfuentes@userenacl;Ingeniería en Administración de Empresas
+177241210;Dinko Nicolas Fabrega Restovic;dinkofabrega@userenacl;Derecho
+186876849;Pablo Sebastian Araya Mardones;pabloarayam1@userenacl;Derecho
+202024238;Francisca Javiera Salinas Silva;franciscasalinass@userenacl;Derecho
+216717856;Fiorella Paola Poblete Cabada;fiorellapoblete@userenacl;Derecho
+218306772;Antonia Ariela Zepeda Tapia;antoniazepedat@userenacl;Derecho
+219229488;Vicente Ignacio Olivares Echeverría;vicenteolivarese@userenacl;Derecho
+221019814;Ana Josefa Rivera Guzmán;anariverag@userenacl;Derecho
+221320565;Matias Gabriel Cortés Tapia;matiascortest@userenacl;Derecho
+221496841;Sergio Benjamín Astudillo Figueroa;sergioastudillo@userenacl;Derecho
+221505441;Martina Ignacia Cortés Araya;martinacortesa@userenacl;Derecho
+22178071k;Vicente de Jesús Montalban Miranda;vicentemontalban@userenacl;Derecho
+221952693;Felipe Matias Merejo González;felipemerejo@userenacl;Derecho
+22209870k;Mateo Facundo Vargas Martínez;mateovargas@userenacl;Derecho
+222134390;Nayaret Ignacia Meneses Bravo;nayaretmeneses@userenacl;Derecho
+222262291;Valentina Paz Varas Escobar;valentinavarase@userenacl;Derecho
+222446732;Iñaki Gastón Castex Grez;inakicastex@userenacl;Derecho
+222960053;Gastón Patricio González Aguilar;gastongonzaleza@userenacl;Derecho
+223160867;Valentina Paz Rodríguez Castillo;valentinarodriguezc@userenacl;Derecho
+223206476;Catalina Florencia Vega Sáez;catalinavegas@userenacl;Derecho
+22348915k;Mikal Ignacia Castro Aróstica;mikalcastro@userenacl;Derecho
+223807208;Julieta Paz Poblete Villarroel;julietapoblete@userenacl;Derecho
+223899161;Joaquín Andrés Araya Jofré;joaquinarayaj@userenacl;Derecho
+223928390;Isabella Alejandra Castelli Ortiz;isabellacastelli@userenacl;Derecho
+223938728;Josefa AbdAllah Jacob Robles;josefajacob@userenacl;Derecho
+22397936k;Catalina Gabrielle Arenas González;catalinaarenas@userenacl;Derecho
+224042310;Francisca Ignacia Gálvez Parada;franciscagalvez@userenacl;Derecho
+224044895;Camilo Alejandro Corvalán Fuentes;camilocorvalanf@userenacl;Derecho
+224222378;Juan Ignacio Zepeda Alfaro;juanzepedaa@userenacl;Derecho
+22436797k;Eloísa Francisca Baez Leiva;eloisabaez@userenacl;Derecho
+224476981;Manuel Ignacio Zepeda Milla;manuelzepeda@userenacl;Derecho
+22458332k;Martín Alonzo Belmar Bastías;martinbelmar@userenacl;Derecho
+224664532;Debora Belén Araya Pereira;deboraaraya@userenacl;Derecho
+22477026k;Javiera Catalina Cruz Díaz;javieracruz@userenacl;Derecho
+224808445;Catalina Belén Díaz Torres;catalinadiazt@userenacl;Derecho
+224828969;Estefanía Antonia Álvarez Huerta;estefaniaalvarez@userenacl;Derecho
+224834284;Priscilla Beatriz Chávez Araya;priscillachavez@userenacl;Derecho
+22487362k;Felipe Ignacio Meléndez Rojas;felipemelendezr@userenacl;Derecho
+224916434;Yanay Elisa la Paz Malebrán;yanaylapaz@userenacl;Derecho
+224918232;Ignacio Gabriel Bustamante López;ignaciobustamante@userenacl;Derecho
+224919204;Sofía Belén Villarroel Cortés;sofiavillarroel@userenacl;Derecho
+224969767;Cristóbal Eduardo Morgado Morgado;cristobalmorgado@userenacl;Derecho
+225028117;María Ignacia Jesús Trigo Ahumada;mariatrigoa@userenacl;Derecho
+225034273;Monserrath Belén Farfán Farías;monserrathfarfan@userenacl;Derecho
+225071543;José Antonio Álvarez Saint Jean;josealvarezs@userenacl;Derecho
+225151377;Sofía Ignacia Valdivia Casanga;sofiavaldivia@userenacl;Derecho
+22521350k;Florencia Esperanza Véliz Campos;florenciavelizc@userenacl;Derecho
+22526984k;Axel Ignacio Vergara Flores;axelvergara@userenacl;Derecho
+22528900k;Tanya Nicolette Alexandra González Araya;tanyagonzalez@userenacl;Derecho
+225304084;Matilda Ignacia Quevedo Rojas;matildaquevedo@userenacl;Derecho
+22535359k;Joaquín Alonso Córdova Aguirre;joaquincordova@userenacl;Derecho
+225378282;Isidora Antonia Araya Iglesias;isidoraaraya@userenacl;Derecho
+225618593;Saeed Mussa Muhammad Araya;saeedmuhammad@userenacl;Derecho
+225660557;Maximiliano Antonio Tapia Vielma;maximilianotapia@userenacl;Derecho
+225720517;Diego Sebastián Camposano Sanhueza;diegocamposano@userenacl;Derecho
+22584092k;Joaquín Clemente Romero Ibáñez;joaquinromero@userenacl;Derecho
+22586215k;David Ignacio Aravena Saldías;davidaravena@userenacl;Derecho
+226001301;Bastián Lusian Araya Barrante;bastianarayab@userenacl;Derecho
+226084215;Alejandra Contreras Morales;rominacontrerasm@userenacl;Derecho
+226092781;Florencia Ignacia Véliz Espinoza;florenciaveliz@userenacl;Derecho
+226148612;Lea de Jesús Lillo Campaña;lealillo@userenacl;Derecho
+226240330;Milenka Alexandra Zamora Espinoza;milenkazamora@userenacl;Derecho
+226417583;Benjamín Alejandro Navea Moya;benjaminnaveam@userenacl;Derecho
+226429247;Fernanda Antonia Garrido Zamora;fernandagarrido@userenacl;Derecho
+226564926;Simón Leander Robledo Núñez;simonrobledon@userenacl;Derecho
+226610421;Millaray Ayalen Mora Lisboa;millaraymora@userenacl;Derecho
+226635637;Fernanda Pascal Varela Roco;fernandavarelar@userenacl;Derecho
+226935606;Bel Angélica Alarcón Navarrete;belalarcon@userenacl;Derecho
+226951431;Alex Steven Fernández Olivares;alexfernandez@userenacl;Derecho
+226996907;Cristóbal Eduardo Santander Vera;cristobalsantander@userenacl;Derecho
+227003421;Mia Franzua Anahis Cortés Cortés;miacortes@userenacl;Derecho
+227150548;Valentina Constanza Pereira Cortés;valentinapereira@userenacl;Derecho
+227223960;Catalina Belén Delgado Pérez;catalinadelgadop@userenacl;Derecho
+227263334;Louise Henrietta Barraza Barraza;louisebarraza@userenacl;Derecho
+227797053;Katalina Constanza Hidalgo Osorio;katalinahidalgo@userenacl;Derecho
+269347716;Saraí Juliette Gedeon Gómez;saraigedeon@userenacl;Derecho
+27201633k;Davidt Santiago Morales Zabala;davidtmorales@userenacl;Derecho
+197701420;Benjamin Alejandro Perez Ovalle;bperezo@alumnosulscl;Administración Pública
+215086518;Camilo Vicente Araya Castillo;camiloarayac@userenacl;Administración Pública
+216003357;Brandon Bruce Herrera Jau;brandonherrera@userenacl;Administración Pública
+217919576;Ian Manuel Aukan Farías Zárate;martinafarias@userenacl;Administración Pública
+218054749;Joaquín Herman Rodríguez Peña;joaquinrodriguezp@userenacl;Administración Pública
+219064985;Mauricio Alonso Alfaro Pereira;mauricioalfarop1@userenacl;Administración Pública
+219404832;Manuel Alejandro Ortiz Bustamante;manuelortiz@userenacl;Administración Pública
+219661606;Aixia Madeleynne Espinoza López;aixiaespinoza@userenacl;Administración Pública
+220180530;Sofía Andrea Castro Vargas;sofiacastrov@userenacl;Administración Pública
+221298128;Vicente Maximiliano Castillo Jofré;vicentecastilloj@userenacl;Administración Pública
+221338863;Madeline Andrea García Castillo;madelinegarcia@userenacl;Administración Pública
+221353048;Catalina Belen Acuña Manzano;catalinaacunam@userenacl;Administración Pública
+221752317;Valentina Isidora Toledo Cortés;valentinatoledoc@userenacl;Administración Pública
+221765141;Sayen Millaray Molina Cortés;sayenmolina@userenacl;Administración Pública
+221836448;Isidora Antonia Rojas Cortés;isidorarojasc1@userenacl;Administración Pública
+222127114;Valeria Denisse Álvarez Vergara;valeriaalvarezv1@userenacl;Administración Pública
+222257166;Alexa Millaray Barraza González;alexabarraza@userenacl;Administración Pública
+222381320;Pablo Esteban Alcayaga Barrios;pabloalcayagab@userenacl;Administración Pública
+222754097;Marcos Antonio Geraldo Tapia;marcosgeraldot@userenacl;Administración Pública
+222792835;Sofía Pamela Román González;sofiaroman@userenacl;Administración Pública
+222993199;Camila Magdalena Elizalde Rodríguez;camilaelizalde@userenacl;Administración Pública
+223075568;Camila Paz Méndez Carmona;camilamendez@userenacl;Administración Pública
+223103669;Diego Andrés Ponce Barraza;diegoponce@userenacl;Administración Pública
+223142966;Martín Alonso Silva Aguirre;martinsilvaa@userenacl;Administración Pública
+223425100;Anahis Constanza Estay Marambio;anahisestay@userenacl;Administración Pública
+223493645;Claudia Patricia Casanova Rivera;claudiacasanova@userenacl;Administración Pública
+223556027;Joaquín Andrés Contreras Álvarez;joaquincontrerasa@userenacl;Administración Pública
+223714447;Catalina Paz Muñoz Carvajal;catalinamunozc1@userenacl;Administración Pública
+223720625;Catalina Emilia Rojas Arancibia;catalinarojasa2@userenacl;Administración Pública
+224002149;Martina Antonia Fritz la Paz;martinafritz@userenacl;Administración Pública
+224065221;Italo José Ibacache Espinoza;italoibacache@userenacl;Administración Pública
+224152515;Sofía Ines Garcés Gajardo;sofiagarces@userenacl;Administración Pública
+224218753;Gabriel Antonio Álvarez Ubilla;gabrielalvarezu@userenacl;Administración Pública
+224506902;Javiera Valentina Vargas Bugueño;javieravargasb@userenacl;Administración Pública
+22450912k;Jorge Alejandro Montecinos Crespo;jorgemontecinos@userenacl;Administración Pública
+224584466;Gabriel Gustavo Alarcón Meneses;gabrielalarcon@userenacl;Administración Pública
+22463708k;Thomas Patricio Carvajal Pizarro;thomascarvajal@userenacl;Administración Pública
+224663781;Miguel Manuel Francisco Cerda Cortés;miguelcerdac@userenacl;Administración Pública
+225343292;Felipe Alonso Abarca Rojas;felipeabarcar1@userenacl;Administración Pública
+225483817;Simón Valentín González Cruz;simongonzalez@userenacl;Administración Pública
+225515352;Matías José Ignacio Flores Núñez;matiasfloresn@userenacl;Administración Pública
+225677573;Joaquín Andrés Cortés Gallegos;joaquincortesg1@userenacl;Administración Pública
+225887519;Valentina Anabelle Aguilera Santander;valentinaaguilera@userenacl;Administración Pública
+225919852;Martín Ignacio Véliz López;martinvelizl@userenacl;Administración Pública
+225960143;Emilia Belén Luarte Angel;emilialuarte@userenacl;Administración Pública
+226077278;Indira Anastacia Arqueros Monsalve;indiraarqueros@userenacl;Administración Pública
+22625417k;Leonardo Colombo Marín;leonardocolombo@userenacl;Administración Pública
+226368027;Joaquín Ignacio Aguilera Orellana;joaquinaguilera@userenacl;Administración Pública
+226655670;Antonella Amparo Ogalde Cortés;antonellaogalde@userenacl;Administración Pública
+226800115;Valentina Antonia Arcos Cruz;valentinaarcosc@userenacl;Administración Pública
+226987924;Antonia Belén Badilla Ascencio;antoniabadilla@userenacl;Administración Pública
+22698920k;Nicolás Martín Segura Baez;nicolassegura@userenacl;Administración Pública
+226997482;Millaray Scarlet Antiquera Cortés;millarayantiquera@userenacl;Administración Pública
+227202718;Giuliana Fernanda Bouffanais Pizarro;giulianabouffanais@userenacl;Administración Pública
+227267941;Martina Ignacia Araya Vera;martinaarayav@userenacl;Administración Pública
+227449713;Joaquín Eduardo Tapia Bugueño;joaquintapiab@userenacl;Administración Pública
+227674946;Amaro Andrés Cortés González;amarocortes@userenacl;Administración Pública
+22868077k;Elisabeth Pinto Ortega;elisabethpinto@userenacl;Administración Pública
+205256784;Marianela Esperanza del Rosario Puca Chapana;marianelapuca@userenacl;Medicina
+207276936;Abel Mateo Durán González;abelduran@userenacl;Medicina
+216981715;Cristian Eduardo Garrido Godoy;cristiangarridog@userenacl;Medicina
+217745489;Julieta Belén Jerez Vega;julietajerez@userenacl;Medicina
+217936829;Vicente Mauricio Arredondo Castillo;vicentearredondo@userenacl;Medicina
+218291465;Diego Nicolás Bustos Torrejón;diegobustost@userenacl;Medicina
+218532535;Angela Fernanda Gutiérrez Fuentes;angelagutierrez@userenacl;Medicina
+218580874;Fernanda Brunela Arias Delgado;fernandaarias@userenacl;Medicina
+219078838;Catalina Eugenia Rojas Rentería;catalinarojasr2@userenacl;Medicina
+219098812;Sofía Giselle Guerrero Álvarez;sofiaguerreroa1@userenacl;Medicina
+219587910;Pia Carolina Rosales Araya;piarosales@userenacl;Medicina
+219735855;Gabriela Nelliver Alfaro Godoy;gabrielaalfarog@userenacl;Medicina
+220333647;Elena Macarena Toro Valera;elenatoro@userenacl;Medicina
+220558134;Constanza Belinda Thais Castillo Astorga;constanzacastilloa2@userenacl;Medicina
+220931293;Sofía Antonia Ossandón Salinas;sofiaossandons@userenacl;Medicina
+221361806;Rocío Ignacia Tapia Aliaga;rociotapiaa@userenacl;Medicina
+22149329k;José Tomás Sarovic Muñoz;josesarovic@userenacl;Medicina
+222050332;Ignacio Agustín Carreño Caro;ignaciocarreno@userenacl;Medicina
+222513383;Stefania Ivette Cortés de la Guarda;stefaniacortesd@userenacl;Medicina
+222659361;Pía Catalina Portilla Tapia;piaportilla@userenacl;Medicina
+222757355;Diego Andrés López Alfaro;diegolopeza1@userenacl;Medicina
+223161561;Elisa Antonia Durán Gallardo;elisadurang@userenacl;Medicina
+223212379;Martín Armando Olivares Rosales;martinolivaresr1@userenacl;Medicina
+223229387;Mauricio Javier Rojas Vega;mauriciorojasv@userenacl;Medicina
+223273912;Isidora Pascalle Gaete Urbina;isidoragaete@userenacl;Medicina
+223618375;Martín Alonso Ahumada Silva;martinahumada@userenacl;Medicina
+223725953;Martín Franz Pereira;martinfranz@userenacl;Medicina
+223936288;Mayra Valentina Caballero Espejo;mayracaballero@userenacl;Medicina
+224079303;Cristóbal Ignacio Ruiz Vargas;cristobalruizv@userenacl;Medicina
+224135866;Joaquín Andrés Paz Carrasco;joaquinpaz@userenacl;Medicina
+224466498;Jorge Ignacio Castillo Parraguez;jorgecastillop1@userenacl;Medicina
+225062439;Nicole Antonia Ortiz Martínez;nicoleortizm@userenacl;Medicina
+22529268k;Tomás Agustín Araya Faúndez;tomasarayaf@userenacl;Medicina
+22557135k;Keith Isabel Wagenknecht González;keithwagenknecht@userenacl;Medicina
+225744750;Matilde de Jesús Saavedra Valdés;matildesaavedra@userenacl;Medicina
+226635688;Vicente Alejandro Pizarro Luna;vicentepizarrol@userenacl;Medicina
+226804420;Dannahi Scarlett Flores Aguilera;dannahiflores@userenacl;Medicina
+233282324;Paulina Victoria Torres Escalona;paulinatorrese@userenacl;Medicina
