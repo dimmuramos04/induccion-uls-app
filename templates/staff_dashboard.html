@@ -21,7 +21,7 @@
                     <h5 class="mb-3">Escáner de Cédula</h5>
                     <div style="width: 100%; max-width: 500px; margin: auto; position: relative;">
                         <video id="reader" style="width: 100%; height: auto; border: 2px solid #dee2e6; border-radius: 8px; display:none;"></video>
-                        <div id="reader-fallback" style="width: 100%;"></div>
+                        <div id="reader-fallback" style="width: 100%; display: none;"></div>
                     </div>
                     <div class="mt-3">
                         <button id="btn-scan" class="btn btn-outline-primary">
@@ -269,23 +269,43 @@
 
         console.log("📸 Procesando foto...");
 
+        // Mostrar feedback visual
+        const nombreEl = document.getElementById('alumno-nombre');
+        const resultCard = document.getElementById('result-card');
+        resultCard.style.display = 'block';
+        nombreEl.innerText = "Procesando foto...";
+        nombreEl.className = "fw-bold text-info";
+
         try {
-            // Crear nueva instancia SOLO para leer archivo
-            const html5QrCode = new Html5Qrcode("reader-fallback");
+            // Crear elemento temporal oculto SOLO para esta lectura
+            const tempDiv = document.createElement('div');
+            tempDiv.id = 'temp-reader-' + Date.now();
+            tempDiv.style.display = 'none';
+            document.body.appendChild(tempDiv);
             
-            const decodedText = await html5QrCode.scanFile(file, true);
+            // Crear instancia temporal
+            const html5QrCode = new Html5Qrcode(tempDiv.id);
+            
+            // Intentar leer la foto
+            const decodedText = await html5QrCode.scanFile(file, false); // false = no mostrar imagen
             
             console.log("✅ Foto decodificada:", decodedText);
             
-            // Limpiar instancia
-            html5QrCode.clear();
+            // Limpiar
+            await html5QrCode.clear();
+            document.body.removeChild(tempDiv);
             
+            // Procesar RUT
             const rutLimpio = extraerRutDeTexto(decodedText);
             procesarRut(rutLimpio);
             
         } catch (err) {
             console.error("❌ Error leyendo foto:", err);
             beepError.play();
+
+            // Ocultar card de resultado
+            resultCard.style.display = 'none';
+            
             alert("No se pudo leer el código de la foto.\n\n💡 Tips:\n- Acércate más al carnet\n- Evita brillos del plástico\n- Mejora la iluminación\n- Asegúrate de que el QR esté completo");
         } finally {
             // Resetear input para permitir tomar otra foto

@@ -59,7 +59,7 @@ def create_app():
     limiter.init_app(app)
 
     # Configuración Login
-    login_manager.login_view = 'auth.login'
+    login_manager.login_view = 'login'
     login_manager.login_message_category = "warning"
 
     @login_manager.user_loader
@@ -91,8 +91,8 @@ def create_app():
             click.echo("- Stands creados.")
 
             # 4. Crear Admin Seguro
-            admin_user = os.getenv('ADMIN_USERNAME', 'admin')
-            admin_pass = os.getenv('ADMIN_PASSWORD', 'admin123')
+            admin_user = os.getenv('ADMIN_USERNAME')
+            admin_pass = os.getenv('ADMIN_PASSWORD')
             
             if not User.query.filter_by(username=admin_user).first():
                 new_admin = User(
@@ -106,8 +106,8 @@ def create_app():
                 click.echo("- El usuario Admin ya existe.")
 
             # 5. Crear STAFF DE PRUEBA (Desde .env)
-            staff_user = os.getenv('STAFF_USERNAME', 'staff_biblio')
-            staff_pass = os.getenv('STAFF_PASSWORD', 'staff123')
+            staff_user = os.getenv('STAFF_USERNAME')
+            staff_pass = os.getenv('STAFF_PASSWORD')
             
             if not User.query.filter_by(username=staff_user).first():
                 # Buscar el stand al que pertenecerá (Biblioteca por defecto para pruebas)
