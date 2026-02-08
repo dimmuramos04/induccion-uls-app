@@ -19,13 +19,13 @@ from sqlalchemy import func, case
 # --- RUTAS DE AUTENTICACIÓN ---
 
 @app.route('/', methods=['GET', 'POST'])
-@limiter.limit("5 per minute")  
+@limiter.limit("10 per minute")  
 def login():
     if current_user.is_authenticated:
         if current_user.role == 'admin':
             return redirect(url_for('admin_dashboard'))
         elif current_user.role == 'animador':
-                return redirect(url_for('animador_dashboard'))
+            return redirect(url_for('animador_dashboard'))
         else:
             return redirect(url_for('staff_dashboard'))
 
