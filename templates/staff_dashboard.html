@@ -59,7 +59,7 @@
 
                 <div id="zona-qr" style="display:none;" class="animate__animated animate__fadeIn">
                     <div class="bg-white p-2 d-inline-block border border-2 border-dark rounded mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/TU_LINK_AQUI" 
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/hYaRYwd4tFPSp5zq8" 
                              alt="QR Encuesta" width="150">
                     </div>
                     <p class="small text-muted fw-bold">Scanéame para la Encuesta</p>
@@ -284,7 +284,15 @@
             document.body.appendChild(tempDiv);
             
             // Crear instancia temporal
-            const html5QrCode = new Html5Qrcode(tempDiv.id);
+            const html5QrCode = new Html5Qrcode(tempDiv.id, {
+                formatsToSupport: [
+                    Html5QrcodeSupportedFormats.QR_CODE,
+                    Html5QrcodeSupportedFormats.PDF_417,
+                    Html5QrcodeSupportedFormats.DATA_MATRIX,
+                    Html5QrcodeSupportedFormats.AZTEC
+                ],
+                verbose: true
+            });
             
             // Intentar leer la foto
             const decodedText = await html5QrCode.scanFile(file, false); // false = no mostrar imagen
@@ -306,7 +314,15 @@
             // Ocultar card de resultado
             resultCard.style.display = 'none';
             
-            alert("No se pudo leer el código de la foto.\n\n💡 Tips:\n- Acércate más al carnet\n- Evita brillos del plástico\n- Mejora la iluminación\n- Asegúrate de que el QR esté completo");
+            alert("No se pudo leer el código de la foto.\n\n" +
+                  "📱 TIPS PARA CARNETS ANTIGUOS (PDF417):\n" +
+                  "✓ Acércate MÁS (5-10cm del código)\n" +
+                  "✓ Usa MUCHA luz (exterior o lámpara directa)\n" +
+                  "✓ Mantén el celular TOTALMENTE quieto\n" +
+                  "✓ Evita TODOS los reflejos del plástico\n" +
+                  "✓ El código es el de BARRAS (no el chip)\n\n" +
+                  "🆕 CARNETS NUEVOS: Usa el QR cuadrado\n\n" +
+                  "⌨️ Si falla, ingresa el RUT manualmente");
         } finally {
             // Resetear input para permitir tomar otra foto
             e.target.value = '';
