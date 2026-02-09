@@ -11,22 +11,27 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-dark bg-uls-blue shadow-sm">
+    <nav class="navbar navbar-dark shadow-sm" style="background: linear-gradient(135deg, #003366 0%, #0051a5 100%);">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS" height="40" class="d-inline-block align-text-top me-2">
-                Inducción 2026
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#" style="font-size: 1.25rem; letter-spacing: 0.5px;">
+                <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS" height="45" class="me-3" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+                <div>
+                    <div style="font-size: 1.1rem; font-weight: 600; line-height: 1.2;">Inducción 2026</div>
+                    <small style="font-size: 0.75rem; opacity: 0.9; font-weight: 400; letter-spacing: 1px;">SEMANA DE BIENVENIDA</small>
+                </div>
             </a>
             
             {% if current_user.is_authenticated %}
             <div class="d-flex align-items-center">
-                <span class="text-white me-3 d-none d-md-block">
-                    <i class="fas fa-user-circle"></i> {{ current_user.username }}
+                <span class="text-white me-3 d-none d-md-block" style="font-size: 0.9rem;">
+                    <i class="fas fa-user-circle me-1"></i> {{ current_user.username }}
                     {% if current_user.stand_asignado %}
-                        <small class="opacity-75">({{ current_user.stand_asignado.nombre }})</small>
+                        <small class="opacity-75 ms-1">({{ current_user.stand_asignado.nombre }})</small>
                     {% endif %}
                 </span>
-                <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-light">Salir</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-light" style="border-radius: 20px; padding: 0.4rem 1.2rem;">
+                    <i class="fas fa-sign-out-alt me-1"></i> Salir
+                </a>
             </div>
             {% endif %}
         </div>
