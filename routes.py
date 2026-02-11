@@ -13,7 +13,7 @@ from flask_socketio import emit
 import random
 from flask import current_app as app 
 from app import db, limiter
-from models import User, Estudiante, Stand, Visita, Config, Configuracion, socketio
+from models import User, Estudiante, Stand, Visita, Configuracion, socketio
 from sqlalchemy import func, case
 from sqlalchemy.exc import IntegrityError
 
@@ -84,9 +84,8 @@ def admin_dashboard():
     # 3. Obtener los últimos 10 movimientos (Visitas y Entregas)
     # Nota: Aquí traemos las visitas más recientes ordenadas por fecha
     ultimos_movimientos = Visita.query.order_by(Visita.timestamp.desc()).limit(10).all()
-    #Obtener configuración actual para mostrarla en el input
-    config_visitas = Config.query.filter_by(clave='min_visitas').first()
-    min_visitas_actual = config_visitas.valor if config_visitas else "0"
+    # Obtener configuración actual para mostrarla en el input (Usamos 'minimo_stands' de app.py)
+    min_visitas_actual = Configuracion.get_valor('minimo_stands', '3')
 
     # 4. Obtener lista de stands para posibles futuras funcionalidades
     lista_stands = Stand.query.all()
@@ -164,9 +163,8 @@ def scan_qr():
                 'message': f'¡ALERTA! Regalo ya entregado por {nombre_staff} el {estudiante.fecha_entrega.strftime("%d/%m %H:%M")}'
             })
         
-        config_visitas = Config.query.filter_by(clave='min_visitas').first()
-        minimo_requerido = int(config_visitas.valor) if config_visitas else 0
-
+        # Usamos la configuración centralizada. Default 3 si no existe.
+        minimo_requerido = int(Configuracion.get_valor('minimo_stands', '3'))
         visitas_actuales = Visita.query.filter_by(estudiante_id=estudiante.id).count()
 
         if visitas_actuales < minimo_requerido:
@@ -366,16 +364,9 @@ def configurar_evento():
     
     nuevo_minimo = request.form.get('min_visitas')
     
-    # Buscar y actualizar
-    config = Config.query.filter_by(clave='min_visitas').first()
-    if config:
-        config.valor = nuevo_minimo
-    else:
-        # Si por alguna razón no existía, lo crea
-        nuevo_config = Config(clave='min_visitas', valor=nuevo_minimo)
-        db.session.add(nuevo_config)
+    # Usamos el método helper de Configuracion para guardar
+    Configuracion.set_valor('minimo_stands', nuevo_minimo)
     
-    db.session.commit()
     flash(f'Configuración actualizada: Se requieren {nuevo_minimo} visitas para el regalo.', 'success')
     return redirect(url_for('admin_dashboard'))
 

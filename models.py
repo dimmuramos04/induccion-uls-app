@@ -15,7 +15,7 @@ class Configuracion(db.Model):
     __tablename__ = 'configuracion'
     id = db.Column(db.Integer, primary_key=True)
     clave = db.Column(db.String(50), unique=True, nullable=False) 
-    valor = db.Column(db.String(200), nullable=False)
+    valor = db.Column(db.String(500), nullable=False)
     # --- MÉTODOS AYUDANTES NUEVOS ---
     @staticmethod
     def get_valor(clave, default=None):
@@ -67,8 +67,8 @@ class Estudiante(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     rut = db.Column(db.String(12), unique=True, index=True, nullable=False)
     nombre = db.Column(db.String(150), nullable=False)
-    carrera = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=True)
+    carrera = db.Column(db.String(250), nullable=False)
+    email = db.Column(db.String(250), nullable=True)
     es_ganador = db.Column(db.Boolean, default=False)
     staff_regalo_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     fecha_entrega_regalo = db.Column(db.DateTime, nullable=True)
@@ -104,9 +104,3 @@ class Encuesta(db.Model):
     evaluacion = db.Column(db.Integer, nullable=False)
     comentario = db.Column(db.Text, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-
-# --- CONFIGURACIONES ADICIONALES ---
-class Config(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    clave = db.Column(db.String(50), unique=True, nullable=False) # Ej: 'min_visitas'
-    valor = db.Column(db.String(50), nullable=False)
