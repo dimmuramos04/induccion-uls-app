@@ -15,11 +15,12 @@ from flask import current_app as app
 from app import db, limiter
 from models import User, Estudiante, Stand, Visita, Config, Configuracion, socketio
 from sqlalchemy import func, case
+from sqlalchemy.exc import IntegrityError
 
 # --- RUTAS DE AUTENTICACIÓN ---
 
 @app.route('/', methods=['GET', 'POST'])
-@limiter.limit("10 per minute")  
+@limiter.limit("100 per minute")  
 def login():
     if current_user.is_authenticated:
         if current_user.role == 'admin':
@@ -134,14 +135,21 @@ def scan_qr():
     if not rut_leido:
         return jsonify({'status': 'error', 'message': 'No se recibió datos'}), 400
 
-    # 2. Buscar al estudiante (Limpieza básica de RUT)
+    # 2. Validar que el staff tenga stand asignado
+    if not current_user.stand_asignado:
+        return jsonify({
+            'status': 'error',
+            'message': 'Error de configuración: Usuario sin stand asignado. Contacta al administrador.'
+        }), 500
+    
+    # 3. Buscar al estudiante (Limpieza básica de RUT)
     rut_limpio = rut_leido.replace('.', '').replace('-', '').lower()
-    estudiante = Estudiante.query.filter(Estudiante.rut.ilike(f"%{rut_limpio}%")).first()
+    estudiante = Estudiante.query.filter_by(rut=rut_limpio).first()
 
     if not estudiante:
         return jsonify({'status': 'error', 'message': 'Estudiante no encontrado en base de datos'}), 404
 
-    # 3. Lógica según el tipo de Stand
+    # 4. Lógica según el tipo de Stand
     tipo_stand = current_user.stand_asignado.tipo
     mensaje = ""
     estado = "success"
@@ -169,29 +177,66 @@ def scan_qr():
                 'message': f'⛔ INCOMPLETO: Ha visitado {visitas_actuales} de {minimo_requerido} stands. Le faltan {faltan}.'
             })
         
-        estudiante.tiene_regalo = True
-        estudiante.fecha_entrega = datetime.now()
-        estudiante.staff_regalo_id = current_user.id # Quién entregó
-        estudiante.fecha_entrega_regalo = datetime.now(pytz.utc) # Guardamos CUÁNDO (Hora exacta UTC)
-        db.session.commit()
-        mensaje = "¡Entrega registrada exitosamente!"
+        try:
+            rows_affected = db.session.query(Estudiante).filter(
+                Estudiante.id == estudiante.id,
+                Estudiante.tiene_regalo == False  # Solo si NO tiene regalo
+            ).update({
+                'tiene_regalo': True,
+                'fecha_entrega': datetime.now(pytz.utc),
+                'staff_regalo_id': current_user.id,
+                'fecha_entrega_regalo': datetime.now(pytz.utc)
+            }, synchronize_session=False)
+            
+            db.session.commit()
+            
+            if rows_affected == 0:
+                # Otro staff ya entregó el regalo simultáneamente
+                db.session.rollback()
+                estudiante = Estudiante.query.get(estudiante.id)  # Recargar datos
+                nombre_staff = estudiante.staff_regalo.username if estudiante.staff_regalo else "Desconocido"
+                return jsonify({
+                    'status': 'warning',
+                    'estudiante': {'nombre': estudiante.nombre, 'carrera': estudiante.carrera},
+                    'message': f'¡ALERTA! Regalo ya entregado por {nombre_staff} el {estudiante.fecha_entrega.strftime("%d/%m %H:%M")}'
+                })
+            
+            mensaje = "¡Entrega registrada exitosamente!"
+            
+        except Exception as e:
+            db.session.rollback()
+            print(f"Error en entrega de regalo: {e}")
+            return jsonify({
+                'status': 'error',
+                'message': 'Error al registrar la entrega. Intenta nuevamente.'
+            }), 500
 
     # CASO B: Servicio / Bienestar (Solo registra visita)
     elif tipo_stand == 'servicio':
-        # Evitar duplicados inmediatos (opcional, pero recomendado)
-        visita_previa = Visita.query.filter_by(
-            estudiante_id=estudiante.id, 
-            stand_id=current_user.stand_asignado.id
-        ).first()
-        
-        if visita_previa:
-             # Si quieres permitir múltiples visitas, borra este if/else y deja solo el add
-             mensaje = "El estudiante ya visitó este stand previamente."
-        else:
-            nueva_visita = Visita(estudiante_id=estudiante.id, stand_id=current_user.stand_asignado.id, staff_id=current_user.id)
+        # ✅ FIX: Manejo de IntegrityError para duplicados
+        try:
+            nueva_visita = Visita(
+                estudiante_id=estudiante.id, 
+                stand_id=current_user.stand_asignado.id, 
+                staff_id=current_user.id
+            )
             db.session.add(nueva_visita)
             db.session.commit()
             mensaje = "Visita registrada correctamente."
+            
+        except IntegrityError:
+            # Ya existe una visita de este estudiante en este stand
+            db.session.rollback()
+            mensaje = "El estudiante ya visitó este stand previamente."
+            estado = "warning"
+            
+        except Exception as e:
+            db.session.rollback()
+            print(f"Error en registro de visita: {e}")
+            return jsonify({
+                'status': 'error',
+                'message': 'Error al registrar la visita. Intenta nuevamente.'
+            }), 500
 
     return jsonify({
         'status': estado,
@@ -495,6 +540,8 @@ def cambiar_password():
             # Redirigir según rol
             if current_user.role == 'admin':
                 return redirect(url_for('admin_dashboard'))
+            elif current_user.role == 'animador':
+                return redirect(url_for('animador_dashboard'))
             else:
                 return redirect(url_for('staff_dashboard'))
                 
@@ -809,7 +856,7 @@ def manejar_sorteo(data):
     # 2. BUSCAR CANDIDATOS (¡FILTRANDO QUE NO HAYAN GANADO!)
     candidatos = Estudiante.query.filter(
         Estudiante.carrera.in_(lista_carreras),
-        Estudiante.es_ganador == False  # <--- NUEVO FILTRO
+        Estudiante.es_ganador == False
     ).all()
 
     print(f"🔵 Candidatos disponibles: {len(candidatos)}")
@@ -821,16 +868,24 @@ def manejar_sorteo(data):
     # 3. Elegir Ganador
     ganador = random.choice(candidatos)
     
-    # 4. MARCARLO COMO GANADOR (Para que no salga de nuevo)
+    # 4. Obtener nombres para la animación (mezcla de candidatos reales)
+    # Tomamos hasta 40 nombres aleatorios de la lista actual para el efecto visual
+    pool_nombres = random.sample(candidatos, k=min(len(candidatos), 40))
+    lista_nombres_animacion = [est.nombre for est in pool_nombres]
+    lista_carreras_animacion = [est.carrera for est in pool_nombres]
+
+    # 5. MARCARLO COMO GANADOR (Para que no salga de nuevo)
     ganador.es_ganador = True
     db.session.commit()
     print(f"🟢 GANADOR: {ganador.nombre} (Marcado en DB)")
 
-    # 5. Enviar a Pantalla
+    # 6. Enviar a Pantalla
     emit('iniciar_animacion', {
         'nombre': ganador.nombre,
         'carrera': ganador.carrera,
-        'rut_oculto': f"***{ganador.rut[-4:]}" 
+        'rut_oculto': f"***{ganador.rut[-4:]}",
+        'nombres_azar': lista_nombres_animacion,
+        'carreras_azar': lista_carreras_animacion
     }, broadcast=True)
 
 

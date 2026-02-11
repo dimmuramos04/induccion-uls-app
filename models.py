@@ -3,6 +3,8 @@ from flask_login import UserMixin
 from datetime import datetime
 import uuid
 from flask_socketio import SocketIO
+from sqlalchemy.sql import func
+from sqlalchemy import Index
 
 db = SQLAlchemy()
 socketio = SocketIO()
@@ -83,13 +85,17 @@ class Estudiante(db.Model):
 class Visita(db.Model):
     __tablename__ = 'visita'
     id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime(timezone=True), server_default=func.now())
     estudiante_id = db.Column(db.Integer, db.ForeignKey('estudiante.id'), nullable=False)
     stand_id = db.Column(db.Integer, db.ForeignKey('stand.id'), nullable=False)
     staff_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     staff = db.relationship('User')
     stand = db.relationship('Stand', back_populates='visitas')
-    __table_args__ = (db.UniqueConstraint('estudiante_id', 'stand_id', name='una_visita_por_stand'),)
+    __table_args__ = (
+        db.UniqueConstraint('estudiante_id', 'stand_id', name='una_visita_por_stand'),
+        db.Index('idx_visita_estudiante', 'estudiante_id'),
+        db.Index('idx_visita_stand', 'stand_id'),
+    )
 
 class Encuesta(db.Model):
     __tablename__ = 'encuesta'

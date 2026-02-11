@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>Gran Sorteo ULS 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: radial-gradient(circle, #003366 0%, #001a33 100%); /* Azul ULS oscuro */
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             color: white;
             height: 100vh;
             overflow: hidden;
@@ -16,67 +25,205 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Partículas de fondo */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
         .titulo-sorteo {
-            font-size: 3rem;
-            color: #ffc107; /* Amarillo */
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
-            margin-bottom: 50px;
-            letter-spacing: 5px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            margin-bottom: 60px;
+            letter-spacing: 3px;
+            z-index: 10;
+            position: relative;
+            animation: shimmer 3s infinite;
+            text-align: center;
+            padding: 0 20px;
         }
 
-        /* CAJA DEL NOMBRE (EFECTO TRAGAMONEDAS) */
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .titulo-sorteo small {
+            -webkit-text-fill-color: white; /* Restaura el color blanco sólido */
+            color: white;
+            display: block; /* Asegura que quede bien centrado abajo */
+            margin-top: 10px;
+        }
+
+        /* CAJA DEL SORTEO */
         .slot-machine {
-            background: rgba(255, 255, 255, 0.1);
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 40px 80px;
+            background: rgba(15, 32, 39, 0.7);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 60px 100px;
             text-align: center;
-            min-width: 80%;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 70%;
+            max-width: 90%;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                0 0 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 60px rgba(255, 255, 255, 0.05);
+            transform: scale(0.95);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+            position: relative;
         }
 
         .slot-machine.winner {
-            transform: scale(1.1);
-            border-color: #28a745; /* Verde éxito */
-            background: rgba(40, 167, 69, 0.2);
-            box-shadow: 0 0 100px rgba(40, 167, 69, 0.8);
-            animation: glow 1s infinite alternate;
+            transform: scale(1.05);
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.15);
+            box-shadow: 
+                0 0 100px rgba(0, 255, 136, 0.8),
+                0 0 200px rgba(0, 255, 136, 0.4),
+                inset 0 0 60px rgba(0, 255, 136, 0.2);
+            animation: winnerGlow 1.5s infinite alternate;
+        }
+
+        @keyframes winnerGlow {
+            from { 
+                box-shadow: 
+                    0 0 80px rgba(0, 255, 136, 0.6),
+                    0 0 160px rgba(0, 255, 136, 0.3);
+            }
+            to { 
+                box-shadow: 
+                    0 0 120px rgba(0, 255, 136, 1),
+                    0 0 240px rgba(0, 255, 136, 0.6);
+            }
         }
 
         #nombre-display {
-            font-size: 5rem;
+            font-size: 5.5rem;
             font-weight: 900;
             line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
         }
 
         #carrera-display {
-            font-size: 2rem;
-            color: #adb5bd;
-            margin-top: 10px;
-            font-weight: 400;
+            font-size: 2.2rem;
+            color: #e0e0e0;
+            margin-top: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.9;
         }
 
-        .hidden { opacity: 0; }
-        
-        @keyframes glow {
-            from { box-shadow: 0 0 20px #28a745; }
-            to { box-shadow: 0 0 60px #28a745, 0 0 20px white; }
+        .hidden { 
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .hidden.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Logo ULS */
+        .logo-uls {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+            opacity: 0.8;
+        }
+
+        .logo-uls img {
+            height: 80px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Indicador de espera */
+        .waiting-indicator {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .titulo-sorteo {
+                font-size: 2rem;
+            }
+            
+            #nombre-display {
+                font-size: 3rem;
+            }
+            
+            #carrera-display {
+                font-size: 1.5rem;
+            }
+            
+            .slot-machine {
+                padding: 40px 30px;
+                min-width: 90%;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Logo ULS -->
+    <div class="logo-uls">
+        <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS">
+    </div>
 
-    <h1 class="titulo-sorteo">🏆 GRAN SORTEO SEMANA DE INDUCCIÓN 2026 USERENA 🏆</h1>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+
+    <h1 class="titulo-sorteo">
+        🏆 GRAN SORTEO 2026 🏆<br>
+        <small style="font-size: 0.6em; opacity: 0.8;">SEMANA DE INDUCCIÓN USERENA</small>
+    </h1>
 
     <div class="slot-machine" id="caja-sorteo">
-        <div id="nombre-display">ESPERANDO...</div>
+        <div id="nombre-display" class="waiting-indicator">ESPERANDO...</div>
         <div id="carrera-display" class="hidden">-</div>
     </div>
 
@@ -84,31 +231,151 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
-        // Conexión forzada a Websockets
+        // ===================================
+        // PARTÍCULAS DE FONDO
+        // ===================================
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) { // Reducido de 50 a 25 para mejorar rendimiento
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // ===================================
+        // SOCKET.IO Y LÓGICA DEL SORTEO
+        // ===================================
         const socket = io({transports: ['websocket', 'polling']});
         
         const displayNombre = document.getElementById('nombre-display');
         const displayCarrera = document.getElementById('carrera-display');
         const caja = document.getElementById('caja-sorteo');
         
-        // Sonidos Online (Funcionan directo)
+        // Sonidos
         const audioDrum = new Audio("{{ url_for('static', filename='sounds/drumroll.mp3') }}"); 
         const audioWin = new Audio("{{ url_for('static', filename='sounds/winner(1).mp3') }}");
         audioDrum.volume = 1.0;
         audioWin.volume = 1.0;
         
-        // Nombres falsos para la animación
-        const nombresFalsos = ["Javiera...", "Matías...", "Constanza...", "Diego...", "Valentina...", "Sebastián...", "Camila...", "Nicolás...", "Isabela...", "Gabriel...", "FELIPE...", "Antonia...", "Benjamín...", "Sofía...", "Mateo...", "Marcos...", "Emilia...", "Alexis...", "Lucas...", "Melissa..."];
+        // Nombres para animación
+        const nombresFalsosDefault = [
+            "Javiera González", "Matías Silva", "Constanza Torres", "Diego Rojas", 
+            "Valentina Muñoz", "Sebastián Castro", "Camila Pérez", "Nicolás Vargas", 
+            "Isabela Soto", "Gabriel Fernández", "Felipe Morales", "Antonia Lagos",
+            "Benjamín Reyes", "Sofía Cortés", "Mateo Fuentes", "Marcos Bravo",
+            "Emilia Vera", "Alexis Núñez", "Lucas Parra", "Melissa Carrasco"
+        ];
+        
+        const carrerasFalsasDefault = [
+            "Ingeniería Civil", "Enfermería", "Psicología", "Derecho", 
+            "Arquitectura", "Periodismo", "Diseño", "Kinesiología",
+            "Pedagogía en Inglés", "Ingeniería Comercial"
+        ];
+        
+        let nombresAnimacion = []; // Lista que se llenará dinámicamente
+        let carrerasAnimacion = [];
 
-        // 1. ESCUCHAR EL INICIO DEL SORTEO
+        // ===================================
+        // EVENTOS SOCKET
+        // ===================================
+        
         socket.on('iniciar_animacion', (data) => {
-            console.log("🏆 Datos recibidos:", data);
+            console.log("🎊 Sorteo iniciado:", data);
+            
+            // Usar nombres reales si vienen del servidor, sino usar default
+            if (data.nombres_azar && data.nombres_azar.length > 0) {
+                nombresAnimacion = data.nombres_azar;
+                carrerasAnimacion = data.carreras_azar || carrerasFalsasDefault;
+            } else {
+                nombresAnimacion = nombresFalsosDefault;
+                carrerasAnimacion = carrerasFalsasDefault;
+            }
+            
             startRoulette(data);
         });
 
-        // 2. ESCUCHAR EL RESET (LIMPIAR PANTALLA)
         socket.on('limpiar_pantalla', () => {
-            console.log("🧹 Limpiando...");
+            console.log("🧹 Limpiando pantalla...");
+            resetScreen();
+        });
+
+        // ===================================
+        // FUNCIONES
+        // ===================================
+        
+        function startRoulette(ganador) {
+            // Reset
+            caja.classList.remove('winner');
+            displayCarrera.classList.remove('hidden');
+            displayCarrera.classList.add('show');
+            displayNombre.classList.remove('waiting-indicator');
+            displayNombre.style.color = "white";
+            
+            // Audio
+            audioDrum.currentTime = 0;
+            audioDrum.play().catch(e => {
+                console.log("⚠️ Haz clic en la pantalla para activar audio");
+            });
+
+            // Animación tragamonedas
+            const intervalTime = 80;
+            const duration = 5000;
+            let counter = 0;
+
+            const interval = setInterval(() => {
+                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
+                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)];
+                counter++;
+                
+                // Ralentizar gradualmente
+                if (counter > duration / intervalTime * 0.8) {
+                    clearInterval(interval);
+                    slowDownAndStop(ganador);
+                }
+            }, intervalTime);
+        }
+
+        function slowDownAndStop(ganador) {
+            let delay = 100;
+            let iterations = 0;
+            const maxIterations = 8;
+
+            const slowInterval = setInterval(() => {
+                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
+                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)];
+                iterations++;
+                delay += 80;
+
+                if (iterations >= maxIterations) {
+                    clearInterval(slowInterval);
+                    showWinner(ganador);
+                }
+            }, delay);
+        }
+
+        function showWinner(ganador) {
+            audioDrum.pause();
+            
+            // Mostrar ganador
+            displayNombre.innerText = ganador.nombre.toUpperCase();
+            displayNombre.style.color = "#00ff88";
+            
+            displayCarrera.innerText = ganador.carrera;
+            displayCarrera.classList.remove('hidden');
+            displayCarrera.classList.add('show');
+
+            // Efectos
+            caja.classList.add('winner');
+            
+            setTimeout(() => {
+                audioWin.play().catch(e => console.log("Audio bloqueado"));
+                lanzarConfettiMejorado();
+            }, 300);
+        }
+
+        function resetScreen() {
             audioWin.pause();
             audioWin.currentTime = 0;
             audioDrum.pause();
@@ -117,55 +384,38 @@
             caja.classList.remove('winner');
             displayNombre.innerText = "ESPERANDO...";
             displayNombre.style.color = "white";
+            displayNombre.classList.add('waiting-indicator');
             displayCarrera.classList.add('hidden');
-        });
-
-        function startRoulette(ganador) {
-            // Reset visual
-            caja.classList.remove('winner');
-            displayCarrera.classList.add('hidden');
-            displayNombre.style.color = "white";
-            
-            // Intentar reproducir audio (requiere que hayas hecho clic en la página una vez antes)
-            audioDrum.currentTime = 0;
-            audioDrum.play().catch(e => console.log("⚠️ Haz clic en la pantalla para activar el audio"));
-
-            // Animación
-            const intervalTime = 100;
-            const duration = 4000; 
-
-            const interval = setInterval(() => {
-                displayNombre.innerText = nombresFalsos[Math.floor(Math.random() * nombresFalsos.length)];
-            }, intervalTime);
-
-            setTimeout(() => {
-                clearInterval(interval);
-                audioDrum.pause();
-                
-                // Mostrar Ganador
-                displayNombre.innerText = ganador.nombre;
-                displayCarrera.innerText = ganador.carrera;
-                displayCarrera.classList.remove('hidden');
-
-                // Victoria
-                caja.classList.add('winner');
-                audioWin.play().catch(e => console.log("Audio bloqueado"));
-                lanzarConfetti();
-
-            }, duration);
+            displayCarrera.classList.remove('show');
         }
 
-        function lanzarConfetti() {
-            var duration = 3 * 1000;
-            var animationEnd = Date.now() + duration;
-            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        function lanzarConfettiMejorado() {
+            const duration = 4000;
+            const animationEnd = Date.now() + duration;
 
-            var interval = setInterval(function() {
-                var timeLeft = animationEnd - Date.now();
+            const interval = setInterval(() => {
+                const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) return clearInterval(interval);
-                var particleCount = 50 * (timeLeft / duration);
-                confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
-            }, 250);
+
+                const particleCount = 40; // Reducido de 100 a 40 por disparo
+                
+                // Confetti desde los lados
+                confetti({
+                    particleCount,
+                    angle: 60,
+                    spread: 100,
+                    origin: { x: 0, y: 0.6 },
+                    colors: ['#ffd700', '#00ff88', '#00d4ff', '#ff00ff']
+                });
+                
+                confetti({
+                    particleCount,
+                    angle: 120,
+                    spread: 100,
+                    origin: { x: 1, y: 0.6 },
+                    colors: ['#ffd700', '#00ff88', '#00d4ff', '#ff00ff']
+                });
+            }, 400); // Aumentado intervalo de 250ms a 400ms (menos disparos por segundo)
         }
     </script>
 </body>
