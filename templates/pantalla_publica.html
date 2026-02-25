@@ -308,8 +308,9 @@
         function startRoulette(ganador) {
             // Reset
             caja.classList.remove('winner');
-            displayCarrera.classList.remove('hidden');
-            displayCarrera.classList.add('show');
+            displayCarrera.innerText = "-";
+            displayCarrera.classList.add('hidden');
+            displayCarrera.classList.remove('show');
             displayNombre.classList.remove('waiting-indicator');
             displayNombre.style.color = "white";
             
@@ -326,7 +327,6 @@
 
             const interval = setInterval(() => {
                 displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
-                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)];
                 counter++;
                 
                 // Ralentizar gradualmente
@@ -344,7 +344,6 @@
 
             const slowInterval = setInterval(() => {
                 displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
-                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)];
                 iterations++;
                 delay += 80;
 
@@ -385,6 +384,7 @@
             displayNombre.innerText = "ESPERANDO...";
             displayNombre.style.color = "white";
             displayNombre.classList.add('waiting-indicator');
+            displayCarrera.innerText = "-";
             displayCarrera.classList.add('hidden');
             displayCarrera.classList.remove('show');
         }

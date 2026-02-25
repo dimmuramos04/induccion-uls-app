@@ -1,7 +1,8 @@
 from flask import request, render_template, redirect, url_for, flash, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from datetime import datetime 
+from datetime import datetime, timedelta
+from functools import wraps 
 from forms import LoginForm
 import pytz
 import io
@@ -16,6 +17,70 @@ from app import db, limiter
 from models import User, Estudiante, Stand, Visita, Configuracion, socketio
 from sqlalchemy import func, case
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import joinedload
+
+
+# Cache global en memoria
+_config_cache = {}
+_config_cache_ttl = {}
+
+def get_config_cached(clave, default=None, ttl_seconds=30):
+    """
+    Obtiene un valor de configuración con cache inteligente.
+    
+    Args:
+        clave: Nombre de la configuración (ej: 'minimo_stands')
+        default: Valor por defecto si no existe
+        ttl_seconds: Tiempo de vida del cache en segundos (default: 30)
+    
+    Returns:
+        El valor de la configuración
+    
+    Ejemplo:
+        minimo = get_config_cached('minimo_stands', '3', ttl_seconds=60)
+    """
+    now = datetime.utcnow()
+    
+    # Verificar si está en cache y no ha expirado
+    if clave in _config_cache:
+        expira_en = _config_cache_ttl.get(clave)
+        if expira_en and now < expira_en:
+            # Cache válido, devolver valor
+            return _config_cache[clave]
+    
+    # Cache expirado o no existe, buscar en BD
+    valor = Configuracion.get_valor(clave, default)
+    
+    # Guardar en cache con tiempo de expiración
+    _config_cache[clave] = valor
+    _config_cache_ttl[clave] = now + timedelta(seconds=ttl_seconds)
+    
+    return valor
+
+
+def invalidar_cache_config(clave=None):
+    """
+    Invalida el cache de configuración.
+    
+    Args:
+        clave: Si se especifica, solo invalida esa clave.
+               Si es None, invalida todo el cache.
+    
+    Ejemplo:
+        # Invalidar solo 'minimo_stands'
+        invalidar_cache_config('minimo_stands')
+        
+        # Invalidar todo
+        invalidar_cache_config()
+    """
+    if clave:
+        # Invalidar solo una clave específica
+        _config_cache.pop(clave, None)
+        _config_cache_ttl.pop(clave, None)
+    else:
+        # Invalidar todo el cache
+        _config_cache.clear()
+        _config_cache_ttl.clear()
 
 # --- RUTAS DE AUTENTICACIÓN ---
 
@@ -70,7 +135,7 @@ def admin_dashboard():
     # 1. Seguridad: Solo admin entra aquí
     if current_user.role != 'admin':
         flash('Acceso denegado. Zona de Administradores.', 'warning')
-        return redirect(url_for('staff_dashboard'))
+        return redirect(url_for('login'))
     
     # 2. Calcular Estadísticas
     total_estudiantes = Estudiante.query.count()
@@ -105,12 +170,14 @@ def admin_dashboard():
 @app.route('/staff')
 @login_required
 def staff_dashboard():
+    if current_user.role != 'staff':
+        flash('Acceso denegado. Zona de Staff.', 'warning')
+        return redirect(url_for('login'))
     return render_template('staff_dashboard.html')
 
 @app.route('/animador_dashboard')
 @login_required
 def animador_dashboard():
-    # 1. Seguridad: Solo Animador o Admin pueden entrar
     if current_user.role not in ['animador', 'admin']: 
         flash('Acceso exclusivo para animadores.', 'danger')
         return redirect(url_for('login'))
@@ -130,6 +197,8 @@ def scan_qr():
     # 1. Recibir datos del Javascript
     data = request.get_json()
     rut_leido = data.get('rut')
+
+    print(f"📷 SCAN: Staff {current_user.username} escaneó RUT: {rut_leido}")
     
     if not rut_leido:
         return jsonify({'status': 'error', 'message': 'No se recibió datos'}), 400
@@ -146,8 +215,10 @@ def scan_qr():
     estudiante = Estudiante.query.filter_by(rut=rut_limpio).first()
 
     if not estudiante:
+        print(f"❌ SCAN: RUT {rut_limpio} NO encontrado en BD")
         return jsonify({'status': 'error', 'message': 'Estudiante no encontrado en base de datos'}), 404
 
+    print(f"✅ SCAN: Encontrado ID={estudiante.id}, Nombre={estudiante.nombre}")
     # 4. Lógica según el tipo de Stand
     tipo_stand = current_user.stand_asignado.tipo
     mensaje = ""
@@ -156,6 +227,7 @@ def scan_qr():
     # CASO A: Entrega de Regalos
     if tipo_stand == 'entrega':
         if estudiante.tiene_regalo:
+            print(f"⚠️ SCAN: ID={estudiante.id} ya tiene regalo")
             nombre_staff = estudiante.staff_regalo.username if estudiante.staff_regalo else "Desconocido"
             return jsonify({
                 'status': 'warning',
@@ -164,13 +236,13 @@ def scan_qr():
             })
         
         # Usamos la configuración centralizada. Default 3 si no existe.
-        minimo_requerido = int(Configuracion.get_valor('minimo_stands', '3'))
+        minimo_requerido = int(get_config_cached('minimo_stands', '3', ttl_seconds=30))
         visitas_actuales = Visita.query.filter_by(estudiante_id=estudiante.id).count()
 
         if visitas_actuales < minimo_requerido:
             faltan = minimo_requerido - visitas_actuales
             return jsonify({
-                'status': 'warning', # Usamos warning para alerta naranja
+                'status': 'warning',
                 'estudiante': {'nombre': estudiante.nombre, 'carrera': estudiante.carrera},
                 'message': f'⛔ INCOMPLETO: Ha visitado {visitas_actuales} de {minimo_requerido} stands. Le faltan {faltan}.'
             })
@@ -216,7 +288,8 @@ def scan_qr():
             nueva_visita = Visita(
                 estudiante_id=estudiante.id, 
                 stand_id=current_user.stand_asignado.id, 
-                staff_id=current_user.id
+                staff_id=current_user.id,
+                timestamp=datetime.now(pytz.utc)
             )
             db.session.add(nueva_visita)
             db.session.commit()
@@ -251,7 +324,7 @@ def scan_qr():
 @login_required
 def agregar_estudiante_manual():
     if current_user.role != 'admin':
-        return redirect(url_for('staff_dashboard'))
+        return redirect(url_for('login'))
 
     # Recibir datos del formulario
     rut = request.form.get('rut').strip().replace('.', '').replace('-', '').lower()
@@ -275,7 +348,7 @@ def agregar_estudiante_manual():
 @login_required
 def cargar_csv_web():
     if current_user.role != 'admin':
-        return redirect(url_for('staff_dashboard'))
+        return redirect(url_for('login'))
 
     # Verificar si se subió archivo
     if 'archivo_csv' not in request.files:
@@ -360,21 +433,45 @@ def cargar_csv_web():
 @login_required
 def configurar_evento():
     if current_user.role != 'admin':
-        return redirect(url_for('staff_dashboard'))
+        return redirect(url_for('login'))
     
     nuevo_minimo = request.form.get('min_visitas')
     
     # Usamos el método helper de Configuracion para guardar
     Configuracion.set_valor('minimo_stands', nuevo_minimo)
+    invalidar_cache_config('minimo_stands') # Invalida el cache para que se actualice en tiempo real
     
     flash(f'Configuración actualizada: Se requieren {nuevo_minimo} visitas para el regalo.', 'success')
     return redirect(url_for('admin_dashboard'))
+
+# --- RUTAS DE GESTIÓN AVANZADA (ADMIN) ---
+@app.route('/admin/cache_status')
+@login_required
+def cache_status():
+    """Solo para admins, ver el estado del cache"""
+    if current_user.role != 'admin': 
+        return redirect(url_for('login'))
+    
+    now = datetime.utcnow()
+    status = {}
+    
+    for clave, valor in _config_cache.items():
+        expira_en = _config_cache_ttl.get(clave)
+        segundos_restantes = (expira_en - now).total_seconds() if expira_en else 0
+        
+        status[clave] = {
+            'valor': valor,
+            'expira_en': f"{segundos_restantes:.0f} segundos",
+            'estado': 'Válido' if segundos_restantes > 0 else 'Expirado'
+        }
+    
+    return jsonify(status)
 
 # --- GESTIÓN: CREAR STAND ---
 @app.route('/admin/crear_stand', methods=['POST'])
 @login_required
 def crear_stand():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     nombre = request.form.get('nombre')
     tipo = request.form.get('tipo') # 'servicio' o 'entrega'
@@ -391,7 +488,7 @@ def crear_stand():
 @app.route('/admin/editar_stand/<int:id>', methods=['POST'])
 @login_required
 def editar_stand(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     stand = Stand.query.get_or_404(id)
     
@@ -408,7 +505,7 @@ def editar_stand(id):
 @app.route('/admin/crear_animador', methods=['POST'])
 @login_required
 def crear_animador():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     username = request.form.get('username')
     password = request.form.get('password')
@@ -437,7 +534,7 @@ def crear_animador():
 @app.route('/admin/crear_staff', methods=['POST'])
 @login_required
 def crear_staff():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     username = request.form.get('username')
     password = request.form.get('password')
@@ -465,7 +562,7 @@ def crear_staff():
 @app.route('/admin/editar_staff/<int:id>', methods=['POST'])
 @login_required
 def editar_staff(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     usuario = User.query.get_or_404(id)
     username = request.form.get('username')
@@ -490,7 +587,7 @@ def editar_staff(id):
 @app.route('/admin/editar_animador/<int:id>', methods=['POST'])
 @login_required
 def editar_animador(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     usuario = User.query.get_or_404(id)
     
@@ -542,7 +639,7 @@ def cambiar_password():
 @app.route('/admin/eliminar_stand/<int:id>', methods=['POST'])
 @login_required
 def eliminar_stand(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     stand = Stand.query.get_or_404(id)
     
@@ -566,7 +663,7 @@ def eliminar_stand(id):
 @app.route('/admin/eliminar_animador/<int:id>', methods=['POST'])
 @login_required
 def eliminar_animador(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     animador = User.query.get_or_404(id)
     if animador.role != 'animador':
@@ -582,7 +679,7 @@ def eliminar_animador(id):
 @app.route('/admin/eliminar_staff/<int:id>', methods=['POST'])
 @login_required
 def eliminar_staff(id):
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     usuario = User.query.get_or_404(id)
     if usuario.role == 'admin':
@@ -598,7 +695,7 @@ def eliminar_staff(id):
 @app.route('/admin/exportar_reporte')
 @login_required
 def exportar_reporte():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
 
     # Configurar Zona Horaria
     tz_chile = pytz.timezone('America/Santiago')
@@ -659,7 +756,7 @@ def exportar_reporte():
 @app.route('/admin/exportar_maestro')
 @login_required
 def exportar_maestro():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
 
     # Configurar Zona Horaria de Chile
     tz_chile = pytz.timezone('America/Santiago')
@@ -680,7 +777,13 @@ def exportar_maestro():
     writer.writerow(headers)
 
     # 2. RECORRER TODOS LOS ESTUDIANTES
-    estudiantes = Estudiante.query.all()
+    estudiantes = Estudiante.query.options(
+        joinedload(Estudiante.staff_regalo),              # Carga staff que entregó regalo
+        joinedload(Estudiante.visitas)                    # Carga todas las visitas
+            .joinedload(Visita.stand),                    # Y sus stands
+        joinedload(Estudiante.visitas)                    # Carga las visitas otra vez
+            .joinedload(Visita.staff)                     # Y sus staff
+    ).all()
 
     for est in estudiantes:
         # A. Formatear datos del Regalo
@@ -703,16 +806,19 @@ def exportar_maestro():
         detalles_visitas = []
         for visita in est.visitas:
             # Manejo seguro de fechas de visita
-            hora_visita = visita.timestamp # Asumiendo que tu modelo Visita usa 'timestamp'
-            if hora_visita.tzinfo is None:
-                hora_visita = pytz.utc.localize(hora_visita)
-                
-            hora_visita_cl = hora_visita.astimezone(tz_chile)
-            hora_fmt = hora_visita_cl.strftime('%d-%m %H:%M')
+            hora_visita = visita.timestamp
+            
+            if hora_visita is None:
+                hora_fmt = "Sin fecha"
+            else:
+                if hora_visita.tzinfo is None:
+                    hora_visita = pytz.utc.localize(hora_visita)
+                hora_visita_cl = hora_visita.astimezone(tz_chile)
+                hora_fmt = hora_visita_cl.strftime('%d-%m %H:%M')
 
             nombre_stand = visita.stand.nombre if visita.stand else "Stand Eliminado"
             nombre_staff = visita.staff.username if visita.staff else "Staff Eliminado"
-            detalles_visitas.append(f"{visita.stand.nombre} ({nombre_staff} - {hora_fmt})")
+            detalles_visitas.append(f"{nombre_stand} ({nombre_staff} - {hora_fmt})")
         
         visitas_str = " | ".join(detalles_visitas)
 
@@ -741,7 +847,7 @@ def exportar_maestro():
 @app.route('/admin/reset_evento', methods=['POST'])
 @login_required
 def reset_evento():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
     
     tipo_reset = request.form.get('tipo_reset') # 'todo' o 'solo_datos'
     
@@ -772,7 +878,7 @@ def reset_evento():
 @app.route('/admin/gestion_sorteo', methods=['GET', 'POST'])
 @login_required
 def gestion_sorteo():
-    if current_user.role != 'admin': return redirect(url_for('staff_dashboard'))
+    if current_user.role != 'admin': return redirect(url_for('login'))
 
     # 1. Obtener todas las carreras únicas que existen en la base de datos
     # Esto busca en los alumnos cargados, así que si subiste el CSV, las carreras ya están aquí.
@@ -879,6 +985,16 @@ def manejar_sorteo(data):
         'carreras_azar': lista_carreras_animacion
     }, broadcast=True)
 
+@socketio.on('reset_pantalla')
+def manejar_reset_pantalla():
+    """
+    Limpia la pantalla pública, volviendo al estado inicial.
+    Broadcast a todas las pantallas conectadas.
+    """
+    print("🧹 RESET: Limpiando pantalla pública")
+    emit('limpiar_pantalla', broadcast=True)
+    print("✅ RESET: Señal enviada")
+
 
 # --- REPORTE DETALLADO POR CARRERAS ---
 @app.route('/admin/avance_carreras')
@@ -886,7 +1002,7 @@ def manejar_sorteo(data):
 def avance_carreras():
     # 1. Seguridad
     if current_user.role != 'admin': 
-        return redirect(url_for('staff_dashboard'))
+        return redirect(url_for('login'))
     
     # 2. La consulta mágica (Agrupar por carrera y contar regalos)
     # Explicación: 
