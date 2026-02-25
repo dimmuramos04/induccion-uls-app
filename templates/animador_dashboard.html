@@ -105,7 +105,7 @@
     // RESPUESTA DEL SERVIDOR (GANADOR)
     socket.on('iniciar_animacion', (data) => {
         status.className = 'alert alert-success fw-bold';
-        status.innerHTML = `<i class="fas fa-trophy"></i> ¡GANADOR!<br>${data.nombre}`;
+        status.innerHTML = `<i class="fas fa-trophy"></i> ¡GANADOR!<br>${data.nombre}<br>${data.carrera}`;
         
         // Bloqueo temporal mientras dura la animación en pantalla (aprox 5 seg)
         setTimeout(() => {

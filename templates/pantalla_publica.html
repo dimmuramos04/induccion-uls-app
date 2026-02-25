@@ -1,335 +1,288 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Gran Sorteo ULS 2026</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Gran Sorteo ULS 2026 - Neo Brutalism</title>
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            safelist: [
+                'text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl', 'text-6xl', 'text-7xl', 'text-8xl', 'text-9xl',
+                'md:text-2xl', 'md:text-3xl', 'md:text-4xl', 'md:text-5xl', 'md:text-6xl', 'md:text-7xl', 'md:text-8xl',
+                'lg:text-2xl', 'lg:text-3xl', 'lg:text-4xl', 'lg:text-5xl', 'lg:text-6xl', 'lg:text-7xl', 'lg:text-8xl', 'lg:text-9xl'
+            ],
+            theme: {
+                extend: {
+                    colors: {
+                        "acid": "#ccff00",
+                        "neo-purple": "#8a2be2",
+                        "deep-purple": "#2d004d",
+                        "neo-pink": "#ff007a",
+                        "neo-black": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ['Syne', 'sans-serif'],
+                        "mono": ['JetBrains Mono', 'monospace'],
+                        "grotesk": ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neo': '8px 8px 0px 0px rgba(0, 0, 0, 1)',
+                        'neo-lg': '12px 12px 0px 0px rgba(0, 0, 0, 1)',
+                        'neo-sm': '4px 4px 0px 0px rgba(0, 0, 0, 1)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            color: white;
-            height: 100vh;
+            background-color: #2d004d;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Poppins', sans-serif;
-            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Gradient Mesh Background */
+        .mesh-gradient {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: 
+                radial-gradient(at 0% 0%, hsla(273, 98%, 47%, 1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(68, 100%, 50%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(292, 91%, 63%, 1) 0px, transparent 50%);
+            filter: blur(80px); opacity: 0.6;
         }
 
-        /* Partículas de fondo */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
+        /* Floating Emojis */
+        .floating-emoji {
+            position: absolute; font-size: 4rem; opacity: 0.2; user-select: none; z-index: -1;
+            animation: float 10s ease-in-out infinite alternate;
         }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-        }
-
         @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(15deg); }
         }
 
-        .titulo-sorteo {
-            font-size: 3.5rem;
-            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            margin-bottom: 60px;
-            letter-spacing: 3px;
-            z-index: 10;
-            position: relative;
-            animation: shimmer 3s infinite;
-            text-align: center;
-            padding: 0 20px;
+        /* Marquee Animation */
+        .marquee-container {
+            border-top: 4px solid var(--neo-black); background: #ccff00; color: #000;
         }
-
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .marquee-content {
+            display: inline-block; white-space: nowrap; animation: marquee 15s linear infinite;
         }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .titulo-sorteo small {
-            -webkit-text-fill-color: white; /* Restaura el color blanco sólido */
-            color: white;
-            display: block; /* Asegura que quede bien centrado abajo */
-            margin-top: 10px;
+        /* Neo Brutalism utilities */
+        .neo-card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px);
+            border: 4px solid #000; box-shadow: 12px 12px 0px #000;
         }
+        .text-shadow-neo { text-shadow: 4px 4px 0px #000; }
+        
+        /* Stickers Rotation */
+        .sticker-rotate-1 { transform: rotate(-15deg); }
+        .sticker-rotate-2 { transform: rotate(10deg); }
+        .sticker-rotate-3 { transform: rotate(-5deg); }
+        .sticker-rotate-4 { transform: rotate(20deg); }
 
-        /* CAJA DEL SORTEO */
-        .slot-machine {
-            background: rgba(15, 32, 39, 0.7);
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            padding: 60px 100px;
-            text-align: center;
-            min-width: 70%;
-            max-width: 90%;
-            backdrop-filter: blur(20px);
-            box-shadow: 
-                0 0 60px rgba(0, 0, 0, 0.6),
-                inset 0 0 60px rgba(255, 255, 255, 0.05);
-            transform: scale(0.95);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10;
-            position: relative;
-        }
-
-        .slot-machine.winner {
-            transform: scale(1.05);
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.15);
-            box-shadow: 
-                0 0 100px rgba(0, 255, 136, 0.8),
-                0 0 200px rgba(0, 255, 136, 0.4),
-                inset 0 0 60px rgba(0, 255, 136, 0.2);
-            animation: winnerGlow 1.5s infinite alternate;
-        }
-
-        @keyframes winnerGlow {
-            from { 
-                box-shadow: 
-                    0 0 80px rgba(0, 255, 136, 0.6),
-                    0 0 160px rgba(0, 255, 136, 0.3);
-            }
-            to { 
-                box-shadow: 
-                    0 0 120px rgba(0, 255, 136, 1),
-                    0 0 240px rgba(0, 255, 136, 0.6);
-            }
-        }
-
-        #nombre-display {
-            font-size: 5.5rem;
-            font-weight: 900;
-            line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            letter-spacing: 2px;
-        }
-
-        #carrera-display {
-            font-size: 2.2rem;
-            color: #e0e0e0;
-            margin-top: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            opacity: 0.9;
-        }
-
-        .hidden { 
-            opacity: 0; 
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .hidden.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Logo ULS */
-        .logo-uls {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            z-index: 100;
-            opacity: 0.8;
-        }
-
-        .logo-uls img {
-            height: 80px;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        }
-
-        /* Indicador de espera */
-        .waiting-indicator {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .titulo-sorteo {
-                font-size: 2rem;
-            }
-            
-            #nombre-display {
-                font-size: 3rem;
-            }
-            
-            #carrera-display {
-                font-size: 1.5rem;
-            }
-            
-            .slot-machine {
-                padding: 40px 30px;
-                min-width: 90%;
-            }
+        .fast-spin { animation: colorGlitch 0.2s infinite; }
+        @keyframes colorGlitch {
+            0% { color: #ccff00; } 33% { color: #ff007a; } 66% { color: #ffffff; } 100% { color: #ccff00; }
         }
     </style>
 </head>
-<body>
-    <!-- Logo ULS -->
-    <div class="logo-uls">
-        <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS">
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4 selection:bg-acid selection:text-black">
+    
+    <div class="mesh-gradient"></div>
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none border-[12px] border-black opacity-20 z-50"></div>
+    
+    <div class="floating-emoji top-10 left-[10%]">⭐</div>
+    <div class="floating-emoji top-20 right-[15%]">🏆</div>
+    <div class="floating-emoji bottom-40 left-[20%]">💻</div>
+    <div class="floating-emoji bottom-20 right-[5%]">🎓</div>
+    <div class="floating-emoji top-[50%] left-[-2%]">✨</div>
+
+    <div class="absolute top-6 left-6 md:top-8 md:left-8 flex items-center gap-3 z-50">
+        <div class="w-14 h-14 bg-acid border-4 border-black flex items-center justify-center shadow-neo-sm">
+            <img src="{{ url_for('static', filename='images/favicon.png') }}" alt="ULS Logo" class="w-8 h-8 opacity-90 filter invert"/>
+        </div>
+        <div class="text-white">
+            <div class="font-bold text-2xl tracking-tighter leading-none">USerena 2026</div>
+            <div class="text-[10px] tracking-widest bg-black text-acid px-2 py-0.5 uppercase font-mono shadow-neo-sm">Sorteo Oficial</div>
+        </div>
     </div>
 
-    <!-- Partículas de fondo -->
-    <div class="particles" id="particles"></div>
+    <main id="wait-screen" class="w-[90%] max-w-4xl flex flex-col items-center gap-8 relative z-10 transition-all duration-500">
+        
+        <div class="relative text-center mt-8">
+            <h1 class="font-display text-6xl md:text-8xl text-white italic -skew-x-6 text-shadow-neo leading-none">
+                GRAN <span class="text-acid">SORTEO</span>
+            </h1>
+            <div class="bg-neo-pink text-white border-2 border-black shadow-neo-sm absolute -top-2 -right-8 px-3 py-1 rotate-12 text-xs md:text-sm font-bold font-mono">
+                BIENVENIDA 2026
+            </div>
+        </div>
 
-    <h1 class="titulo-sorteo">
-        🏆 GRAN SORTEO 2026 🏆<br>
-        <small style="font-size: 0.6em; opacity: 0.8;">SEMANA DE INDUCCIÓN USERENA</small>
-    </h1>
+        <div class="neo-card w-full p-6 md:p-10 flex flex-col items-center justify-center relative bg-white/10">
+            <div class="absolute top-2 left-2 w-4 h-4 border-l-4 border-t-4 border-black"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-r-4 border-t-4 border-black"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-l-4 border-b-4 border-black"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-r-4 border-b-4 border-black"></div>
+            
+            <div class="text-center w-full min-h-[140px] flex flex-col justify-center items-center">
+                <div id="nombre-display" class="font-display text-4xl md:text-6xl lg:text-7xl text-white mb-4 tracking-tighter break-words px-2 uppercase leading-none opacity-50 w-full">
+                    ESPERANDO..
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 mt-2">
+                    <div class="h-[4px] w-6 bg-acid border-y border-black"></div>
+                    <div id="carrera-display" class="font-mono text-base md:text-xl text-acid bg-black px-4 py-1 uppercase tracking-[0.2em] font-bold border-2 border-black hidden">
+                        [ SYSTEM_READY ]
+                    </div>
+                    <div class="h-[4px] w-6 bg-acid border-y border-black"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex flex-col items-center gap-2 mt-2">
+            <span class="material-symbols-outlined text-white text-4xl animate-bounce">keyboard_double_arrow_down</span>
+            <p class="font-mono bg-black text-white px-3 py-1 text-[10px] tracking-widest uppercase border-2 border-white/20">Awaiting server signal</p>
+        </div>
+    </main>
 
-    <div class="slot-machine" id="caja-sorteo">
-        <div id="nombre-display" class="waiting-indicator">ESPERANDO...</div>
-        <div id="carrera-display" class="hidden">-</div>
+    <main id="winner-screen" class="hidden w-[90%] max-w-5xl h-[85vh] flex flex-col items-center justify-between relative z-20 transition-all duration-500 py-6">
+        
+        <div class="absolute -top-6 left-0 md:left-12 sticker-rotate-3 z-40">
+            <div class="bg-acid border-4 border-black px-6 py-2 shadow-neo">
+                <span class="text-black text-2xl font-black uppercase italic tracking-widest font-display">¡TENEMOS GANADOR!</span>
+            </div>
+        </div>
+        <div class="absolute top-10 right-0 sticker-rotate-2 bg-white border-2 border-black p-3 shadow-neo-sm hidden lg:block z-40">
+            <span class="material-symbols-outlined text-5xl text-yellow-400" style="font-variation-settings: 'FILL' 1">stars</span>
+        </div>
+        <div class="absolute bottom-32 left-[-20px] sticker-rotate-1 bg-neo-purple border-2 border-black p-3 shadow-neo-sm hidden lg:block z-40">
+            <span class="material-symbols-outlined text-5xl text-white">emoji_events</span>
+        </div>
+        <div class="absolute bottom-1/4 right-[-40px] sticker-rotate-3 bg-cyan-400 border-2 border-black p-3 shadow-neo-sm hidden xl:block z-40">
+            <span class="material-symbols-outlined text-5xl text-black">mood</span>
+        </div>
+
+        <div class="relative z-30 flex-1 flex flex-col justify-center items-center text-center w-full px-4 min-h-0">
+            <p class="bg-black text-acid inline-block px-4 py-1 text-xl font-black uppercase tracking-[0.2em] shadow-neo-sm border-2 border-acid mb-4">El gran premio es para</p>
+            
+            <h1 id="winner-name-display" class="font-display text-white font-black uppercase italic text-shadow-neo leading-none tracking-tighter w-full px-4">
+                NOMBRE <br> APELLIDO
+            </h1>
+            
+            <div class="mt-8">
+                <div class="inline-block bg-white border-4 border-black px-6 py-3 shadow-neo transform -rotate-2">
+                    <p class="text-black text-xl md:text-2xl font-bold italic uppercase font-grotesk">🏆 Ticket <span id="metric-id">#U-0000</span> • Verificado</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-30 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl px-4 shrink-0">
+            <div class="bg-neo-purple border-4 border-black p-4 md:p-6 shadow-neo flex flex-col items-center justify-center gap-2 group hover:-translate-y-1 transition-transform md:col-span-2 h-full min-h-[120px]">
+                <span class="text-white/80 uppercase font-black text-xs md:text-sm tracking-widest font-mono bg-black px-2 py-1 text-center">Programa Académico</span>
+                <span id="winner-career-display" class="text-white font-black italic text-center mt-2 font-display leading-tight w-full break-words">
+                    CARRERA
+                </span>
+            </div>
+            
+            <div class="bg-acid border-4 border-black p-6 shadow-neo flex flex-col items-center justify-center gap-2 group hover:-translate-y-1 transition-transform">
+                <span class="text-black/60 uppercase font-black text-sm tracking-widest font-mono">Estado Sistema</span>
+                <span class="text-black text-2xl font-black italic font-display tracking-tight">CONFIRMADO</span>
+                <div class="w-full h-2 bg-black mt-2"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="marquee-inferior" class="fixed bottom-0 left-0 w-full overflow-hidden marquee-container py-3 z-50 transition-all duration-500">
+        <div class="marquee-content font-bold text-lg font-mono">
+            <span class="px-8 border-r-2 border-black">CARGANDO BASE DE DATOS... <span class="material-symbols-outlined text-sm align-middle">autorenew</span></span>
+            <span class="px-8 border-r-2 border-black">UNIVERSIDAD DE LA SERENA</span>
+            <span class="px-8 border-r-2 border-black">INDUCCIÓN 2026</span>
+            <span class="px-8 border-r-2 border-black">BUSCANDO ESTUDIANTES HABILITADOS... <span class="material-symbols-outlined text-sm align-middle">radar</span></span>
+            <span class="px-8 border-r-2 border-black">CARGANDO BASE DE DATOS... <span class="material-symbols-outlined text-sm align-middle">autorenew</span></span>
+            <span class="px-8 border-r-2 border-black">UNIVERSIDAD DE LA SERENA</span>
+            <span class="px-8 border-r-2 border-black">INDUCCIÓN 2026</span>
+            <span class="px-8 border-r-2 border-black">BUSCANDO ESTUDIANTES HABILITADOS... <span class="material-symbols-outlined text-sm align-middle">radar</span></span>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
-        // ===================================
-        // PARTÍCULAS DE FONDO
-        // ===================================
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 25; i++) { // Reducido de 50 a 25 para mejorar rendimiento
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 20 + 's';
-            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            particlesContainer.appendChild(particle);
-        }
-
-        // ===================================
-        // SOCKET.IO Y LÓGICA DEL SORTEO
-        // ===================================
         const socket = io({transports: ['websocket', 'polling']});
+        
+        // Elementos DOM
+        const waitScreen = document.getElementById('wait-screen');
+        const winnerScreen = document.getElementById('winner-screen');
         
         const displayNombre = document.getElementById('nombre-display');
         const displayCarrera = document.getElementById('carrera-display');
-        const caja = document.getElementById('caja-sorteo');
         
-        // Sonidos
+        const winnerNameDisplay = document.getElementById('winner-name-display');
+        const winnerCareerDisplay = document.getElementById('winner-career-display');
+        
+        // Audios
         const audioDrum = new Audio("{{ url_for('static', filename='sounds/drumroll.mp3') }}"); 
         const audioWin = new Audio("{{ url_for('static', filename='sounds/winner(1).mp3') }}");
-        audioDrum.volume = 1.0;
-        audioWin.volume = 1.0;
         
-        // Nombres para animación
-        const nombresFalsosDefault = [
-            "Javiera González", "Matías Silva", "Constanza Torres", "Diego Rojas", 
-            "Valentina Muñoz", "Sebastián Castro", "Camila Pérez", "Nicolás Vargas", 
-            "Isabela Soto", "Gabriel Fernández", "Felipe Morales", "Antonia Lagos",
-            "Benjamín Reyes", "Sofía Cortés", "Mateo Fuentes", "Marcos Bravo",
-            "Emilia Vera", "Alexis Núñez", "Lucas Parra", "Melissa Carrasco"
-        ];
-        
-        const carrerasFalsasDefault = [
-            "Ingeniería Civil", "Enfermería", "Psicología", "Derecho", 
-            "Arquitectura", "Periodismo", "Diseño", "Kinesiología",
-            "Pedagogía en Inglés", "Ingeniería Comercial"
-        ];
-        
-        let nombresAnimacion = []; // Lista que se llenará dinámicamente
+        let nombresAnimacion = []; 
         let carrerasAnimacion = [];
 
-        // ===================================
-        // EVENTOS SOCKET
-        // ===================================
-        
+        // --- EVENTOS SOCKET ---
         socket.on('iniciar_animacion', (data) => {
-            console.log("🎊 Sorteo iniciado:", data);
-            
-            // Usar nombres reales si vienen del servidor, sino usar default
             if (data.nombres_azar && data.nombres_azar.length > 0) {
                 nombresAnimacion = data.nombres_azar;
-                carrerasAnimacion = data.carreras_azar || carrerasFalsasDefault;
+                carrerasAnimacion = data.carreras_azar;
             } else {
-                nombresAnimacion = nombresFalsosDefault;
-                carrerasAnimacion = carrerasFalsasDefault;
+                nombresAnimacion = ["Javiera", "Matías", "Constanza", "Diego", "Valentina", "Sebastián"];
+                carrerasAnimacion = ["Ingeniería Civil", "Enfermería", "Psicología", "Derecho"];
             }
-            
             startRoulette(data);
         });
 
-        socket.on('limpiar_pantalla', () => {
-            console.log("🧹 Limpiando pantalla...");
-            resetScreen();
-        });
+        socket.on('limpiar_pantalla', () => resetScreen());
 
-        // ===================================
-        // FUNCIONES
-        // ===================================
-        
+        const marqueeInferior = document.getElementById('marquee-inferior');
+
+        // --- LÓGICA DE LA TÓMBOLA ---
         function startRoulette(ganador) {
-            // Reset
-            caja.classList.remove('winner');
-            displayCarrera.innerText = "-";
-            displayCarrera.classList.add('hidden');
-            displayCarrera.classList.remove('show');
-            displayNombre.classList.remove('waiting-indicator');
-            displayNombre.style.color = "white";
-            
-            // Audio
-            audioDrum.currentTime = 0;
-            audioDrum.play().catch(e => {
-                console.log("⚠️ Haz clic en la pantalla para activar audio");
-            });
+            winnerScreen.classList.add('hidden');
+            waitScreen.classList.remove('hidden');
 
-            // Animación tragamonedas
+            // Ocultar la barra inferior de noticias
+            marqueeInferior.classList.add('opacity-0', 'translate-y-full');
+            
+            // Estilos visuales para el giro rápido
+            displayNombre.classList.remove('opacity-50');
+            displayNombre.classList.add('fast-spin');
+            
+            displayCarrera.classList.remove('hidden');
+            displayCarrera.classList.add('inline-block');
+            
+            audioDrum.currentTime = 0;
+            audioDrum.play().catch(e => console.log("Clickea la pantalla para activar audio"));
+
+            let counter = 0;
             const intervalTime = 80;
             const duration = 5000;
-            let counter = 0;
 
             const interval = setInterval(() => {
-                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
+                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)].toUpperCase();
+                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)].toUpperCase();
                 counter++;
                 
-                // Ralentizar gradualmente
                 if (counter > duration / intervalTime * 0.8) {
                     clearInterval(interval);
                     slowDownAndStop(ganador);
@@ -343,7 +296,9 @@
             const maxIterations = 8;
 
             const slowInterval = setInterval(() => {
-                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)];
+                displayNombre.innerText = nombresAnimacion[Math.floor(Math.random() * nombresAnimacion.length)].toUpperCase();
+                displayCarrera.innerText = carrerasAnimacion[Math.floor(Math.random() * carrerasAnimacion.length)].toUpperCase();
+                
                 iterations++;
                 delay += 80;
 
@@ -357,39 +312,79 @@
         function showWinner(ganador) {
             audioDrum.pause();
             
-            // Mostrar ganador
-            displayNombre.innerText = ganador.nombre.toUpperCase();
-            displayNombre.style.color = "#00ff88";
-            
-            displayCarrera.innerText = ganador.carrera;
-            displayCarrera.classList.remove('hidden');
-            displayCarrera.classList.add('show');
+            // Transición de pantallas
+            waitScreen.classList.add('hidden');
+            winnerScreen.classList.remove('hidden');
 
-            // Efectos
-            caja.classList.add('winner');
+            const nombreStr = ganador.nombre.toUpperCase();
+
+            // --- LÓGICA DE CORTE INTELIGENTE DE NOMBRES ---
+            const palabras = nombreStr.trim().split(/\s+/);
+            let nombreHTML = nombreStr;
+
+            if (palabras.length >= 4) {
+                const mitad = Math.ceil(palabras.length / 2);
+                const linea1 = palabras.slice(0, mitad).join(" ");
+                const linea2 = palabras.slice(mitad).join(" ");
+                nombreHTML = `${linea1}<br>${linea2}`;
+            } else if (palabras.length === 3) {
+                nombreHTML = `${palabras[0]} ${palabras[1]}<br>${palabras[2]}`;
+            }
+
+            // Inyectar datos
+            winnerNameDisplay.innerHTML = nombreHTML;
+
+            const carreraStr = ganador.carrera.toUpperCase();
+            winnerCareerDisplay.innerText = carreraStr;
+
+            let careerSizeClasses = "";
+            if (carreraStr.length > 40) {
+                careerSizeClasses = "text-xl md:text-xl lg:text-2xl";
+            } else if (carreraStr.length > 25) {
+                careerSizeClasses = "text-2xl md:text-3xl lg:text-4xl";
+            } else {
+                careerSizeClasses = "text-4xl md:text-5xl lg:text-5xl";
+            }
+
+            winnerCareerDisplay.className = `text-white font-black italic text-center mt-2 font-display leading-tight w-full break-words ${careerSizeClasses}`;
+            document.getElementById('metric-id').innerText = "#U-" + Math.floor(Math.random() * 9000 + 1000);
             
+            // Tamaños de texto dinámicos para Neo-Brutalism
+           let textSizeClasses = "";
+            if (nombreStr.length > 26) {
+                textSizeClasses = "text-4xl md:text-5xl lg:text-6xl";
+            } else if (nombreStr.length > 18) {
+                textSizeClasses = "text-5xl md:text-6xl lg:text-7xl";
+            } else {
+                textSizeClasses = "text-6xl md:text-7xl lg:text-8xl";
+            }
+            
+            winnerNameDisplay.className = `font-display text-white font-black uppercase italic text-shadow-neo leading-tight tracking-tighter w-full px-4 ${textSizeClasses}`;
+
+            // Efectos Finales
             setTimeout(() => {
                 audioWin.play().catch(e => console.log("Audio bloqueado"));
-                lanzarConfettiMejorado();
+                lanzarConfettiPop();
             }, 300);
         }
 
         function resetScreen() {
-            audioWin.pause();
-            audioWin.currentTime = 0;
-            audioDrum.pause();
-            audioDrum.currentTime = 0;
+            audioWin.pause(); audioWin.currentTime = 0;
+            audioDrum.pause(); audioDrum.currentTime = 0;
 
-            caja.classList.remove('winner');
+            winnerScreen.classList.add('hidden');
+            waitScreen.classList.remove('hidden');
+
+            marqueeInferior.classList.remove('opacity-0', 'translate-y-full');
+            
             displayNombre.innerText = "ESPERANDO...";
-            displayNombre.style.color = "white";
-            displayNombre.classList.add('waiting-indicator');
-            displayCarrera.innerText = "-";
+            displayNombre.classList.remove('fast-spin');
+            displayNombre.classList.add('opacity-50');
             displayCarrera.classList.add('hidden');
-            displayCarrera.classList.remove('show');
+            displayCarrera.classList.remove('inline-block');
         }
 
-        function lanzarConfettiMejorado() {
+        function lanzarConfettiPop() {
             const duration = 4000;
             const animationEnd = Date.now() + duration;
 
@@ -397,25 +392,21 @@
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) return clearInterval(interval);
 
-                const particleCount = 40; // Reducido de 100 a 40 por disparo
-                
-                // Confetti desde los lados
+                // Colores Neo-Brutalistas
+                const colors = ['#ccff00', '#8a2be2', '#ff007a', '#000000', '#ffffff'];
+
                 confetti({
-                    particleCount,
-                    angle: 60,
-                    spread: 100,
-                    origin: { x: 0, y: 0.6 },
-                    colors: ['#ffd700', '#00ff88', '#00d4ff', '#ff00ff']
+                    particleCount: 50, angle: 60, spread: 80, origin: { x: 0, y: 0.6 },
+                    colors: colors, disableForReducedMotion: true,
+                    shapes: ['square', 'circle'] // Neo-brutalism usa formas sólidas
                 });
                 
                 confetti({
-                    particleCount,
-                    angle: 120,
-                    spread: 100,
-                    origin: { x: 1, y: 0.6 },
-                    colors: ['#ffd700', '#00ff88', '#00d4ff', '#ff00ff']
+                    particleCount: 50, angle: 120, spread: 80, origin: { x: 1, y: 0.6 },
+                    colors: colors, disableForReducedMotion: true,
+                    shapes: ['square', 'circle']
                 });
-            }, 400); // Aumentado intervalo de 250ms a 400ms (menos disparos por segundo)
+            }, 350);
         }
     </script>
 </body>
