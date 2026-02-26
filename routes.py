@@ -1,4 +1,4 @@
-from flask import request, render_template, redirect, url_for, flash, jsonify
+from flask import request, render_template, redirect, url_for, flash, jsonify, stream_with_context, Response
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime, timedelta
@@ -17,7 +17,7 @@ from app import db, limiter
 from models import User, Estudiante, Stand, Visita, Configuracion, socketio
 from sqlalchemy import func, case
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, selectinload
 
 
 # Cache global en memoria
@@ -695,150 +695,165 @@ def eliminar_staff(id):
 @app.route('/admin/exportar_reporte')
 @login_required
 def exportar_reporte():
-    if current_user.role != 'admin': return redirect(url_for('login'))
+    if current_user.role != 'admin': 
+        return redirect(url_for('login'))
 
-    # Configurar Zona Horaria
     tz_chile = pytz.timezone('America/Santiago')
 
-    # Creamos un archivo CSV en memoria
-    si = io.StringIO()
-    cw = csv.writer(si, delimiter=';') 
-    
-    # 1. REPORTE DE STAFF (Quién trabajó más)
-    cw.writerow(["--- REPORTE DE RENDIMIENTO STAFF ---"])
-    cw.writerow(["Usuario", "Stand Asignado", "Total Escaneos Realizados"])
-    
-    rendimiento = db.session.query(
-        User.username, 
-        Stand.nombre, 
-        func.count(Visita.id)
-    ).join(Visita, User.id == Visita.staff_id)\
-     .join(Stand, Visita.stand_id == Stand.id)\
-     .group_by(User.username, Stand.nombre).all()
+    def generate():
+        # Buffer en memoria para ir escribiendo fila por fila
+        buffer = io.StringIO()
+        writer = csv.writer(buffer, delimiter=';')
+        
+        def stream_line():
+            buffer.seek(0)
+            data = buffer.getvalue()
+            buffer.truncate(0)
+            buffer.seek(0)
+            return data
 
-    for user_name, stand_name, total in rendimiento:
-        cw.writerow([user_name, stand_name, total])
+        # 1. REPORTE DE STAFF (Quién trabajó más)
+        writer.writerow(["--- REPORTE DE RENDIMIENTO STAFF ---"])
+        yield stream_line()
+        writer.writerow(["Usuario", "Stand Asignado", "Total Escaneos Realizados"])
+        yield stream_line()
+        
+        rendimiento = db.session.query(
+            User.username, 
+            Stand.nombre, 
+            func.count(Visita.id)
+        ).join(Visita, User.id == Visita.staff_id)\
+         .join(Stand, Visita.stand_id == Stand.id)\
+         .group_by(User.username, Stand.nombre).all()
 
-    cw.writerow([])
-    cw.writerow(["--- REPORTE POR STANDS ---"])
-    cw.writerow(["Stand", "Tipo", "Total Visitas Recibidas"])
-    stands = Stand.query.all()
-    for stand in stands:
-        total = Visita.query.filter_by(stand_id=stand.id).count()
-        cw.writerow([stand.nombre, stand.tipo, total])
+        for user_name, stand_name, total in rendimiento:
+            writer.writerow([user_name, stand_name, total])
+            yield stream_line()
 
-    cw.writerow([])
-    cw.writerow(["--- DETALLE DE ESTUDIANTES ---"])
-    cw.writerow(["RUT", "Nombre", "Carrera", "Total Visitas", "¿Recibió Regalo?", "Fecha Regalo"])
-    
-    estudiantes = Estudiante.query.all()
-    for est in estudiantes:
-        visitas = Visita.query.filter_by(estudiante_id=est.id).count()
-        regalo = "SI" if est.tiene_regalo else "NO"
-        fecha_str = "-"
-        if est.fecha_entrega:
-            fecha_obj = est.fecha_entrega
-            # Si la fecha no tiene zona (naive), asumimos UTC
-            if fecha_obj.tzinfo is None:
-                fecha_obj = pytz.utc.localize(fecha_obj)
-            # Convertir a Chile
-            fecha_cl = fecha_obj.astimezone(tz_chile)
-            fecha_str = fecha_cl.strftime("%d-%m-%Y %H:%M")
-        cw.writerow([est.rut, est.nombre, est.carrera, visitas, regalo, fecha_str])
+        # Espacio en blanco
+        writer.writerow([])
+        yield stream_line()
+        
+        # 2. REPORTE POR STANDS
+        writer.writerow(["--- REPORTE POR STANDS ---"])
+        yield stream_line()
+        writer.writerow(["Stand", "Tipo", "Total Visitas Recibidas"])
+        yield stream_line()
+        
+        stands = Stand.query.all()
+        for stand in stands:
+            total = Visita.query.filter_by(stand_id=stand.id).count()
+            writer.writerow([stand.nombre, stand.tipo, total])
+            yield stream_line()
 
-    # Preparar respuesta de descarga
-    output = make_response(si.getvalue())
-    output.headers["Content-Disposition"] = "attachment; filename=reporte_induccion_2026.csv"
-    output.headers["Content-type"] = "text/csv"
-    return output
+        # Espacio en blanco
+        writer.writerow([])
+        yield stream_line()
+        
+        # 3. DETALLE DE ESTUDIANTES
+        writer.writerow(["--- DETALLE DE ESTUDIANTES ---"])
+        yield stream_line()
+        writer.writerow(["RUT", "Nombre", "Carrera", "Total Visitas", "¿Recibió Regalo?", "Fecha Regalo"])
+        yield stream_line()
+        
+        estudiantes_con_visitas = db.session.query(
+            Estudiante,
+            func.count(Visita.id).label('total_visitas')
+        ).outerjoin(Visita, Estudiante.id == Visita.estudiante_id)\
+         .group_by(Estudiante.id).yield_per(100)
+
+        for est, total_visitas in estudiantes_con_visitas:
+            regalo = "SI" if est.tiene_regalo else "NO"
+            fecha_str = "-"
+            
+            if est.fecha_entrega:
+                fecha_obj = est.fecha_entrega
+                if fecha_obj.tzinfo is None:
+                    fecha_obj = pytz.utc.localize(fecha_obj)
+                fecha_cl = fecha_obj.astimezone(tz_chile)
+                fecha_str = fecha_cl.strftime("%d-%m-%Y %H:%M")
+                
+            writer.writerow([est.rut, est.nombre, est.carrera, total_visitas, regalo, fecha_str])
+            yield stream_line()
+
+    return Response(
+        stream_with_context(generate()),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=reporte_induccion_2026.csv"}
+    )
 
 # --- EXPORTAR MAESTRO COMPLETO ---
 @app.route('/admin/exportar_maestro')
 @login_required
 def exportar_maestro():
-    if current_user.role != 'admin': return redirect(url_for('login'))
-
-    # Configurar Zona Horaria de Chile
+    if current_user.role != 'admin': 
+        return redirect(url_for('staff_dashboard'))
+    
     tz_chile = pytz.timezone('America/Santiago')
 
-    # Crear el archivo en memoria
-    output = io.StringIO()
-    writer = csv.writer(output, delimiter=';') # Excel en español prefiere punto y coma
-
-    # 1. ESCRIBIR ENCABEZADOS
-    headers = [
-        'RUT', 'Nombre', 'Carrera', 'Email', 
-        'Ganador Sorteo',               # Dato del sorteo
-        '¿Recibió Regalo?',             # Estado regalo
-        'Staff que entregó Regalo',     # Auditoría Staff
-        'Fecha/Hora Entrega Regalo',    # Auditoría Hora
-        'Detalle de Visitas (Stand - Staff - Hora)' # Auditoría Visitas
-    ]
-    writer.writerow(headers)
-
-    # 2. RECORRER TODOS LOS ESTUDIANTES
-    estudiantes = Estudiante.query.options(
-        joinedload(Estudiante.staff_regalo),              # Carga staff que entregó regalo
-        joinedload(Estudiante.visitas)                    # Carga todas las visitas
-            .joinedload(Visita.stand),                    # Y sus stands
-        joinedload(Estudiante.visitas)                    # Carga las visitas otra vez
-            .joinedload(Visita.staff)                     # Y sus staff
-    ).all()
-
-    for est in estudiantes:
-        # A. Formatear datos del Regalo
-        nombre_staff_regalo = est.staff_regalo.username if est.staff_regalo else "N/A"
+    def generate():
+        buffer = io.StringIO()
+        writer = csv.writer(buffer, delimiter=';')
         
-        fecha_regalo_str = "N/A"
-        # Usamos la nueva columna fecha_entrega_regalo si existe, sino la antigua fecha_entrega
-        fecha_raw = est.fecha_entrega_regalo or est.fecha_entrega
-        
-        if fecha_raw:
-            # Si la fecha no tiene zona horaria (naive), asumimos UTC o le ponemos una
-            if fecha_raw.tzinfo is None:
-                fecha_raw = pytz.utc.localize(fecha_raw)
+        def stream_line():
+            buffer.seek(0)
+            data = buffer.getvalue()
+            buffer.truncate(0)
+            buffer.seek(0)
+            return data
+
+        headers = [
+            'RUT', 'Nombre', 'Carrera', 'Email', 
+            'Ganador Sorteo', '¿Recibió Regalo?', 'Staff que entregó Regalo',
+            'Fecha/Hora Entrega Regalo', 'Detalle de Visitas (Stand - Staff - Hora)'
+        ]
+        writer.writerow(headers)
+        yield stream_line()
+
+        estudiantes = Estudiante.query.options(
+            joinedload(Estudiante.staff_regalo),
+            selectinload(Estudiante.visitas).joinedload(Visita.stand),
+            selectinload(Estudiante.visitas).joinedload(Visita.staff)
+        ).yield_per(100)
+
+        for est in estudiantes:
+            nombre_staff_regalo = est.staff_regalo.username if est.staff_regalo else "N/A"
+            fecha_regalo_str = "N/A"
+            fecha_raw = est.fecha_entrega_regalo or est.fecha_entrega
             
-            # Convertir UTC a Chile
-            fecha_cl = fecha_raw.astimezone(tz_chile)
-            fecha_regalo_str = fecha_cl.strftime('%d-%m-%Y %H:%M:%S')
+            if fecha_raw:
+                if fecha_raw.tzinfo is None:
+                    fecha_raw = pytz.utc.localize(fecha_raw)
+                fecha_cl = fecha_raw.astimezone(tz_chile)
+                fecha_regalo_str = fecha_cl.strftime('%d-%m-%Y %H:%M:%S')
 
-        # B. Recopilar todas las visitas (Auditoría de Scaneos)
-        detalles_visitas = []
-        for visita in est.visitas:
-            # Manejo seguro de fechas de visita
-            hora_visita = visita.timestamp
+            detalles_visitas = []
+            for visita in est.visitas:
+                hora_visita = visita.timestamp
+                if hora_visita is None:
+                    hora_fmt = "Sin fecha"
+                else:
+                    if hora_visita.tzinfo is None:
+                        hora_visita = pytz.utc.localize(hora_visita)
+                    hora_visita_cl = hora_visita.astimezone(tz_chile)
+                    hora_fmt = hora_visita_cl.strftime('%d-%m %H:%M')
+
+                nombre_stand = visita.stand.nombre if visita.stand else "Eliminado"
+                nombre_staff = visita.staff.username if visita.staff else "Eliminado"
+                detalles_visitas.append(f"{nombre_stand} ({nombre_staff} - {hora_fmt})")
             
-            if hora_visita is None:
-                hora_fmt = "Sin fecha"
-            else:
-                if hora_visita.tzinfo is None:
-                    hora_visita = pytz.utc.localize(hora_visita)
-                hora_visita_cl = hora_visita.astimezone(tz_chile)
-                hora_fmt = hora_visita_cl.strftime('%d-%m %H:%M')
+            visitas_str = " | ".join(detalles_visitas)
 
-            nombre_stand = visita.stand.nombre if visita.stand else "Stand Eliminado"
-            nombre_staff = visita.staff.username if visita.staff else "Staff Eliminado"
-            detalles_visitas.append(f"{nombre_stand} ({nombre_staff} - {hora_fmt})")
-        
-        visitas_str = " | ".join(detalles_visitas)
+            writer.writerow([
+                est.rut, est.nombre, est.carrera, est.email,
+                "SI" if est.es_ganador else "NO",
+                "SI" if est.tiene_regalo else "NO",
+                nombre_staff_regalo, fecha_regalo_str, visitas_str
+            ])
+            yield stream_line()
 
-        # C. Escribir la fila
-        writer.writerow([
-            est.rut, 
-            est.nombre, 
-            est.carrera, 
-            est.email,
-            "SI" if est.es_ganador else "NO",   # <--- AQUÍ VES SI GANÓ EL SORTEO
-            "SI" if est.tiene_regalo else "NO",
-            nombre_staff_regalo,
-            fecha_regalo_str,
-            visitas_str
-        ])
-
-    # 3. GENERAR RESPUESTA DE DESCARGA
-    output.seek(0)
     return Response(
-        output,
+        stream_with_context(generate()),
         mimetype="text/csv",
         headers={"Content-Disposition": "attachment;filename=reporte_completo_uls.csv"}
     )
@@ -856,14 +871,11 @@ def reset_evento():
             # Borrar Historial (Visitas y Estudiantes) pero MANTENER Staff y Stands
             Visita.query.delete()
             Estudiante.query.delete()
-            # Reiniciamos contadores de regalos entregados si los hubiere
-            # (En tu caso se calculan dinámicamente, así que basta con borrar estudiantes)
             
             db.session.commit()
             flash('🧹 ¡Limpieza realizada! Se borraron todos los estudiantes y visitas. Stands y Staff intactos.', 'warning')
             
         elif tipo_reset == 'eliminar_stand_prueba':
-            # Esta opción es específica para borrar SOLO visitas y permitir borrar stands
             Visita.query.delete()
             db.session.commit()
             flash('🧹 Historial de visitas borrado. Ahora puedes eliminar los Stands de prueba.', 'info')
@@ -881,7 +893,6 @@ def gestion_sorteo():
     if current_user.role != 'admin': return redirect(url_for('login'))
 
     # 1. Obtener todas las carreras únicas que existen en la base de datos
-    # Esto busca en los alumnos cargados, así que si subiste el CSV, las carreras ya están aquí.
     carreras_query = db.session.query(Estudiante.carrera).distinct().order_by(Estudiante.carrera).all()
     todas_carreras = [c[0] for c in carreras_query if c[0]] # Lista limpia de nombres
 
@@ -893,7 +904,6 @@ def gestion_sorteo():
     historial = carreras_historial_str.split(',') if carreras_historial_str else []
 
     if request.method == 'POST':
-        # El Admin seleccionó nuevas carreras
         seleccionadas = request.form.getlist('carreras_seleccionadas')
         accion = request.form.get('accion')
 
@@ -926,13 +936,11 @@ def gestion_sorteo():
 @app.route('/animador')
 @login_required
 def vista_animador():
-    # Solo admin o staff pueden ver el control remoto
     if not current_user.is_authenticated: return redirect(url_for('login'))
     return render_template('animador.html')
 
 @app.route('/pantalla_publica')
 def pantalla_publica():
-    # Esta vista es pública (se proyecta en el telón)
     return render_template('pantalla_publica.html')
 
 

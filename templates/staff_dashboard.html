@@ -101,7 +101,7 @@
         beepSuccess.play().then(() => { 
             beepSuccess.pause(); 
             beepSuccess.currentTime = 0; 
-            beepSuccess.volume = 1.0; // Restauramos volumen
+            beepSuccess.volume = 1.0; 
         }).catch((e) => console.log("Audio waiting...", e));
         
         beepError.volume = 0.1;
@@ -132,9 +132,7 @@
     // FUNCIONES AUXILIARES (LIMPIEZA DE RUT)
     // ==========================================
 
-    // Busca un patrón de RUT (ej: 12.345.678-9 o 12345678-9) dentro de cualquier texto o URL
     function extraerRutDeTexto(texto) {
-        // Expresión regular que busca: Numeros + Puntos(opcional) + Guión + Digito/K
         const patronRut = /(\d{1,2}(\.?\d{3}){2}-[\dkK])/;
         const coincidencia = texto.match(patronRut);
         
@@ -142,7 +140,6 @@
             console.log("RUT extraído de URL/Texto:", coincidencia[0]);
             return coincidencia[0];
         }
-        // Si no encontró patrón de RUT, devuelve el texto original (tal vez era un QR simple)
         return texto;
     }
 
@@ -193,7 +190,7 @@
                 } catch (err) {
                     console.error("Error en detección:", err);
                 }
-            }, 300); // Escanea cada 300ms
+            }, 300);
 
             document.getElementById('btn-scan').classList.add('d-none');
             document.getElementById('btn-stop').classList.remove('d-none');
