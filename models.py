@@ -15,7 +15,7 @@ class Configuracion(db.Model):
     __tablename__ = 'configuracion'
     id = db.Column(db.Integer, primary_key=True)
     clave = db.Column(db.String(50), unique=True, nullable=False) 
-    valor = db.Column(db.String(500), nullable=False)
+    valor = db.Column(db.Text, nullable=False)
     # --- MÉTODOS AYUDANTES NUEVOS ---
     @staticmethod
     def get_valor(clave, default=None):
@@ -34,7 +34,7 @@ class Configuracion(db.Model):
 class Stand(db.Model):
     __tablename__ = 'stand'
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
+    nombre = db.Column(db.String(200), nullable=False)
     tipo = db.Column(db.String(20), default='servicio') # 'servicio' | 'entrega'
     icono = db.Column(db.String(50), default='fa-map-marker-alt')
     
@@ -51,7 +51,7 @@ class Bloque(db.Model):
 
 # --- USUARIOS (STAFF/ADMIN) ---
 
-class User(UserMixin, db.Model): # <--- Nota el UserMixin aquí
+class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
