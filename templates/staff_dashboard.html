@@ -14,6 +14,13 @@
                 <span class="badge bg-secondary rounded-pill mt-2">
                     Modo: {{ current_user.stand_asignado.tipo | upper }}
                 </span>
+                {% if current_user.stand_asignado.tipo == 'entrega' %}
+                <div class="mt-3">
+                    <a href="{{ url_for('avance_carreras') }}" class="btn btn-sm btn-outline-primary shadow-sm">
+                        <i class="fas fa-chart-bar me-1"></i> Ver Avance de Entregas
+                    </a>
+                </div>
+                {% endif %}
             </div>
             
             <div class="card-body px-4 text-center">

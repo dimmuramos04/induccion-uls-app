@@ -8,9 +8,15 @@
             <h2 class="fw-bold text-dark"><i class="fas fa-university me-2"></i>Avance por Carreras</h2>
             <p class="text-muted mb-0">Monitoreo de entrega de regalos institucionales (Kits).</p>
         </div>
-        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary">
-            <i class="fas fa-arrow-left me-2"></i> Volver al Panel
-        </a>
+        {% if current_user.role == 'admin' %}
+            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Volver al Panel Admin
+            </a>
+        {% else %}
+            <a href="{{ url_for('staff_dashboard') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Volver a Entrega de Regalos
+            </a>
+        {% endif %}
     </div>
 
     <div class="card shadow-sm border-0">

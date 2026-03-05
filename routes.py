@@ -1009,7 +1009,7 @@ def manejar_reset_pantalla():
 @login_required
 def avance_carreras():
     # 1. Seguridad
-    if current_user.role != 'admin': 
+    if current_user.role not in ['admin', 'staff']: 
         return redirect(url_for('login'))
     
     # 2. La consulta mágica (Agrupar por carrera y contar regalos)
