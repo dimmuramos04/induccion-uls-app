@@ -12,6 +12,8 @@ from flask_socketio import SocketIO
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from werkzeug.security import generate_password_hash
+from werkzeug.middleware.proxy_fix import ProxyFix 
+from flask_talisman import Talisman
 from dotenv import load_dotenv
 from models import db, User, Stand, Configuracion, Visita, Estudiante, Encuesta, Bloque, socketio
 
@@ -43,9 +45,57 @@ def create_app():
     app = Flask(__name__)
 
     # Configuración App
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev_key')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    # --- REGLAS ESTRICTAS DE SEGURIDAD ---
+    csp = {
+        'default-src': ['\'self\''],
+        'style-src': [
+            '\'self\'',
+            '\'unsafe-inline\'', # Para tus estilos en el HTML
+            'https://cdn.jsdelivr.net', # Bootstrap
+            'https://cdnjs.cloudflare.com', # FontAwesome
+            'https://fonts.googleapis.com' # Google Fonts (Syne, Mono, Grotesk)
+        ],
+        'script-src': [
+            '\'self\'',
+            '\'unsafe-inline\'', # Para tus scripts de Socket.io y lógica
+            'https://cdn.jsdelivr.net', # Bootstrap JS y Confetti
+            'https://cdnjs.cloudflare.com', # Socket.IO cliente
+            'https://cdn.tailwindcss.com' # Tailwind CSS (Script render)
+        ],
+        'worker-src': [
+            '\'self\'',
+            'blob:' # ANimaciones de confetti.js usan blob: para los workers
+        ],
+        'font-src': [
+            '\'self\'',
+            'https://cdnjs.cloudflare.com', # Iconos de FontAwesome
+            'https://fonts.gstatic.com' # Archivos de Google Fonts
+        ],
+        'img-src': [
+            '\'self\'',
+            'data:' # Permite cargar base64
+        ],
+        'media-src': [
+            '\'self\'' # Permite los audios de la tómbola
+        ],
+        'connect-src': [
+            '\'self\'',
+            'ws:', 'wss:' # PERMITE A SOCKET.IO CONECTARSE EN TIEMPO REAL
+            'https://cdnjs.cloudflare.com', # Permite descargar los archivos .map
+            'https://cdn.jsdelivr.net'      # Permite descargar los archivos .map
+        ]
+    }
+    
+   # Detectar si estamos en producción (Render inyecta 'RENDER' automáticamente)
+    is_production = os.environ.get('RENDER') is not None
+    
+    # Inicializar Talisman forzando HTTPS solo en la nube, no en local
+    Talisman(app, content_security_policy=csp, force_https=is_production)
 
     # Inicializar Extensions con la app
     db.init_app(app) 
