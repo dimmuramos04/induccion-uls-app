@@ -92,6 +92,8 @@ def login():
             return redirect(url_for('admin_dashboard'))
         elif current_user.role == 'animador':
             return redirect(url_for('animador_dashboard'))
+        elif current_user.role == 'coordinador':
+                return redirect(url_for('coordinador_dashboard'))
         else:
             return redirect(url_for('staff_dashboard'))
 
@@ -156,6 +158,7 @@ def admin_dashboard():
     lista_stands = Stand.query.all()
     lista_staff = User.query.filter_by(role='staff').all()
     lista_animadores = User.query.filter_by(role='animador').all()
+    lista_coordinadores = User.query.filter_by(role='coordinador').all()
     
     return render_template('admin_dashboard.html', 
                            total=total_estudiantes,
@@ -165,7 +168,8 @@ def admin_dashboard():
                            min_visitas=min_visitas_actual,
                            stands=lista_stands,
                            lista_staff=lista_staff,
-                           lista_animadores=lista_animadores)
+                           lista_animadores=lista_animadores,
+                           lista_coordinadores=lista_coordinadores)
 
 @app.route('/staff')
 @login_required
@@ -188,6 +192,62 @@ def animador_dashboard():
     
     # 3. Enviar esa lista al HTML
     return render_template('animador_dashboard.html', carreras=lista_carreras)
+
+
+@app.route('/coordinador')
+@login_required
+def coordinador_dashboard():
+    if current_user.role != 'coordinador': return redirect(url_for('login'))
+    
+    # 1. Obtener a los ganadores del sorteo
+    ganadores = Estudiante.query.filter_by(es_ganador=True).all()
+    
+    # 2. Obtener historial de alumnos agregados a mano
+    agregados_manual = Estudiante.query.filter(
+        Estudiante.creado_por_id != None
+    ).order_by(Estudiante.fecha_creacion.desc()).all()
+
+    # 3. Calcular Estadísticas
+    total_estudiantes = Estudiante.query.count()
+    regalos_entregados = Estudiante.query.filter_by(tiene_regalo=True).count()
+    
+    avance_regalos = 0
+    if total_estudiantes > 0:
+        avance_regalos = int((regalos_entregados / total_estudiantes) * 100)
+    
+    return render_template('coordinador_dashboard.html', 
+                           ganadores=ganadores, 
+                           agregados=agregados_manual,
+                           total=total_estudiantes, 
+                           entregados=regalos_entregados,
+                           avance=avance_regalos)
+
+@app.route('/coordinador/agregar_estudiante', methods=['POST'])
+@login_required
+def coordinador_agregar_estudiante():
+    if current_user.role != 'coordinador': return redirect(url_for('login'))
+    
+    rut = request.form.get('rut')
+    nombre = request.form.get('nombre')
+    carrera = request.form.get('carrera')
+    
+    rut_limpio = rut.replace('.', '').replace('-', '').lower()
+    
+    # Verificar que no exista
+    if Estudiante.query.filter_by(rut=rut_limpio).first():
+        flash(f'⚠️ El estudiante con RUT {rut} ya existe en el padrón.', 'warning')
+    else:
+        nuevo = Estudiante(
+            rut=rut_limpio,
+            nombre=nombre.strip(),
+            carrera=carrera.strip(),
+            creado_por_id=current_user.id
+        )
+        db.session.add(nuevo)
+        db.session.commit()
+        flash(f'✅ Estudiante {nombre} agregado exitosamente al padrón.', 'success')
+        
+    return redirect(url_for('coordinador_dashboard'))
 
 # --- API PARA EL ESCÁNER Y VALIDACIÓN  ---
 
@@ -558,6 +618,35 @@ def crear_staff():
     flash(f'Usuario staff "{username}" creado y asignado.', 'success')
     return redirect(url_for('admin_dashboard'))
 
+
+# --- GESTIÓN: CREAR COORDINADOR ---
+@app.route('/admin/crear_coordinador', methods=['POST'])
+@login_required
+def crear_coordinador():
+    if current_user.role != 'admin': return redirect(url_for('login'))
+    
+    username = request.form.get('username')
+    password = request.form.get('password')
+    
+    # Validar que no exista
+    if User.query.filter_by(username=username).first():
+        flash('⚠️ Ese nombre de usuario ya existe.', 'warning')
+        return redirect(url_for('admin_dashboard'))
+    
+    nuevo_coordinador = User(
+        username=username, 
+        password_hash=generate_password_hash(password),
+        role='coordinador',
+        stand_id=None, 
+        must_change_password=True
+    )
+    
+    db.session.add(nuevo_coordinador)
+    db.session.commit()
+    
+    flash(f'📋 Coordinador "{username}" creado exitosamente.', 'success')
+    return redirect(url_for('admin_dashboard'))
+
 # --- GESTIÓN: EDITAR STAFF ---
 @app.route('/admin/editar_staff/<int:id>', methods=['POST'])
 @login_required
@@ -602,6 +691,25 @@ def editar_animador(id):
     
     db.session.commit()
     flash(f'Datos del animador {usuario.username} actualizados.', 'success')
+    return redirect(url_for('admin_dashboard'))
+
+
+# --- GESTIÓN: EDITAR COORDINADOR ---
+@app.route('/admin/editar_coordinador/<int:id>', methods=['POST'])
+@login_required
+def editar_coordinador(id):
+    if current_user.role != 'admin': return redirect(url_for('login'))
+    
+    usuario = User.query.get_or_404(id)
+    usuario.username = request.form.get('username')
+    
+    password = request.form.get('password')
+    if password and password.strip():
+        usuario.password_hash = generate_password_hash(password)
+        usuario.must_change_password = True
+    
+    db.session.commit()
+    flash(f'Datos del coordinador {usuario.username} actualizados.', 'success')
     return redirect(url_for('admin_dashboard'))
 
 
@@ -689,6 +797,27 @@ def eliminar_staff(id):
         db.session.commit()
         flash(f'Usuario {usuario.username} eliminado.', 'success')
         
+    return redirect(url_for('admin_dashboard'))
+
+
+# --- GESTIÓN: ELIMINAR COORDINADOR ---
+@app.route('/admin/eliminar_coordinador/<int:id>', methods=['POST'])
+@login_required
+def eliminar_coordinador(id):
+    if current_user.role != 'admin': return redirect(url_for('login'))
+    
+    coordinador = User.query.get_or_404(id)
+    if coordinador.role != 'coordinador':
+        flash('No puedes eliminar este usuario desde aquí.', 'danger')
+        return redirect(url_for('admin_dashboard'))
+
+    alumnos_creados = Estudiante.query.filter_by(creado_por_id=coordinador.id).all()
+    for alumno in alumnos_creados:
+        alumno.creado_por_id = None
+
+    db.session.delete(coordinador)
+    db.session.commit()
+    flash('Coordinador eliminado correctamente.', 'success')
     return redirect(url_for('admin_dashboard'))
 
 # --- REPORTES Y EXPORTACIÓN ---
@@ -805,13 +934,15 @@ def exportar_maestro():
         headers = [
             'RUT', 'Nombre', 'Carrera', 'Email', 
             'Ganador Sorteo', '¿Recibió Regalo?', 'Staff que entregó Regalo',
-            'Fecha/Hora Entrega Regalo', 'Detalle de Visitas (Stand - Staff - Hora)'
+            'Fecha/Hora Entrega Regalo', 'Detalle de Visitas (Stand - Staff - Hora)',
+            'Agregado Manualmente Por', 'Fecha Adición'
         ]
         writer.writerow(headers)
         yield stream_line()
 
         estudiantes = Estudiante.query.options(
             joinedload(Estudiante.staff_regalo),
+            joinedload(Estudiante.creador),
             selectinload(Estudiante.visitas).joinedload(Visita.stand),
             selectinload(Estudiante.visitas).joinedload(Visita.staff)
         ).yield_per(100)
@@ -827,6 +958,14 @@ def exportar_maestro():
                 fecha_cl = fecha_raw.astimezone(tz_chile)
                 fecha_regalo_str = fecha_cl.strftime('%d-%m-%Y %H:%M:%S')
 
+            creador_str = est.creador.username if est.creador else "Carga Masiva CSV"
+            fecha_creacion_str = "N/A"
+            if est.creador and est.fecha_creacion:
+                fecha_obj = est.fecha_creacion
+                if fecha_obj.tzinfo is None:
+                    fecha_obj = pytz.utc.localize(fecha_obj)
+                fecha_creacion_str = fecha_obj.astimezone(tz_chile).strftime('%d-%m-%Y %H:%M:%S')
+            
             detalles_visitas = []
             for visita in est.visitas:
                 hora_visita = visita.timestamp
@@ -848,7 +987,8 @@ def exportar_maestro():
                 est.rut, est.nombre, est.carrera, est.email,
                 "SI" if est.es_ganador else "NO",
                 "SI" if est.tiene_regalo else "NO",
-                nombre_staff_regalo, fecha_regalo_str, visitas_str
+                nombre_staff_regalo, fecha_regalo_str, visitas_str,
+                creador_str, fecha_creacion_str
             ])
             yield stream_line()
 
@@ -1009,7 +1149,7 @@ def manejar_reset_pantalla():
 @login_required
 def avance_carreras():
     # 1. Seguridad
-    if current_user.role not in ['admin', 'staff']: 
+    if current_user.role not in ['admin', 'staff', 'coordinador']: 
         return redirect(url_for('login'))
     
     # 2. La consulta mágica (Agrupar por carrera y contar regalos)

@@ -12,6 +12,10 @@
             <a href="{{ url_for('admin_dashboard') }}" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-left me-2"></i> Volver al Panel Admin
             </a>
+        {% elif current_user.role == 'coordinador' %}
+            <a href="{{ url_for('coordinador_dashboard') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Volver al Panel Coordinador
+            </a>
         {% else %}
             <a href="{{ url_for('staff_dashboard') }}" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-left me-2"></i> Volver a Entrega de Regalos

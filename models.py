@@ -73,6 +73,9 @@ class Estudiante(db.Model):
     staff_regalo_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     fecha_entrega_regalo = db.Column(db.DateTime, nullable=True)
     staff_regalo = db.relationship('User', foreign_keys=[staff_regalo_id])
+    creado_por_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    creador = db.relationship('User', foreign_keys=[creado_por_id])
+    fecha_creacion = db.Column(db.DateTime(timezone=True), server_default=func.now())
     
     bloque_id = db.Column(db.Integer, db.ForeignKey('bloque.id'), nullable=True)
     tiene_regalo = db.Column(db.Boolean, default=False)

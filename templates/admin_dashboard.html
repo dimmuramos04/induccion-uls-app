@@ -67,6 +67,9 @@
                         <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalAnimador">
                             <i class="fas fa-microphone-alt"></i> Nuevo Animador
                         </button>
+                        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalCoordinador">
+                            <i class="fas fa-clipboard-check"></i> Nuevo Coord.
+                        </button>
                     </div>
                 </div>
             </div>
@@ -331,6 +334,72 @@
                                 </tr>
                                 {% else %}
                                 <tr><td colspan="3" class="text-center text-muted">No hay animadores registrados.</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-custom border-secondary h-100">
+                <div class="card-header bg-secondary text-white fw-bold">
+                    <i class="fas fa-clipboard-check me-2"></i> Coordinadores
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for coord in lista_coordinadores %}
+                                <tr>
+                                    <td class="fw-bold">{{ coord.username }}</td>
+                                    <td>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalEditCoord{{ coord.id }}">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <form action="{{ url_for('eliminar_coordinador', id=coord.id) }}" method="POST" onsubmit="return confirm('¿Eliminar al coordinador {{ coord.username }}?');">
+                                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+                                        <div class="modal fade" id="modalEditCoord{{ coord.id }}" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-secondary text-white">
+                                                        <h5 class="modal-title">Editar Coordinador</h5>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <form action="{{ url_for('editar_coordinador', id=coord.id) }}" method="POST">
+                                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <label>Usuario</label>
+                                                                <input type="text" name="username" class="form-control" value="{{ coord.username }}" required>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label>Nueva Contraseña (Opcional)</label>
+                                                                <input type="password" name="password" class="form-control" placeholder="Dejar vacío para mantener actual">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btn-secondary">Guardar Cambios</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr><td colspan="2" class="text-center text-muted">No hay coordinadores.</td></tr>
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -690,6 +759,35 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-dark">Crear Animador</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCoordinador" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary text-white">
+                <h5 class="modal-title"><i class="fas fa-clipboard-check me-2"></i>Crear Coordinador</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="{{ url_for('crear_coordinador') }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div class="modal-body">
+                    <p class="text-muted small">Este usuario podrá ver los ganadores y agregar alumnos rezagados.</p>
+                    <div class="mb-3">
+                        <label class="form-label">Usuario</label>
+                        <input type="text" name="username" class="form-control" placeholder="Ej: coord_central" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="password" class="form-control" placeholder="****" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Crear Coordinador</button>
                 </div>
             </form>
         </div>
