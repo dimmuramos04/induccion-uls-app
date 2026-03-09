@@ -66,8 +66,7 @@
 
                 <div id="zona-qr" style="display:none;" class="animate__animated animate__fadeIn">
                     <div class="bg-white p-2 d-inline-block border border-2 border-dark rounded mb-3">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/hYaRYwd4tFPSp5zq8" 
-                             alt="QR Encuesta" width="150">
+                        <img src="{{ url_for('static', filename='images/qr_encuesta.png') }}" alt="QR Encuesta" width="150">
                     </div>
                     <p class="small text-muted fw-bold">Scanéame para la Encuesta</p>
                 </div>
