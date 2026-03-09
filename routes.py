@@ -93,7 +93,7 @@ def login():
         elif current_user.role == 'animador':
             return redirect(url_for('animador_dashboard'))
         elif current_user.role == 'coordinador':
-                return redirect(url_for('coordinador_dashboard'))
+            return redirect(url_for('coordinador_dashboard'))
         else:
             return redirect(url_for('staff_dashboard'))
 
@@ -115,6 +115,8 @@ def login():
                 return redirect(url_for('admin_dashboard'))
             elif user.role == 'animador': 
                 return redirect(url_for('animador_dashboard'))
+            elif user.role == 'coordinador':
+                return redirect(url_for('coordinador_dashboard'))
             else:
                 return redirect(url_for('staff_dashboard'))
         else:
@@ -159,6 +161,9 @@ def admin_dashboard():
     lista_staff = User.query.filter_by(role='staff').all()
     lista_animadores = User.query.filter_by(role='animador').all()
     lista_coordinadores = User.query.filter_by(role='coordinador').all()
+
+    # 5. Obtener ganadores históricos
+    ganadores_historicos = Estudiante.query.filter_by(es_ganador=True).all()
     
     return render_template('admin_dashboard.html', 
                            total=total_estudiantes,
@@ -169,7 +174,8 @@ def admin_dashboard():
                            stands=lista_stands,
                            lista_staff=lista_staff,
                            lista_animadores=lista_animadores,
-                           lista_coordinadores=lista_coordinadores)
+                           lista_coordinadores=lista_coordinadores,
+                           ganadores=ganadores_historicos)
 
 @app.route('/staff')
 @login_required
@@ -199,15 +205,26 @@ def animador_dashboard():
 def coordinador_dashboard():
     if current_user.role != 'coordinador': return redirect(url_for('login'))
     
-    # 1. Obtener a los ganadores del sorteo
-    ganadores = Estudiante.query.filter_by(es_ganador=True).all()
+    # 1. Obtener entregas agrupadas por staff
+    entregas_por_staff = db.session.query(
+        User.username, 
+        func.count(Estudiante.id)
+    ).join(
+        Estudiante, User.id == Estudiante.staff_regalo_id
+    ).filter(
+        Estudiante.tiene_regalo == True
+    ).group_by(
+        User.username
+    ).order_by(
+        func.count(Estudiante.id).desc()
+    ).all()
     
-    # 2. Obtener historial de alumnos agregados a mano
+    # 2. Obtener historial de alumnos agregados a mano (Se mantiene intacto)
     agregados_manual = Estudiante.query.filter(
         Estudiante.creado_por_id != None
     ).order_by(Estudiante.fecha_creacion.desc()).all()
 
-    # 3. Calcular Estadísticas
+    # 3. Calcular Estadísticas (Se mantiene intacto)
     total_estudiantes = Estudiante.query.count()
     regalos_entregados = Estudiante.query.filter_by(tiene_regalo=True).count()
     
@@ -215,8 +232,9 @@ def coordinador_dashboard():
     if total_estudiantes > 0:
         avance_regalos = int((regalos_entregados / total_estudiantes) * 100)
     
+    # 4. Renderizar: Quitamos 'ganadores' y agregamos 'entregas_por_staff'
     return render_template('coordinador_dashboard.html', 
-                           ganadores=ganadores, 
+                           entregas_por_staff=entregas_por_staff, 
                            agregados=agregados_manual,
                            total=total_estudiantes, 
                            entregados=regalos_entregados,

@@ -6,7 +6,6 @@
         <h2 class="fw-bold text-dark"><i class="fas fa-microphone-alt me-2"></i>Cabina de Sorteo</h2>
         <div class="text-end">
             <span class="badge bg-dark">{{ current_user.username }}</span>
-            <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-danger ms-2">Salir</a>
         </div>
     </div>
 
@@ -34,14 +33,16 @@
                 </div>
             </div>
 
-            <div class="card card-custom">
-                <div class="card-body">
-                    <label class="fw-bold text-muted mb-2">Meta de Ganadores:</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-trophy"></i></span>
-                        <input type="number" id="meta-ganadores" class="form-control" value="1" min="1">
-                    </div>
-                    <small class="text-muted">Referencia para el animador.</small>
+            <div class="card card-custom mt-3 border-warning">
+                <div class="card-header bg-warning text-dark fw-bold">
+                    <i class="fas fa-history me-2"></i> Registro de Sorteados
+                </div>
+                <div class="card-body p-0" style="max-height: 250px; overflow-y: auto;">
+                    <ul id="lista-sorteados" class="list-group list-group-flush">
+                        <li class="list-group-item text-muted text-center small py-3" id="empty-msg">
+                            Aún no hay sorteados en esta sesión.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -120,6 +121,37 @@
         status.className = 'alert alert-danger';
         status.innerText = data.msg;
         btn.disabled = false; // Reactivar para intentar de nuevo
+    });
+
+    // RESPUESTA DEL SERVIDOR (GANADOR)
+    socket.on('iniciar_animacion', (data) => {
+        status.className = 'alert alert-success fw-bold';
+        status.innerHTML = `<i class="fas fa-trophy"></i> ¡GANADOR!<br>${data.nombre}<br>${data.carrera}`;
+        
+        // --- NUEVO: AGREGAR AL HISTORIAL SIN RECARGAR ---
+        const emptyMsg = document.getElementById('empty-msg');
+        if(emptyMsg) emptyMsg.style.display = 'none'; // Ocultar mensaje de vacío
+        
+        const lista = document.getElementById('lista-sorteados');
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center small animate__animated animate__fadeIn';
+        li.innerHTML = `
+            <span>
+                <strong class="text-dark">${data.nombre}</strong><br>
+                <span class="text-muted" style="font-size: 0.8em;">${data.carrera}</span>
+            </span> 
+            <i class="fas fa-check-circle text-success ms-2"></i>
+        `;
+        // Insertar siempre arriba (el más reciente primero)
+        lista.insertBefore(li, lista.firstChild);
+        // ------------------------------------------------
+
+        // Bloqueo temporal mientras dura la animación en pantalla (aprox 5 seg)
+        setTimeout(() => {
+            btn.disabled = false;
+            status.className = 'alert alert-primary';
+            status.innerText = "¡Listo para el siguiente sorteo!";
+        }, 5000);
     });
 </script>
 {% endblock %}

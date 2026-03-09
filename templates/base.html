@@ -12,28 +12,33 @@
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-dark shadow-sm" style="background: linear-gradient(135deg, #003366 0%, #0051a5 100%);">
-        <div class="container">
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="#" style="font-size: 1.25rem; letter-spacing: 0.5px;">
-                <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS" height="45" class="me-3" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
-                <div>
-                    <div style="font-size: 1.1rem; font-weight: 600; line-height: 1.2;">Inducción 2026</div>
-                    <small style="font-size: 0.75rem; opacity: 0.9; font-weight: 400; letter-spacing: 1px;">SEMANA DE INDUCCIÓN A LA VIDA UNIVERSITARIA</small>
+        <div class="container flex-nowrap">
+            
+            <a class="navbar-brand fw-bold d-flex align-items-center me-2" href="#" style="min-width: 0; flex-shrink: 1;">
+                <img src="{{ url_for('static', filename='images/logo_uls_blanco.png') }}" alt="ULS" class="me-2" style="height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); flex-shrink: 0;">
+                
+                <div style="min-width: 0;">
+                    <div class="text-wrap" style="font-size: 1rem; font-weight: 600; line-height: 1.1;">Inducción 2026</div>
+                    <small class="text-wrap d-block mt-1" style="font-size: 0.65rem; opacity: 0.9; font-weight: 400; letter-spacing: 0.5px; line-height: 1.1; word-break: break-word;">SEMANA DE INDUCCIÓN A LA VIDA UNIVERSITARIA</small>
                 </div>
             </a>
-            
+
             {% if current_user.is_authenticated %}
-            <div class="d-flex align-items-center">
-                <span class="text-white me-3 d-none d-md-block" style="font-size: 0.9rem;">
+            <div class="d-flex align-items-center ms-auto" style="flex-shrink: 0;">
+                <span class="text-white me-3 d-none d-lg-block" style="font-size: 0.9rem;">
                     <i class="fas fa-user-circle me-1"></i> {{ current_user.username }}
                     {% if current_user.stand_asignado %}
                         <small class="opacity-75 ms-1">({{ current_user.stand_asignado.nombre }})</small>
                     {% endif %}
                 </span>
-                <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-light" style="border-radius: 20px; padding: 0.4rem 1.2rem;">
-                    <i class="fas fa-sign-out-alt me-1"></i> Salir
+                
+                <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-light text-nowrap d-flex align-items-center justify-content-center" style="border-radius: 20px; padding: 0.4rem 0.8rem;">
+                    <i class="fas fa-sign-out-alt"></i> 
+                    <span class="d-none d-sm-inline ms-1">Salir</span>
                 </a>
             </div>
             {% endif %}
+            
         </div>
     </nav>
 

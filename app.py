@@ -124,7 +124,7 @@ def create_app():
         
         # 1. Crear tablas si no existen
         with app.app_context():
-            db.create_all()
+            # db.create_all() #Usamos 'flask db upgrade' en build.sh para la estructura
         
             # 2. Crear Configuración Base
             if not Configuracion.query.filter_by(clave='modo_feria_activo').first():
